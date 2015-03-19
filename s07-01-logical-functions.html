@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="shared/bookhub.css" rel="stylesheet" type="text/css">
+  <title>Logical Functions</title>
+</head>
+<body>
+
+  
+  <div id=navbar-top class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s06-04-chapter-assignments-and-tests.html"><img src="shared/images/batch-left.png"></a> <a href="s06-04-chapter-assignments-and-tests.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s07-02-statistical-if-functions.html">Next Section</a> <a href="s07-02-statistical-if-functions.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  <div id="book-content">
+    <div class="section" id="manzoexcel_1.1-ch03_s01" condition="start-of-chunk" version="5.0" lang="en">
+    <h2 class="title editable block">
+<span class="title-prefix">3.1</span> Logical Functions</h2>
+    <div class="learning_objectives editable block" id="manzoexcel_1.1-ch03_s01_n01">
+        <h3 class="title">Learning Objectives</h3>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_l01">
+            <li>Learn how to use the Freeze Panes command to lock specific columns and rows in place while scrolling through large worksheets.</li>
+            <li>Understand the construction and use of formulas, basic statistical functions, and financial functions.</li>
+            <li>Learn how to construct a logical test to evaluate the contents of a cell location.</li>
+            <li>Learn how to use the IF function to evaluate the data in a cell location using a logical test.</li>
+            <li>Learn how to use the OR function within an IF function to evaluate the data in a cell location using multiple logical tests.</li>
+            <li>Learn how to use the AND function within an IF function to evaluate the data in a cell location using multiple logical tests.</li>
+            <li>Review the construction of nested IF functions for evaluating data using more than one logical test.</li>
+            <li>Learn how to set a conditional format rule so formatting commands are automatically applied based on the value in a cell location.</li>
+        </ol>
+    </div>
+    <p class="para editable block" id="manzoexcel_1.1-ch03_s01_p01">This section reviews the use of logical functions in Excel through the construction of an investment portfolio. Although it may seem that managing investments is a specialized career choice, the reality is that almost everyone will become an investor at some point in their lives. Many companies offer employees retirement savings benefits through <span class="margin_term"><a class="glossterm">401(k) or 403(b)</a><span class="glossdef">Employee retirement savings plans offered by businesses and by public and private institutions. These plans allow you to deduct money from your paycheck every month, tax-free, and invest it.</span></span> plans. These plans allow you to deduct money from your paycheck every month, tax-free, and invest it. In addition to the tax benefits afforded by such plans, many employers match a percentage of your monthly savings or deposit money into your retirement account as an added form of compensation. When you sign up for these savings plans, your company will give you a list of options as to how your money can be invested, and you choose the type of investments you would like the company to make on your behalf. As a result of this process, you become an investor. Excel can be an extremely valuable tool to help you make these investment decisions and analyze the performance of the money you have invested.</p>
+    <p class="para editable block" id="manzoexcel_1.1-ch03_s01_p02"><a class="xref" href="#manzoexcel_1.1-ch03_s01_f01">Figure 3.1 "Completed Personal Investment Portfolio Workbook"</a> shows the completed investment portfolio workbook that we will complete in this chapter. Similar to the personal budget example in <a class="xref" href="manzoexcel_1.1-ch02#manzoexcel_1.1-ch02">Chapter 2 "Mathematical Computations"</a>, the <strong class="emphasis bold">Portfolio Summary</strong> worksheet contains a summary of the data entered or calculated in other worksheets in the workbook. This project begins by building on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</p>
+    <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_f01">
+        <p class="title"><span class="title-prefix">Figure 3.1</span> Completed Personal Investment Portfolio Workbook</p>
+        <img src="section_07/0d72a752cad2c816e725797c42de0b20.jpg">
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s01_s01">
+        <h2 class="title editable block">Freeze Panes</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s01_s01_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s01_p01">Follow-along file: <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.00.xlsx">Excel Objective 3.00</a></p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s01_n01">
+            <h3 class="title">Lesson Video: Freeze Panes</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/v-79pOmjmvY?rel=0" condition="http://img.youtube.com/vi/v-79pOmjmvY/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/v-79pOmjmvY?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s01_p02">The <strong class="emphasis bold">Investment Detail</strong> worksheet shown in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s01_f01">Figure 3.2 "Investment Detail Worksheet"</a> contains the majority of the information used to create the <strong class="emphasis bold">Portfolio Summary</strong> worksheet shown in <a class="xref" href="#manzoexcel_1.1-ch03_s01_f01">Figure 3.1 "Completed Personal Investment Portfolio Workbook"</a>. When you first open the worksheet, you will notice it is not possible to view all twenty-four columns on your computer screen. As you scroll to the right to view the rest of the columns, you will lose site of the row headings in Columns A and B. The headings in these columns show the investment that pertains to the data in Columns C through X. To solve this problem of viewing the row headings while scrolling through the remaining columns in the worksheet, we will use the Freeze Panes command.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s01_s01_f01">
+            <p class="title"><span class="title-prefix">Figure 3.2</span> Investment Detail Worksheet</p>
+            <img src="section_07/f008529a9589e1f872ffa08f5cf444b5.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s01_p03">The <span class="margin_term"><a class="glossterm">Freeze Panes</a><span class="glossdef">An Excel command that allows you to lock specific columns and rows in place while scrolling through a large worksheet.</span></span> command allows you to scroll across the <strong class="emphasis bold">Investment Detail</strong> worksheet while keeping the row headings in Columns A and B locked in place. The following steps explain how to do this:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s01_s01_l01">
+            <li>Click cell C4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet. We select this cell because the Freeze Panes option locks the columns to the left of the activated cell as well as the rows above the activated cell.</li>
+            <li>Click the View tab on the Ribbon.</li>
+            <li>Click the Freeze Panes button (see <a class="xref" href="#manzoexcel_1.1-ch03_s01_s01_f02">Figure 3.3 "Freeze Panes Command"</a>).</li>
+            <li>Click the Freeze Panes option from the drop-down list of options.</li>
+        </ol>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s01_s01_f02">
+            <p class="title"><span class="title-prefix">Figure 3.3</span> Freeze Panes Command</p>
+            <img src="section_07/6c4499e482c63415d3571fddc52974db.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s01_p04">Once you click the Freeze Panes option shown in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s01_f02">Figure 3.3 "Freeze Panes Command"</a>, Columns A and B are locked in place as you scroll through the columns in the worksheet. Since this is a large worksheet, you may find it easier to navigate the columns by using the arrow keys on your keyboard. However, since rows 1 and 2 contain merged cells, <em class="emphasis">make sure a cell location is activated below Row 2 before you begin using the arrow keys</em>. <a class="xref" href="#manzoexcel_1.1-ch03_s01_s01_f03">Figure 3.4 "Freeze Panes Command Activated on the Investment Detail Worksheet"</a> shows the appearance of the <strong class="emphasis bold">Investment Detail</strong> worksheet after the Freeze Panes command has been activated. To deactivate the Freeze Panes command, click the Freeze Panes button again and select the Unfreeze Panes option.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s01_s01_f03">
+            <p class="title"><span class="title-prefix">Figure 3.4</span> Freeze Panes Command Activated on the Investment Detail Worksheet</p>
+            <img src="section_07/0c4e6f5f369d0830f03a03f769be9f16.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s01_s02">
+        <h2 class="title editable block">Formula and Functions Review</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s01_s02_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s02_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.01.xlsx">Excel Objective 3.01</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s02_n01">
+            <h3 class="title">Lesson Video: Formulas and Functions Review</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/T0IvgtAbIo0?rel=0" condition="http://img.youtube.com/vi/T0IvgtAbIo0/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/T0IvgtAbIo0?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p02">We will begin developing the personal investment portfolio workbook by adding several formulas and functions. The formulas and functions we will add were illustrated in detail in <a class="xref" href="manzoexcel_1.1-ch02#manzoexcel_1.1-ch02">Chapter 2 "Mathematical Computations"</a>. Therefore, the steps provided in this chapter will be brief. After the formulas and functions are added to the <strong class="emphasis bold">Investment Detail</strong> worksheet, we can add the logical and lookup functions. However, before proceeding, let’s review the investment type definitions in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_t01">Table 3.1 "Investment Types in Column A of the Investment Detail Worksheet"</a>. <a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_t01">Table 3.1 "Investment Types in Column A of the Investment Detail Worksheet"</a> provides a definition for each of the investment types listed in Column A of the <strong class="emphasis bold">Investment Detail</strong> worksheet. This project assumes that the personal investment portfolio comprises four types of investments. The reason we include a variety of investment types in any portfolio is to manage our total risk, or potential of losing money. When building an investment portfolio, it is important to keep in mind that investments of all types can dramatically increase or decrease in value over a short period of time. Managing risk requires that your money is not concentrated in one type of investment.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s01_s02_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.1</span> Investment Types in Column A of the Investment Detail Worksheet</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Bond Fund</strong></td>
+                        <td>A mutual fund consisting of a variety of bonds. The benefit of buying shares of a fund as opposed to a specific bond is that doing so allows you to spread your investment over several bonds instead of concentrating your investment in just one bond.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Domestic Stock Fund</strong></td>
+                        <td>A mutual fund consisting of several domestic stocks. Buying shares of a stock mutual fund provides the benefit of investing your money over several stocks.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">International Stock Fund</strong></td>
+                        <td>Same as a domestic stock fund but contains a variety of non-US or foreign stocks.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Individual Stock</strong></td>
+                        <td>The stock for one specific company. In addition to mutual funds, this chapter’s portfolio will include a few individual stocks for public companies. When you purchase shares of a specific company, such as IBM, you become a partial owner of that company.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p03">We will begin adding formulas and functions to the <strong class="emphasis bold">Investment Detail</strong> worksheet in sections. If you scroll across all the columns in the worksheet, you will notice the worksheet includes five distinct sections. Four of the five sections contain columns that need to be completed with formulas and functions before we can add the logical and lookup functions. <a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_t02">Table 3.2 "Definitions for Columns A through G of the Investment Detail Worksheet"</a> contains definitions for each of the columns in the Descriptive Information section (Columns A through D) and the Purchase section (Columns E through G). It will be helpful to understand the purpose of these columns as we complete this worksheet.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s01_s02_t02" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.2</span> Definitions for Columns A through G of the Investment Detail Worksheet</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Investment Type</strong></td>
+                        <td>The type of investment with regard to bonds and stocks. A definition for each of the investment types used in this portfolio can be found in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_t01">Table 3.1 "Investment Types in Column A of the Investment Detail Worksheet"</a>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Symbol</strong></td>
+                        <td>The symbol that represents a mutual fund or stock. This symbol can be used to research the profile or current trading price on any website that provides stock quotes.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Description</strong></td>
+                        <td>The company name for an individual stock or a description of the type of investments made by a mutual fund.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Dividend/Yield</strong></td>
+                        <td>The amount of interest earned on a bond or bond fund or the amount of earnings distributed per share for an individual stock or stock fund.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Shares Purchased</strong></td>
+                        <td>The amount of shares purchased for a mutual fund or individual stock.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Purchase Price per Share</strong></td>
+                        <td>The price paid for the shares purchased for the mutual funds and individual stocks in the portfolio.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Cost of Purchase</strong></td>
+                        <td>The number of shares purchased multiplied by the purchase price per share. This represents your base investment and is used to determine how much money has been gained or lost.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p04">The Descriptive Information section of the <strong class="emphasis bold">Investment Detail</strong> worksheet (Columns A through D) contains only one blank column, which will be completed using a lookup function. Therefore, we will proceed to the Purchase section (Columns E through G) where the Cost of Purchase column is blank. The following steps explain how to enter the formula into this column:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s01_s02_l01">
+            <li>Click cell G4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Enter a formula that multiplies the Shares Purchased (cell E4) by the Purchase Price per Share (cell F4).</li>
+            <li>Copy the formula in cell G4.</li>
+            <li>Highlight the range G5:G18.</li>
+            <li>Click the down arrow on the Paste button in the Home tab of the Ribbon.</li>
+            <li>Click the Formulas button from the list of options. This is the Paste Formulas command, which pastes only the formula without any associated formats for the copied cell location.</li>
+            <li>Click cell E19 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Press and hold the ALT key on your keyboard, then press the equal sign (<strong class="emphasis bold">=</strong>). This is the shortcut for the Auto Sum feature.</li>
+            <li>Press the ENTER key on your keyboard.</li>
+            <li>Click cell G19 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Repeat step 9.</li>
+            <li>Press the ENTER key on your keyboard.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_f01">Figure 3.5 "Completed Formula in the Cost of Purchase Column"</a> shows the formula that was entered into cell G4 in the Purchase section of the <strong class="emphasis bold">Investment Detail</strong> worksheet. You can also see the results of the formula after it is pasted into the range G5:G18. The Paste Formulas option was used to paste the formula into this range so the borders would not be altered.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s01_s02_f01">
+            <p class="title"><span class="title-prefix">Figure 3.5</span> Completed Formula in the Cost of Purchase Column</p>
+            <img src="section_07/f7a6c037a124f2110d38c123af357252.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p06"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_t03">Table 3.3 "Definitions for Columns H through K of the Investment Detail Worksheet"</a> shows the definitions for the Current Value section (Columns H through K) of the <strong class="emphasis bold">Investment Detail</strong> worksheet.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s01_s02_t03" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.3</span> Definitions for Columns H through K of the Investment Detail Worksheet</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Current Price</strong></td>
+                        <td>The current price of an individual stock or the current net asset value of a mutual fund.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Current Purchase Value</strong></td>
+                        <td>The number of shares purchased multiplied by the current price.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Estimated Dividend Payments</strong></td>
+                        <td>The estimated amount of money paid for the interest on a bond fund or the dividends paid on a stock or stock fund. The future value function is used to estimate these payments. For an actual portfolio, real monetary distributions can be added to the current purchase value of the investment to calculate the total value of an investment.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Current Investment Value</strong></td>
+                        <td>The current purchase value plus the estimated dividend payments. The current investment value is compared with the cost of purchase to determine how much money is gained or lost.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p07">We will add a basic formula to the Current Purchase Value and Current Investment Value columns. For the Estimated Dividend Payments column, we will use the FV (future value) function to estimate the dividend payments. The following explains how we add the FV function to the Estimated Dividend Payments column:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s01_s02_l02">
+            <li>Click cell J4 and type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the function name <strong class="emphasis bold">FV</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Click cell D4, type a forward slash (<strong class="emphasis bold">/</strong>) for division, and then type <strong class="emphasis bold">12</strong>. This divides the rate in the Dividend/Yield column by 12. The length of ownership of an investment is expressed in terms of months in Column Q. Therefore, the rate for the FV function must be expressed in terms of months by dividing the annual rate by 12.</li>
+            <li>Type a comma.</li>
+            <li>Click cell Q4, which contains the number of months owned or the term of the future value calculation.</li>
+            <li>Type a comma followed by a zero (<strong class="emphasis bold">,0</strong>). We are not calculating an annuity or periodic investment in this example, so the <strong class="emphasis bold">PMT</strong> argument will be defined with a zero. Type a comma to advance the function to the <strong class="emphasis bold">Pv</strong> argument.</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>) and click cell G4. This is the cost of the investment purchase previously calculated.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>) and click cell G4. By itself, the FV function is calculating the total value of the investment with dividends or interest earned. To show only the amount of dividends or interest earned, we subtract the cost of the investment purchase in G4 from the result of the FV function.</li>
+            <li>Press the ENTER key on your keyboard.</li>
+            <li>Adjust the decimal places for the output of the FV function to zero.</li>
+            <li>Copy the FV function in cell J4 and paste it into the range J5:J18 using the Paste Formulas command.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p08"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_f02">Figure 3.6 "Completed FV Function in the Estimated Dividend Payments Column"</a> shows the completed FV function in cell J4 of the Estimated Dividend Payments column. It is important to reduce the decimal places to zero after you enter the function into cell J4. Excel does not display the result of the function until the decimal places are removed because of the column width.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_s02_f02">
+            <p class="title"><span class="title-prefix">Figure 3.6</span> Completed FV Function in the Estimated Dividend Payments Column</p>
+            <img src="section_07/d11bf4ffc2711b42ab09034b09c79b28.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p09">The following steps explain how to add the formulas for the Current Purchase Value and Current Investment Value columns:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s01_s02_l03">
+            <li>Click cell I4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter a formula that multiplies the Current Price in cell H4 by the Shares Purchased in cell E4.</li>
+            <li>Copy the formula in cell I4 and paste it into the range I5:I18 using the Paste Formulas command.</li>
+            <li>Click cell K4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter a formula that adds the Current Purchase Value in cell I4 to the Estimated Dividend Payments in cell J4.</li>
+            <li>Copy the formula in cell K4 and paste it into the range K5:K18 using the Paste Formulas command.</li>
+            <li>Click cell K19 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter a SUM function that adds the values in the range K4:K18.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p10"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_f03">Figure 3.7 "Completed Current Value Section of the Investment Detail Worksheet"</a> shows the completed columns of the Current Value section in the <strong class="emphasis bold">Investment Detail</strong> worksheet. The formula used to calculate the Current Investment Value illustrates why we used the FV function to calculate the estimated dividend or interest payments for an investment. Investments that earn interest or dividends can achieve growth in two ways. The first way is through interest or dividend payments. The second way is through changes in the price paid for the investment. The formula used to calculate the Current Purchase Value is taking the number of shares purchased for each investment and multiplying it by the current market price. Therefore, the Current Investment Value takes into account any changes in the investment price by adding the purchase value at the current market price to any dividends or interest payments earned.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_s02_f03">
+            <p class="title"><span class="title-prefix">Figure 3.7</span> Completed Current Value Section of the Investment Detail Worksheet</p>
+            <img src="section_07/267da56c80b8fe1a378006fdad9c6935.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p11"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_t04">Table 3.4 "Definitions for Columns L through R of the Investment Detail Worksheet"</a> provides definitions for the Percent of Portfolio section of the <strong class="emphasis bold">Investment Detail</strong> worksheet (Columns L through R).</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s01_s02_t04" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.4</span> Definitions for Columns L through R of the Investment Detail Worksheet</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Current Percent of Portfolio</strong></td>
+                        <td>The current investment value divided by the total current value of the investment portfolio.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Target Percent of Portfolio</strong></td>
+                        <td>The planned percentage each investment is intended to have for the entire portfolio.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Current vs. Target</strong></td>
+                        <td>The difference between the Current Percent of Portfolio column and the Target Percent of Portfolio column.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Rebalance Indicator</strong></td>
+                        <td>Shows which investments do not match the target percentage of the portfolio. For example, as one investment increases in value due to an increase in market price, it will comprise a greater percentage of the portfolio. This may require that some shares of this asset be sold and invested in other areas that may have decreased in value. This is known as <em class="emphasis">rebalancing the portfolio</em>, and it helps you sell investments when prices are high and buy investments when prices are low.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Buy/Sell Indicator</strong></td>
+                        <td>Based on the results of the Rebalance Indicator, a logical function is used to indicate whether an investment should be purchased or sold.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Months Owned</strong></td>
+                        <td>Shows how many months an investment is owned. The length of ownership is expressed in terms of months since dividend payments on stock funds and interest payments on bond funds are distributed monthly.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Long/Short Indicator</strong></td>
+                        <td>Shows whether an investment has been owned long enough to qualify as a long-term investment, which is greater than twelve months. The amount of taxes paid on the amount of money gained for a short-term investment is greater than a long-term investment. Therefore, there is a tax incentive to hold investments for more than twelve months.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p12">The Percent of Portfolio section of the <strong class="emphasis bold">Investment Detail</strong> worksheet (Columns L through R) requires two formulas and one function. The following steps explain how we add them to the worksheet:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s01_s02_l04">
+            <li>Click cell L4 in the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter a formula that divides the Current Investment Value in cell K4 by the total in cell K19.</li>
+            <li>Place an absolute reference on cell K19 in the formula by placing the cursor in front of the column letter and pressing the F4 key on your keyboard.</li>
+            <li>Copy the formula and paste it into the range L5:L18 using the Paste Formulas command.</li>
+            <li>Click cell N4 in the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter a formula that subtracts the Target Percent of Portfolio (cell M4) from the Current Percent of Portfolio (cell L4): <strong class="emphasis bold">L4−M4.</strong>
+</li>
+            <li>Copy the formula and paste it into the range N5:N18 using the Paste Formulas command.</li>
+            <li>Click cell Q19 in the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter an AVERAGE function that calculates the average of the values in the range Q4:Q18.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p13"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_f04">Figure 3.8 "Percent of Portfolio Section of the Investment Detail Worksheet"</a> shows the results of adding two formulas and a function to the Percent of Portfolio section of the <strong class="emphasis bold">Investment Detail</strong> worksheet. Notice the absolute reference added to the cell reference for K19 in the formula in the Current Percent of Portfolio column.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_s02_f04">
+            <p class="title"><span class="title-prefix">Figure 3.8</span> Percent of Portfolio Section of the Investment Detail Worksheet</p>
+            <img src="section_07/5a1fc0892a833d34c69d814101303ee1.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p14"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_t05">Table 3.5 "Definitions for Columns S through X of the Investment Detail Worksheet"</a> provides definitions for the columns in the Performance Analysis section of the <strong class="emphasis bold">Investment Detail</strong> worksheet.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s01_s02_t05" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.5</span> Definitions for Columns S through X of the Investment Detail Worksheet</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Unrealized Gain/Loss</strong></td>
+                        <td>The amount of money gained or lost on an investment. It is considered unrealized because the loss or gain does not actually occur until the investment is sold.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Percent Gain/Loss</strong></td>
+                        <td>The percentage increase or decrease based on the unrealized gain/loss and the purchase value of an investment.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Target Annual Growth Rate</strong></td>
+                        <td>The expected annual growth rate for an investment. All investments are expected to grow over time. The rate of growth depends on the amount of risk taken. Investments that are a higher risk are expected to pay a higher rate of return.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Actual Annual Growth Rate</strong></td>
+                        <td>The percentage gain/loss divided by the amount of time an investment is owned expressed in terms of years.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Target vs. Actual Growth Rate</strong></td>
+                        <td>The difference between the actual annual growth rate and the target annual growth rate.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Performance Indicator</strong></td>
+                        <td>A logical function will be used to indicate which investments are underperforming with respect to the target vs. actual growth rate.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p15">Most of the columns in the Performance Analysis section of the <strong class="emphasis bold">Investment Detail</strong> worksheet will be completed with formulas and functions. The following steps explain how we add them to the worksheet:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s01_s02_l05">
+            <li>Click cell S4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter a formula that subtracts the value in the Cost of Purchase column (cell G4) from the value in the Current Investment Value column (cell K4): <strong class="emphasis bold">K4−G4</strong>.</li>
+            <li>Copy the formula and paste it into the range S5:S19 using the Paste Formulas command. Note that this formula will be used to calculate the output for the Total row in this column. The results of the formula are showing how much money has been earned or lost for each investment. It is important to note that these gains or losses do not actually happen unless the investment is sold.</li>
+            <li>Click cell T4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter a formula that divides the Unrealized Gain/Loss (cell S4) by the Cost of Purchase (cell G4): <strong class="emphasis bold">S4/G4</strong>.</li>
+            <li>Copy the formula in cell T4 and paste it into the range T5:T19 using the Paste Formulas command.</li>
+            <li>Click cell V4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter a formula that divides the Percent Gain/Loss (cell T4) by the result of dividing the Months Owned (cell Q4) by 12: <strong class="emphasis bold">T4/(Q4/12)</strong>. Dividing the Months Owned value by 12 expresses the amount of time an investment has been owned in terms of years. The benchmark growth rates for most investments are expressed in terms of annual return rates. Therefore, this formula must first express the amount of time an investment has been owned in terms of years. Then the total percentage gain or loss for each investment is divided by the length of ownership in years to calculate the actual annual rate of return.</li>
+            <li>Copy the formula in cell V4 and paste it into the range V5:V19 using the Paste Formulas command.</li>
+            <li>Click cell W4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Enter a formula that subtracts the Target Annual Growth Rate (cell U4) from the Actual Annual Growth Rate (cell V4): <strong class="emphasis bold">V4−U4</strong>.</li>
+            <li>Copy the formula in cell W4 and paste it into the range W5:W18 using the Paste Formulas command.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s02_p16"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s02_f05">Figure 3.9 "Performance Analysis Section of the Investment Detail Worksheet"</a> shows the results of the formulas added to the Performance Analysis section of the <strong class="emphasis bold">Investment Detail</strong> worksheet. This completes the required formulas and functions necessary to add before moving on to the logical and lookup functions of the chapter.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_s02_f05">
+            <p class="title"><span class="title-prefix">Figure 3.9</span> Performance Analysis Section of the Investment Detail Worksheet</p>
+            <img src="section_07/162ab3ecdc32587e50f4229175222a7b.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s01_s03">
+        <h2 class="title editable block">The Logical Test</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s01_s03_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s03_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.02.xlsx">Excel Objective 3.02</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s03_n01">
+            <h3 class="title">Lesson Video: The Logical Test</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/GmkrbLsJrRs?rel=0" condition="http://img.youtube.com/vi/GmkrbLsJrRs/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/GmkrbLsJrRs?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s03_p02">A key component for the logical functions that will be demonstrated in this section is the <span class="margin_term"><a class="glossterm">logical test</a><span class="glossdef">An expression used to evaluate the contents of a cell location. The logical test typically contains comparison operators such as equal to (=), greater than (&gt;), less than (&lt;), and so on. The results of the logical test can be either true or false. An example of a logical test is B8 &gt;= 25, which is read as “if the value in cell B8 is greater than or equal to 25.”</span></span>. A logical test is used in logical functions to evaluate the contents of a cell location. The results of the logical test can be either true or false. For example, the logical test <em class="emphasis">C7 = 25</em> (read as “if the value in cell C7 is equal to 25”) can be either true or false depending on the value that is entered into cell C7. A logical test can be constructed with a variety of comparison operators, as shown in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s03_t01">Table 3.6 "Comparison Operator Symbols and Definitions"</a>. These comparison operators will be used in the logical test arguments for the logical functions demonstrated in this chapter.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s01_s03_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.6</span> Comparison Operator Symbols and Definitions</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">=</strong></td>
+                        <td>Equal To</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">&gt;</strong></td>
+                        <td>Greater Than</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">&gt;</strong></td>
+                        <td>Less Than</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">&lt; &gt;</strong></td>
+                        <td>Not Equal To</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">&gt; =</strong></td>
+                        <td>Greater Than or Equal To</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">&lt; =</strong></td>
+                        <td>Less Than or Equal To</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s03_p03">A logical test will be used to evaluate the contents of a cell location in the <strong class="emphasis bold">Investment Detail</strong> worksheet. We will first demonstrate how the logical test is used to evaluate the contents of a cell location. Then we will use this logical test in the IF function, which will be demonstrated next. The following steps explain how the logical test is constructed:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch03_s01_s03_l01">
+            <li>Click cell R4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Click cell Q4.</li>
+            <li>Type the greater than sign (<strong class="emphasis bold">&gt;</strong>) followed by an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>
+                <p class="para">Type the number <strong class="emphasis bold">12</strong>. This completes the logical test, which is shown in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s03_f01">Figure 3.10 "Logical Test Entered into the Investment Detail Worksheet"</a>. The logical test would be stated as: “If the value in cell Q4 is greater than or equal to 12.”</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s01_s03_f01">
+                <p class="title"><span class="title-prefix">Figure 3.10</span> Logical Test Entered into the Investment Detail Worksheet</p>
+                    <img src="section_07/a910e31fe8ad5364c34095ba5a61c0b7.jpg">
+                </div>
+            </li>
+            <li>Press the ENTER key on your keyboard. Notice that the output of the logical test is the word <em class="emphasis">TRUE</em>. This is because the value in cell Q4 is 48, which is greater than 12 (see <a class="xref" href="#manzoexcel_1.1-ch03_s01_s03_f02">Figure 3.11 "Output of the Logical Test"</a>).</li>
+            <li>Copy the logical test in cell R4 and paste it into the range R5:R18 using the Paste Formulas command.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s03_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s03_f02">Figure 3.11 "Output of the Logical Test"</a> shows the results of the logical test after it is pasted into the range R5:R18. Notice that for any values that are less than 12 in the range Q4:Q18, the logical test produces an output of FALSE.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s01_s03_f02">
+            <p class="title"><span class="title-prefix">Figure 3.11</span> Output of the Logical Test</p>
+            <img src="section_07/9ea709011bd342f32b99ccb08e8b8579.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s01_s04">
+        <h2 class="title editable block">IF Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s01_s04_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s04_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.03.xlsx">Excel Objective 3.03</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s04_n01">
+            <h3 class="title">Lesson Video: IF Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/9a4md3DqN-A?rel=0" condition="http://img.youtube.com/vi/9a4md3DqN-A/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/9a4md3DqN-A?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s04_p02">The IF function is used to produce a custom output based on the results of a logical test. If the results of the logical test are TRUE, the IF function can display a specific number or text, or perform a calculation. If the results of the logical test are FALSE, the IF function can display a different number or text, or perform a different calculation. The arguments of the IF function are defined in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s04_t01">Table 3.7 "Arguments for the IF Function"</a>.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s01_s04_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.7</span> Arguments for the IF Function</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Logical_test</strong></td>
+                        <td>A test used to evaluate the contents of a cell location. This argument typically utilizes comparison operators, which are defined in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s03_t01">Table 3.6 "Comparison Operator Symbols and Definitions"</a>. The results of the test can be either true or false. For example, the test <em class="emphasis">C7&gt;25</em> would be read as <em class="emphasis">if C7 is greater than 25</em>. If the number 30 is entered into cell C7, the logical test is true. If you are evaluating a cell that contains text data, the text in the logical test must be placed inside quotation marks. For example, if you wanted to test if the word <em class="emphasis">Long</em> is in cell C7, the logical test would be C7 = “Long”.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">[Value_if_true]</strong></td>
+                        <td>The output that will be displayed by the function or the calculation that will be performed by the function if the results of the logical test are true. This argument can be defined with a formula, function, number, or text. However, when defining this argument with a text output such as the word <em class="emphasis">Long</em>, it must be placed inside quotation marks (“<em class="emphasis">Long</em>”).</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">[Value_if_false]</strong></td>
+                        <td>The output that will be displayed by the function or the calculation that will be performed by the function if the results of the logical test are false. This argument can be defined with a formula, function, number, or text. However, when defining this argument with a text output such as the word <em class="emphasis">Long</em>, it must be placed inside quotation marks (“<em class="emphasis">Long</em>”).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s04_p03">We will use the IF function in the Percent of Portfolio section of the <strong class="emphasis bold">Investment Detail</strong> worksheet. We will use the logical test that was previously demonstrated within the IF function to determine if an investment has been held for a short or long period of time. For tax purposes, an investment is considered short-term if it is held less than twelve months. This requires the investor to pay a higher tax percentage for any profit earned on the investment. An investment held twelve months or longer is considered a long-term investment. The following explains how the IF function is used to identify which investments are long term or short term:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch03_s01_s04_l01">
+            <li>Highlight the range R4:R18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the DELETE key on your keyboard. This will remove the logical test and allow us to replace it with an IF function.</li>
+            <li>Click cell R4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the Logical button in the Function Library group of commands.</li>
+            <li>
+                <p class="para">Click the IF function from the list of functions (see <a class="xref" href="#manzoexcel_1.1-ch03_s01_s04_f01">Figure 3.12 "Selecting the IF Function from the Function Library"</a>). This opens the Function Arguments dialog box.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s01_s04_f01">
+                <p class="title"><span class="title-prefix">Figure 3.12</span> Selecting the IF Function from the Function Library</p>
+                    <img src="section_07/caaed9653384a2d1f099015f399ede51.jpg">
+                </div>
+            </li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Logical_test</strong> argument (see <a class="xref" href="#manzoexcel_1.1-ch03_s01_s04_f02">Figure 3.13 "Logical_Test Argument Defined"</a>).</li>
+            <li>Click cell Q4 and press the ENTER key on your keyboard.</li>
+            <li>Type the greater than sign (<strong class="emphasis bold">&gt;</strong>) followed by an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>
+                <p class="para">Type the number <strong class="emphasis bold">12</strong>.</p>
+                <p class="para" id="manzoexcel_1.1-ch03_s01_s04_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s04_f02">Figure 3.13 "Logical_Test Argument Defined"</a> shows the appearance of the IF Function Arguments dialog box after defining the <strong class="emphasis bold">Logical_test</strong> argument. Notice that next to the <strong class="emphasis bold">Logical_test</strong> input box, Excel shows that the results of the test are true. This makes sense given that the value in cell Q4 is 48, which is greater than 12.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s01_s04_f02">
+                <p class="title"><span class="title-prefix">Figure 3.13</span> Logical_Test Argument Defined</p>
+                    <img src="section_07/0d70b7af26ba4bc6ee4c58f79f570180.jpg">
+                </div>
+            </li>
+            <li>Press the TAB key on your keyboard to advance to the next argument, which is <strong class="emphasis bold">Value_if_true</strong>.</li>
+            <li>Type the word <strong class="emphasis bold">Long</strong> in quotation marks. If you forget to put words or text in quotation marks using the Function Arguments dialog box, Excel will insert the quotation marks for you.</li>
+            <li>Press the TAB key on your keyboard to advance to the next argument, which is <strong class="emphasis bold">Value_if_false</strong>.</li>
+            <li>Type the word <strong class="emphasis bold">Short</strong> in quotation marks.</li>
+            <li>Click the OK button on the Function Arguments dialog box to complete the function.</li>
+            <li>Copy the IF function in cell R4 and paste it into the range R5:R18 using the Paste Formulas command.</li>
+        </ol>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s04_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Placing Text in Quotation Marks for Logical Functions</p>
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s04_p05">If you are using a logical function to evaluate text data in a cell location, or if you are using a logical function to output text data, the text must be placed inside quotation marks. For example, if you are using a logical function to evaluate whether the word <em class="emphasis">Long</em> is entered into cell B5, the logical test must appear as follows: <em class="emphasis">B5= “Long”</em>. If you omit the quotation marks, the function may produce an erroneous false result for the test.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s04_p06"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s04_f03">Figure 3.14 "Completed Function Arguments Dialog Box for the IF Function"</a> shows the completed Function Arguments dialog box for the IF function. Notice that the results of the function are displayed in the dialog box. Since the value in cell Q4 is greater than 12, the word <em class="emphasis">Long</em> will be displayed in cell R4.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s01_s04_f03">
+            <p class="title"><span class="title-prefix">Figure 3.14</span> Completed Function Arguments Dialog Box for the IF Function</p>
+            <img src="section_07/063778d2fd796a37f18973076a435ff4.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s04_p07"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s04_f04">Figure 3.15 "IF Function Output"</a> shows the completed Long/Short Indicator column on the <strong class="emphasis bold">Investment Detail</strong> worksheet. Notice the word <em class="emphasis">Short</em> is displayed for any investment held less than twelve months.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_s04_f04">
+            <p class="title"><span class="title-prefix">Figure 3.15</span> IF Function Output</p>
+            <img src="section_07/fa3155220e1d9dd7c28c67e9eff07485.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s04_n03">
+            <h3 class="title">Skill Refresher: IF and Nested IF Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/wBQG_ylRzX4?rel=0" condition="http://img.youtube.com/vi/wBQG_ylRzX4/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/wBQG_ylRzX4?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_s04_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">IF</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">logical_test</strong> argument to evaluate the contents of a cell location such that the result of the test is either true or false.</li>
+                <li>Define the <strong class="emphasis bold">value_if_true</strong> argument, which will be the output of the function if the results of the logical test are true.</li>
+                <li>Define the <strong class="emphasis bold">value_if_false</strong> argument, which will be the output of the function if the results of the logical test are false. This argument can also be defined by starting another IF function if you are nesting IF functions.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>). In the case of nested IF functions, type a closing parenthesis for every IF function that was started.</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s01_s05">
+        <h2 class="title editable block">The OR Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s01_s05_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s05_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.04.xlsx">Excel Objective 3.04</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s05_n01">
+            <h3 class="title">Lesson Video: OR Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/FJ_73USMS6U?rel=0" condition="http://img.youtube.com/vi/FJ_73USMS6U/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/FJ_73USMS6U?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s05_p02">The OR function is similar to the IF function in that it uses a logical test to evaluate the contents of a cell location. However, the OR function allows you to define several logical tests as opposed to just one. If <em class="emphasis">one</em> of the logical tests is true, the output of the function will be the word <em class="emphasis">TRUE</em>. If <em class="emphasis">all</em> the logical tests are false, the output of the function will be the word <em class="emphasis">FALSE</em>. This differs from the IF function because the output of the function is only the word <em class="emphasis">TRUE</em> or the word <em class="emphasis">FALSE</em>. As a result, the OR function is commonly used within the IF function to enable specific outputs to be defined.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s05_p03">We will use the OR function in the Performance Indicator column on the <strong class="emphasis bold">Investment Detail</strong> worksheet. The purpose of this column is to identify any investment where either the Unrealized Gain/Loss is less than zero <em class="emphasis">or</em> the Target vs. Actual Growth Rate is less than –1%. We will use the function in the logical test of an IF function so we can define a specific output based on the results of the OR function. However, we will first demonstrate how the OR function works by itself, which is outlined in the following steps:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s01_s05_l01">
+            <li>Click cell X4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the function name <strong class="emphasis bold">OR</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Click cell S4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type the less than symbol (<strong class="emphasis bold">&lt;</strong>) followed by a zero. This completes the first logical test, which is evaluating if the value in cell S4 is less than zero.</li>
+            <li>Type a comma. This advances the function to a second logical test.</li>
+            <li>Click cell W4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type the less than symbol (<strong class="emphasis bold">&lt;</strong>) followed by <strong class="emphasis bold">−1%</strong>. Be sure to include the minus sign and percent symbol. This completes the second logical test, which is evaluating if the value in cell W4 is less than –1%.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>) and press the ENTER key on your keyboard.</li>
+            <li>Copy the OR function in cell X4 and paste it into the range X5:X18 using the Paste Formulas command.</li>
+        </ol>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_s05_f01">
+            <p class="title"><span class="title-prefix">Figure 3.16</span> Completed OR Function by Itself</p>
+            <img src="section_07/df210307cff37bbd8bb5206b8a1a4510.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s05_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s05_f01">Figure 3.16 "Completed OR Function by Itself"</a> shows the construction and result of the OR function by itself. Notice that the only output of the function is the word <em class="emphasis">TRUE</em> or the word <em class="emphasis">FALSE</em>. If either the Unrealized Gain/Loss is less than zero or the Target vs. Actual Growth Rate is less than −1%, the function shows the word <em class="emphasis">TRUE</em>. However, these descriptions will not be helpful for the person using this worksheet. Displaying the words <em class="emphasis">OK</em> or <em class="emphasis">Warning</em> would be far more helpful in identifying investments that need to be evaluated. We can do this if we use the OR function in the logical test argument of the IF function. The following steps explain how to accomplish this:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s01_s05_l02">
+            <li>Highlight the range X4:X18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the DELETE key on your keyboard. We are going to start over by creating an IF function.</li>
+            <li>Click cell X4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the function name <strong class="emphasis bold">IF</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Type the function name <strong class="emphasis bold">OR</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>). The OR function is being placed into the <strong class="emphasis bold">logical_test</strong> argument of this IF function.</li>
+            <li>Click cell S4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type the less than symbol (<strong class="emphasis bold">&lt;</strong>) followed by a zero.</li>
+            <li>Type a comma. This advances the function to a second logical test.</li>
+            <li>Click cell W4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type the less than symbol (<strong class="emphasis bold">&lt;</strong>) followed by <strong class="emphasis bold">−1%.</strong>
+</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the word <strong class="emphasis bold">TRUE</strong>. Do <em class="emphasis">not</em> put the word inside quotation marks.</li>
+            <li>Type a comma. This completes the <strong class="emphasis bold">logical_test</strong> argument of the IF function. We can now go on to define the <strong class="emphasis bold">value_if_true</strong> and the <strong class="emphasis bold">value_if_false</strong> arguments. This will allow us to specify what the output of the function should be instead, using the OR function outputs of either TRUE or FALSE.</li>
+            <li>Type the word <strong class="emphasis bold">Warning</strong>. Be sure to enclose the word in quotation marks.</li>
+            <li>Type a comma. This will advance the function to the <strong class="emphasis bold">value_if_false</strong> argument.</li>
+            <li>Type the word <strong class="emphasis bold">OK</strong>. Be sure to enclose the word in quotation marks.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>)and press the ENTER key on your keyboard.</li>
+            <li>Copy the IF function in cell X4 and paste it into the range X5:X18 using the Paste Formulas command.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s05_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s05_f02">Figure 3.17 "OR Function in the Logical Test of the IF Function"</a> shows the OR function within the <strong class="emphasis bold">logical_test</strong> argument of the IF function. The logical test of the IF function is now evaluating if the results of the OR function are true.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_s05_f02">
+            <p class="title"><span class="title-prefix">Figure 3.17</span> OR Function in the Logical Test of the IF Function</p>
+            <img src="section_07/1f77ac0dd4364b116c50fb03b659671c.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s05_n02">
+            <h3 class="title">Skill Refresher: OR Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/TVDGKaiU_N0?rel=0" condition="http://img.youtube.com/vi/TVDGKaiU_N0/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/TVDGKaiU_N0?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_s05_l03">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">OR</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">logical_test</strong> argument to evaluate the contents of a cell location such that the result of the test is either true or false.</li>
+                <li>Define additional logical test arguments as needed. The output of the function will be TRUE if any of the logical tests are true.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s01_s06">
+        <h2 class="title editable block">The AND Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s01_s06_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s06_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.05.xlsx">Excel Objective 3.05</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s06_n01">
+            <h3 class="title">Lesson Video: AND Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/Zuw7pUls59w?rel=0" condition="http://img.youtube.com/vi/Zuw7pUls59w/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/Zuw7pUls59w?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s06_p02">The AND function is almost identical to the OR function in that it is composed of only logical tests and produces one of two possible outputs: TRUE or FALSE. However, <em class="emphasis">all</em> logical tests defined for the AND function must be true in order to produce a TRUE output. If one logical test is false, the function will produce a FALSE output. We will use the AND function to complete the Buy/Sell Indicator column on the <strong class="emphasis bold">Investment Detail</strong> worksheet. This column will show either the word <em class="emphasis">Buy</em> or the words <em class="emphasis">Hold or Sell</em> based on the results of the logical test argument of an IF function. We will use the AND function to define the logical test argument of the IF function. The following steps explain how to accomplish this:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch03_s01_s06_l01">
+            <li>Click cell P4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the function name <strong class="emphasis bold">IF</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Type the function name <strong class="emphasis bold">AND</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>). The AND function is being placed into the <strong class="emphasis bold">logical_test</strong> argument of this IF function.</li>
+            <li>Click cell N4 and then type the less than symbol (<strong class="emphasis bold">&lt;&lt;/b&gt;).</strong>
+</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>) followed by the number <strong class="emphasis bold">1</strong> and a percent symbol: (<strong class="emphasis bold">−1%</strong>).</li>
+            <li>Type a comma. This advances the AND function to the second logical test.</li>
+            <li>Click cell S4.</li>
+            <li>Type a greater than symbol (<strong class="emphasis bold">&gt;</strong>) followed by an equal sign (<strong class="emphasis bold">=</strong>). These symbols are used to evaluate if the value in a cell location is greater than or equal to a target value.</li>
+            <li>Type a zero followed by a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>
+                <p class="para">Type an equal sign (<strong class="emphasis bold">=</strong>) followed by the word <strong class="emphasis bold">TRUE</strong>. Do <em class="emphasis">not</em> enclose the word in quotation marks.</p>
+                <p class="para" id="manzoexcel_1.1-ch03_s01_s06_p03"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s06_f01">Figure 3.18 "AND Function Placed in the Logical Test of an IF Function"</a> shows the appearance of the AND function that has been added to the logical test of the IF function. The AND function will produce a true output if the value in cell N4 is &lt;−1% and the value in cell S4 is greater than or equal to 0.</p>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch03_s01_s06_f01">
+                <p class="title"><span class="title-prefix">Figure 3.18</span> AND Function Placed in the Logical Test of an IF Function</p>
+                    <img src="section_07/116f2b3de698291cdd9db998e6b2ffc2.jpg">
+                </div>
+            </li>
+            <li>Type a comma. This advances the IF function to the <strong class="emphasis bold">value_if_true</strong> argument.</li>
+            <li>Type the word <strong class="emphasis bold">Buy</strong> enclosed in quotation marks as shown in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s06_f02">Figure 3.19 "Results of the AND Function in the Logical Test Argument of an IF Function"</a>. If the Current vs. Target value is less than −1% and the Unrealized Gain/Loss is greater than or equal to zero, the function will show the word <em class="emphasis">Buy</em>. In other words, if the investment is less than the desired percentage for the total portfolio <em class="emphasis">and</em> it is currently not losing money, we will buy more of that investment so it is in line with the target percentage of the portfolio.</li>
+            <li>Type a comma.</li>
+            <li>Type the words <strong class="emphasis bold">Hold or Sell</strong> enclosed in quotation marks as shown in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s06_f02">Figure 3.19 "Results of the AND Function in the Logical Test Argument of an IF Function"</a>. For all other investments that are not designated with a <em class="emphasis">Buy</em> indicator, the function will show the words <em class="emphasis">Hold or Sell</em>. This indicates that an investment could either be held or sold.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>) and press the ENTER key on your keyboard.</li>
+            <li>Copy the IF function in cell P4 and paste it into the range P5:P18 using the Paste Formulas command.</li>
+            <li>Increase the width of Column P to 12 points.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s06_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s06_f02">Figure 3.19 "Results of the AND Function in the Logical Test Argument of an IF Function"</a> shows the results of the completed AND function within an IF function after it is copied and pasted into the range P5:P18.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_s06_f02">
+            <p class="title"><span class="title-prefix">Figure 3.19</span> Results of the AND Function in the Logical Test Argument of an IF Function</p>
+            <img src="section_07/62e5ff915690ee6ee69546320ef56880.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s06_n02">
+            <h3 class="title">Skill Refresher: AND Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/WjzNMGbvfvw?rel=0" condition="http://img.youtube.com/vi/WjzNMGbvfvw/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/WjzNMGbvfvw?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_s06_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">AND</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">logical_test</strong> argument to evaluate the contents of a cell location such that the result of the test is either true or false.</li>
+                <li>Define additional logical test arguments as needed. The output of the function will be TRUE if ALL of the logical tests are true.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s01_s07">
+        <h2 class="title editable block">Nested IF Functions</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s01_s07_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s07_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.06.xlsx">Excel Objective 3.06</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s07_n01">
+            <h3 class="title">Lesson Video: Nested IF Functions</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/-QP0vFP0kVo?rel=0" condition="http://img.youtube.com/vi/-QP0vFP0kVo/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/-QP0vFP0kVo?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s07_p02">When constructing the IF function, the logical test can produce only two potential outcomes when evaluating the data in a cell. In addition, the function can produce only two possible outputs, which are defined in the <strong class="emphasis bold">value_if_true</strong> and <strong class="emphasis bold">value_if_false</strong> arguments. However, there may be situations when you need to test for several possible outcomes, which may require more than two possible outputs. To accomplish this, you need to create a <span class="margin_term"><a class="glossterm">nested IF function</a><span class="glossdef">Used when more than two tests and two outputs are required when using the IF function. A nested IF function is when the <strong class="emphasis bold">value_if_true</strong> or <strong class="emphasis bold">value_if_false</strong> arguments of an IF function are defined with another IF function.</span></span>. A nested IF function is when either the <strong class="emphasis bold">value_if_true</strong> or <strong class="emphasis bold">value_if_false</strong> arguments are defined with another IF function.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s07_p03">For the Personal Investment workbook, a nested IF function is required to complete the Rebalance Indicator column (Column O) on the <strong class="emphasis bold">Investment Detail</strong> worksheet (see <a class="xref" href="#manzoexcel_1.1-ch03_s01_s06_f02">Figure 3.19 "Results of the AND Function in the Logical Test Argument of an IF Function"</a>). The purpose of this column is to indicate where the portfolio needs to be rebalanced. Looking at the Current vs. Target column (Column N) shown in <a class="xref" href="#manzoexcel_1.1-ch03_s01_s06_f02">Figure 3.19 "Results of the AND Function in the Logical Test Argument of an IF Function"</a>, you can see that several investments have a significant negative number where the investment value has fallen below the target percentage for the portfolio. Other investments have a significant positive number where the investment has exceeded the target percentage for the portfolio. For this portfolio, a number greater than 1% or less than –1% will be considered significant. Therefore, we will need to assess three possible outcomes when creating a logical test that evaluates the values in Column N. The first test will be if the value is greater than 1%. The second test will be if the value is less than –1%. The third test will be if both the first test and the second test are false. This is why we need to construct a nested IF function to produce the outputs in the Rebalance Indicator column. The following steps explain how to accomplish this:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s01_s07_l01">
+            <li>Click cell O4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the function name <strong class="emphasis bold">IF</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Click cell N4.</li>
+            <li>Type the greater than symbol (<strong class="emphasis bold">&gt;</strong>) followed by the number <strong class="emphasis bold">1%</strong>. It is important to use the percent symbol (<strong class="emphasis bold">%</strong>) after the number 1. If you omit the percent symbol, Excel will test if the value in cell N4 is greater than 100%.</li>
+            <li>Type a comma.</li>
+            <li>Type the word <strong class="emphasis bold">Rebalance</strong> inside quotation marks. When using text data to define any of the arguments for the IF function, the text must be placed inside quotation marks.</li>
+            <li>Type a comma.</li>
+            <li>Start another IF function by typing the function name <strong class="emphasis bold">IF</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Click cell N4.</li>
+            <li>Type the less than symbol (<strong class="emphasis bold">&lt;</strong>) followed by <strong class="emphasis bold">−1%</strong>.</li>
+            <li>Type a comma.</li>
+            <li>Type the word <strong class="emphasis bold">Rebalance</strong> inside quotation marks.</li>
+            <li>Type a comma.</li>
+            <li>Type the word <strong class="emphasis bold">OK</strong> inside quotation marks.</li>
+            <li>Type two closing parentheses (<strong class="emphasis bold">))</strong>). Since two IF functions were started, there are two open parentheses in the function. As a result, we need to add two closing parentheses; otherwise, Excel will produce an error message stating that a closing parenthesis is missing.</li>
+            <li>Press the ENTER key on your keyboard.</li>
+            <li>Copy the nested IF function in cell O4 and paste it into the range O5:O18 using the Paste Formulas command.</li>
+        </ol>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s07_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Using Logical Functions to Evaluate Percentages</p>
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s07_p04">If you are using a logical function to evaluate percentages in a cell location, be sure to use the percent symbol when defining the logical test. For example, if you are testing cell location B5 to determine if the value is greater than 10%, the logical test should appear as follows: <em class="emphasis">B5&gt;10%</em>. If you omit the percent sign, the logical test will evaluate cell B5 to see if the value is greater than 1000%. This may erroneously force the function to produce the <em class="emphasis">value_if_false</em> output. You can also convert the percentage to a decimal in the logical test. For example, in decimal form, the logical test can be constructed as follows: <em class="emphasis">B5&gt;.10</em>.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s07_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s07_f01">Figure 3.20 "Completed Nested IF Function"</a> shows how the completed nested IF function should appear in cell O4 of the <strong class="emphasis bold">Investment Detail</strong> worksheet. In addition, we see the results of the function after it was pasted into the range O5:O18. Notice that for any investment where the Current vs. Target value is between plus or minus 1%, the word <em class="emphasis">OK</em> appears.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s01_s07_f01">
+            <p class="title"><span class="title-prefix">Figure 3.20</span> Completed Nested IF Function</p>
+            <img src="section_07/670818190ea29a334c1fc871377f2dc4.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s07_n03">
+            <h3 class="title">Why?</h3>
+            <p class="simpara">Use AND or OR functions within IF functions</p>
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s07_p06">The benefit of using the AND or OR functions within the IF function is that doing so reduces the need to construct lengthy nested IF functions. It becomes increasingly difficult to manage the accuracy of lengthy nested IF functions. The AND and OR functions allow you to test for a variety of conditions in a cell location, which can reduce the need to nest multiple IF functions. Examine the nested if function in cell O4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet. Can you recreate this without nesting the IF function?</p>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s01_s08">
+        <h2 class="title editable block">Basic Conditional Formats</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s01_s08_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s01_s08_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.07.xlsx">Excel Objective 3.07</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s08_n01">
+            <h3 class="title">Lesson Video: Basic Conditional Formats</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/tqBLl98fpfc?rel=0" condition="http://img.youtube.com/vi/tqBLl98fpfc/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/tqBLl98fpfc?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s08_p02">A feature related to the skills used to create logical functions is conditional formatting. <span class="margin_term"><a class="glossterm">Conditional formats</a><span class="glossdef">An Excel feature that applies formatting commands to cell locations based on the cell contents. A basic conditional formatting rule will utilize a logical test to evaluate the contents of a cell location. If the results of the logical test are true, Excel will apply the designated formatting commands to the cell location.</span></span> allow you to apply a variety of formatting treatments based on the contents of a cell location. A logical test similar to the ones used in the IF, AND, and OR functions is used to evaluate the contents of a cell and apply a designated formatting treatment. For example, looking at <a class="xref" href="#manzoexcel_1.1-ch03_s01_s07_f01">Figure 3.20 "Completed Nested IF Function"</a>, you will notice that the Unrealized Gain/Loss column is formatted using the accounting number format. Negative numbers are enclosed in parentheses. However, to make these numbers stand out, we can use conditional formatting to change the font color to red. We will do this for the Unrealized Gain/Loss and Percent Gain/Loss columns. The following steps explain how conditional formats are applied to the cell locations in these columns:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch03_s01_s08_l01">
+            <li>Highlight the range S4:T18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Click the Conditional Formatting button in the Styles group of commands on the Home tab of the Ribbon.</li>
+            <li>
+                <p class="para">Click the New Rule command from the list of options (see <a class="xref" href="#manzoexcel_1.1-ch03_s01_s08_f01">Figure 3.21 "Conditional Formatting Options List"</a>). This will open the New Formatting Rule dialog box.</p>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch03_s01_s08_f01">
+                <p class="title"><span class="title-prefix">Figure 3.21</span> Conditional Formatting Options List</p>
+                    <img src="section_07/517a76e2a74001fc303d99d45b09fdb7.jpg">
+                </div>
+            </li>
+            <li>At the top of the New Formatting Rule dialog box, you will find a list of options under the Select a Rule Type heading. Click the second option that states “Format only cells that contain.”</li>
+            <li>In the lower portions of the New Formatting Rule dialog box, you will see several drop-down boxes under the heading Edit the Rule Description. Make sure the first drop-down box is set to Cell Value.</li>
+            <li>Click the second drop-down box in the Edit the Rule Description section of the New Formatting Rule dialog box and select the “less than” option.</li>
+            <li>Click in the input box, which is next to the drop-down box that was set in the previous step, and type a zero. This completes the logical test of the conditional format, which is going to evaluate if the value in any of the cells in the range S4:T18 is less than zero.</li>
+            <li>Click the Format button, which is near the bottom of the New Formatting Rule dialog box. This will open the Format Cells dialog box.</li>
+            <li>Click the drop-down box in the Color section of the Format Cells dialog box and select the red square from the color palette (see <a class="xref" href="#manzoexcel_1.1-ch03_s01_s08_f02">Figure 3.22 "Format Cells Dialog Box"</a>).</li>
+            <li>Click the OK button at the bottom of the Format Cells dialog box.</li>
+            <li>Click the OK button at the bottom of the New Formatting Rule dialog box. This completes the Conditional Formatting rule that will be applied to cells in the range S4:T18.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s08_p03"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s08_f02">Figure 3.22 "Format Cells Dialog Box"</a> shows the Format Cells dialog box. This opens when the Format button is clicked on the New Formatting Rule dialog box. Notice the tabs running across the top of the dialog box. All formatting features in Excel are grouped by category, which can be accessed by clicking the related tab on the Format Cells dialog box. You will see some of the formatting commands in light grey. This indicates that these commands cannot be used with the Conditional Formatting feature. You can use the Format Cells dialog box to apply any formatting features by clicking the Format Cells dialog button on the Home tab of the Ribbon (see <a class="xref" href="#manzoexcel_1.1-ch03_s01_s08_f01">Figure 3.21 "Conditional Formatting Options List"</a>).</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s01_s08_f02">
+            <p class="title"><span class="title-prefix">Figure 3.22</span> Format Cells Dialog Box</p>
+            <img src="section_07/b66e84dd7735da82edfa92fbc6f1079b.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s08_n02">
+            <h3 class="title">Mouseless Commands</h3>
+            <p class="simpara">Open the Format Cells Dialog Box</p>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch03_s01_s08_l02">
+                <li>Hold down the CTRL key while pressing the SHIFT key and the letter <em class="emphasis">F</em> key on your keyboard.</li>
+            </ul>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s08_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s08_f03">Figure 3.23 "New Formatting Rule Dialog Box"</a> shows the final settings for the New Formatting Rule dialog box. It is important to note that the “Format only cells that contain” option was selected in the New Formatting Rule dialog box to set a basic logical test that can be used to apply formatting commands automatically based on the values in cell locations.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s01_s08_f03">
+            <p class="title"><span class="title-prefix">Figure 3.23</span> New Formatting Rule Dialog Box</p>
+            <img src="section_07/b89356fa5b79121965222d30071973ac.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s01_s08_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s01_s08_f04">Figure 3.24 "Conditional Format Applied to the Range S4:T18"</a> shows the results of the conditional formatting rule that was applied to the range S4:T18. Notice the font color is automatically changed to red for negative numbers.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s01_s08_f04">
+            <p class="title"><span class="title-prefix">Figure 3.24</span> Conditional Format Applied to the Range S4:T18</p>
+            <img src="section_07/4b84600df3b6e7f9c3a0206537c4af86.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s01_s08_n03">
+            <h3 class="title">Skill Refresher: Conditional Formats (Cell Values)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/EM3N8RUWD3k?rel=0" condition="http://img.youtube.com/vi/EM3N8RUWD3k/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/EM3N8RUWD3k?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_s08_l03">
+                <li>Click a cell or highlight a range of cells where the conditional format will be applied.</li>
+                <li>Click the Home tab of the Ribbon.</li>
+                <li>Click the Conditional Formatting button.</li>
+                <li>Click the New Rule option from the drop-down list.</li>
+                <li>Click the “Format only cells that contain” rule type from the list at the top of the New Formatting Rule dialog box.</li>
+                <li>Select the type of contents you are evaluating in the first drop-down box near the bottom of the New Formatting Rule dialog box.</li>
+                <li>Select a comparison operator description in the second drop-down box near the bottom of the New Formatting Rule dialog box.</li>
+                <li>Enter a value in the input box next to the comparison operator box.</li>
+                <li>Click the Format button to set the format that will be applied to the selected cell locations.</li>
+                <li>Click the OK button at the bottom of the New Formatting Rule dialog box.</li>
+            </ol>
+        </div>
+        <div class="key_takeaways editable block" id="manzoexcel_1.1-ch03_s01_s08_n04">
+            <h3 class="title">Key Takeaways</h3>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch03_s01_s08_l04">
+                <li>The Freeze Panes command should be used to lock column and row headings in place while scrolling through large worksheets.</li>
+                <li>The IF function is used to evaluate the contents of a cell location using a logical test. Based on the results of the logical test, you designate a custom output or calculation to be performed by the function.</li>
+                <li>When using text, or nonnumeric data, to define any argument of the IF function, it must be placed inside quotation marks.</li>
+                <li>A nested IF function is used when more than one logical test and more than two outputs are required for a project. Either the <strong class="emphasis bold">Value_if_true</strong> or the <strong class="emphasis bold">Value_if_false</strong> arguments can be defined with an IF function.</li>
+                <li>When using percentages in any logical test or formula, you must use the percent symbol (<strong class="emphasis bold">%</strong>) or convert the percentage to a decimal. For example, 10% can also be expressed as .10.</li>
+                <li>The OR function is used when many logical tests are required to evaluate the contents of a cell location. The OR function will produce a TRUE output if one of the logical tests is true.</li>
+                <li>The AND function is used when many logical tests are required to evaluate the contents of a cell location. The AND function will produce a TRUE output if all of the logical tests are true.</li>
+                <li>To minimize the complexity of nested IF functions, the OR and AND functions should be used when possible to define the <em class="emphasis">logical_test</em> argument of the IF function.</li>
+            </ul>
+        </div>
+        <div class="exercises editable block" id="manzoexcel_1.1-ch03_s01_s08_n05">
+            <h3 class="title">Exercises</h3>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_s08_l05">
+                <li>
+                    <p class="para">Assume the value in cell B12 is 25. Any value greater than or equal to 25 is OK, and any value below 25 is too low. Which of the following IF functions will provide an accurate result?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_s08_l06" numeration="loweralpha">
+                        <li>=IF(B12&gt;25,OK,TOO LOW)</li>
+                        <li>=IF(B12&gt;25, “TOO LOW”, “OK”)</li>
+                        <li>=IF(B12=25 OR B12&gt;25, “OK”, “TOO LOW”)</li>
+                        <li>=IF(B12&gt;=25, “OK”, “TOO LOW”)</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Assume the value in cell C4 is 5 and the value in D4 is 2. If the value in C4 is greater than 10, or if the value in D4 is greater than or equal to 2, the output should read OK. Otherwise, the output should read LOW. Which of the following IF functions will provide an accurate result?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_s08_l07" numeration="loweralpha">
+                        <li>=IF(C4&gt;10 or D4&gt;2 or D4=2, “OK”, “LOW”)</li>
+                        <li>=IF(OR(C4&gt;10,D4&gt;2,=2)=TRUE, “OK”, “LOW”)</li>
+                        <li>=IF(OR(D4&gt;=2,C4&gt;10)=TRUE, “OK”, “LOW”)</li>
+                        <li>=IF(C4&gt;10, D4&gt;=2, “OK”, “LOW”)</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Assume the value in cell A2 is 0 and the value in B2 is 1%. If the value in A2 is equal to 0 and the value in B2 is greater than 1%, then the output of the function should be OK. Otherwise, the output of the function should be REBAL. Which of the following IF functions will provide an accurate result?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_s08_l08" numeration="loweralpha">
+                        <li>=IF(A2=0, “OK”,IF(B2&gt;1%, “OK”, “REBAL”))</li>
+                        <li>=IF(AND(A2=0,B2&gt;1)=TRUE, “OK”, “REBAL”)</li>
+                        <li>=IF(AND(A2=0,B2&gt;.01)=TRUE, “OK”, “REBAL”)</li>
+                        <li>Both a and c are correct.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Assume the value in cell E3 is 5. If the value in cell E3 is less than 0, the font color of the text should be red. If the value in cell E3 is greater than or equal to 0, the font color should remain black. When establishing a conditional format for cell E3, which rule type should be selected in the New Formatting Rule dialog box?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s01_s08_l09" numeration="loweralpha">
+                        <li>Format all cells based on their values</li>
+                        <li>Format only cells that contain</li>
+                        <li>Format only top or bottom ranked values</li>
+                        <li>Use a formula to determine which cells to format</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+  </div>
+  
+  <div id=navbar-bottom class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s06-04-chapter-assignments-and-tests.html"><img src="shared/images/batch-left.png"></a> <a href="s06-04-chapter-assignments-and-tests.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s07-02-statistical-if-functions.html">Next Section</a> <a href="s07-02-statistical-if-functions.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="shared/book.js"></script>
+  
+  
+</body>
+</html>

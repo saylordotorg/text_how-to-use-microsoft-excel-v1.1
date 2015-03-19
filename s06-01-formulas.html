@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="shared/bookhub.css" rel="stylesheet" type="text/css">
+  <title>Formulas</title>
+</head>
+<body>
+
+  
+  <div id=navbar-top class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s05-05-chapter-assignments-and-tests.html"><img src="shared/images/batch-left.png"></a> <a href="s05-05-chapter-assignments-and-tests.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s06-02-statistical-functions.html">Next Section</a> <a href="s06-02-statistical-functions.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  <div id="book-content">
+    <div class="section" id="manzoexcel_1.1-ch02_s01" condition="start-of-chunk" version="5.0" lang="en">
+    <h2 class="title editable block">
+<span class="title-prefix">2.1</span> Formulas</h2>
+    <div class="learning_objectives editable block" id="manzoexcel_1.1-ch02_s01_n01">
+        <h3 class="title">Learning Objectives</h3>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_l01">
+            <li>Learn how to create basic formulas.</li>
+            <li>Understand relative referencing when copying and pasting formulas.</li>
+            <li>Work with complex formulas by controlling the order of mathematical operations.</li>
+            <li>Understand formula auditing tools.</li>
+        </ol>
+    </div>
+    <p class="para editable block" id="manzoexcel_1.1-ch02_s01_p01">This section reviews the fundamental skills for entering formulas into an Excel worksheet. The objective used for this chapter is the construction of a personal cash budget. Most financial advisors recommend that all households construct and maintain a personal budget to achieve and maintain strong financial health. Organizing and maintaining a personal budget is a skill you can practice at any point in your life. Whether you are managing your expenses during college or maintaining the finances of a family of four, a personal budget can be a vital tool when making financial decisions. Excel can make managing your money a fun and rewarding exercise.</p>
+    <p class="para editable block" id="manzoexcel_1.1-ch02_s01_p02"><a class="xref" href="#manzoexcel_1.1-ch02_s01_f01">Figure 2.1 "Completed Personal Cash Budget Workbook"</a> shows the completed workbook that will be demonstrated in this chapter. Notice that this workbook contains four worksheets. The first worksheet, <strong class="emphasis bold">Budget Summary</strong>, contains formulas that utilize or reference the data in the other three worksheets. As a result, the <strong class="emphasis bold">Budget Summary</strong> worksheet serves as an overview of the data that was entered and calculated in the other three worksheets of the workbook.</p>
+    <div class="figure large large-height editable block" id="manzoexcel_1.1-ch02_s01_f01">
+        <p class="title"><span class="title-prefix">Figure 2.1</span> Completed Personal Cash Budget Workbook</p>
+        <img src="section_06/549fcd766b7a99f93e268ec91acd2d4e.jpg">
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s01_s01">
+        <h2 class="title editable block">Creating a Basic Formula</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s01_s01_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s01_s01_p01">Follow-along file: <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.00.xlsx">Excel Objective 2.00</a></p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s01_n01">
+            <h3 class="title">Lesson Video: Basic Formulas</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/SQbSa9wM0NI?rel=0" condition="http://img.youtube.com/vi/SQbSa9wM0NI/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/SQbSa9wM0NI?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s01_p02"><span class="margin_term"><a class="glossterm">Formulas</a><span class="glossdef">Used to calculate a variety of mathematical outputs in Excel and can be used to create virtually any custom calculation required for your objective.</span></span> are used to calculate a variety of mathematical outputs in Excel and can be used to create virtually any custom calculation required for your objective. Furthermore, when constructing a formula in Excel, you use cell locations that, when added to a formula, become <span class="margin_term"><a class="glossterm">cell references</a><span class="glossdef">Cell addresses used in formulas. Excel references the values entered into the cell locations used in formulas to produce outputs. When the values are changed in a cell referenced by a formula, Excel automatically produces new outputs. When a cell reference is used by itself in a cell location (cell address preceded by an equal sign [<strong class="emphasis bold">=</strong>]), Excel displays the value entered into that cell location.</span></span>. This means that Excel uses, or references, the number entered into the cell location when calculating a mathematical output. As a result, when the numbers in the cell references are changed, Excel automatically produces a new output. This is what gives Excel the ability to create a variety of what-if scenarios, which will be explained later in the chapter.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s01_p03">To demonstrate the construction of a basic formula, we will begin working on the <strong class="emphasis bold">Budget Detail</strong> worksheet in the Personal Budget workbook, which is shown in <a class="xref" href="#manzoexcel_1.1-ch02_s01_s01_f01">Figure 2.2 "Budget Detail Worksheet"</a>. To complete this worksheet, we will add several formulas and functions. <a class="xref" href="#manzoexcel_1.1-ch02_s01_s01_t01">Table 2.1 "Spend Category Definitions"</a> provides definitions for each of the spend categories listed in the range A3:A11. When you develop a personal budget, these categories are defined on the basis of how you spend your money. It is likely that every person could have different categories or define the same categories differently. Therefore, it is important to review the definitions in <a class="xref" href="#manzoexcel_1.1-ch02_s01_s01_t01">Table 2.1 "Spend Category Definitions"</a> to understand how we are defining these categories before proceeding.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch02_s01_s01_f01">
+            <p class="title"><span class="title-prefix">Figure 2.2</span> Budget Detail Worksheet</p>
+            <img src="section_06/ef0539ca52dee260432eb5cb08068f43.jpg">
+        </div>
+        <div class="table block" id="manzoexcel_1.1-ch02_s01_s01_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 2.1</span> Spend Category Definitions</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Household Utilities</strong></td>
+                        <td>Money spent on electricity, heat, and water and on cable, phone, and Internet access</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Food</strong></td>
+                        <td>Money spent on groceries, toiletries, and related items</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Gasoline</strong></td>
+                        <td>Money spent on fuel for automobiles</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Clothes</strong></td>
+                        <td>Money spent on clothes, shoes, and accessories</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Insurance</strong></td>
+                        <td>Money spent on homeowner’s or automobile insurance</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Taxes</strong></td>
+                        <td>Money spent on school and property taxes (this example of the personal budget assumes that we own property).</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Entertainment</strong></td>
+                        <td>Money spent on entertainment, including dining out, movie and theater tickets, parties, and so on</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Vacation</strong></td>
+                        <td>Money spent on vacations</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Miscellaneous</strong></td>
+                        <td>Includes any other spending categories, such as textbooks, software, journals, school or work supplies, and so on</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s01_p04">The first formula that we will add to the <strong class="emphasis bold">Budget Detail</strong> worksheet will calculate the Monthly Spend values. The formula will be constructed so that it takes the values in the Annual Spend column and divides them by 12. This will show how much money will be spent per month for each of the categories listed in Column A. The following explains how this formula is created:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s01_s01_l01">
+            <li>Click the <strong class="emphasis bold">Budget Detail</strong> worksheet tab to open the worksheet.</li>
+            <li>Click cell C3.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>). When the first character entered into a cell location is an equal sign, it signals Excel to perform a calculation or produce a logical output.</li>
+            <li>Type <strong class="emphasis bold">D3</strong>. This adds D3 to the formula, which is now a cell reference. Excel will use whatever value is entered into cell D3 to produce an output.</li>
+            <li>Type the slash symbol (<strong class="emphasis bold">/</strong>). This is the symbol for division in Excel. As shown in <a class="xref" href="#manzoexcel_1.1-ch02_s01_s01_t02">Table 2.2 "Excel Mathematical Operators"</a>, the mathematical operators in Excel are slightly different from those found on a typical calculator.</li>
+            <li>Type the number <strong class="emphasis bold">12</strong>. This divides the value in cell D3 by 12. In this formula, a number, or <span class="margin_term"><a class="glossterm">constant</a><span class="glossdef">Numerical value used in the construction of formulas. Constants should have some universal quality that does not change, such as days in a week or minutes in an hour.</span></span>, is used instead of a cell reference because it will not change. In other words, there will always be 12 months in a year.</li>
+            <li>Press the ENTER key.</li>
+        </ol>
+        <div class="table block" id="manzoexcel_1.1-ch02_s01_s01_t02" frame="all">
+            <p class="title"><span class="title-prefix">Table 2.2</span> Excel Mathematical Operators</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">+</strong></td>
+                        <td>Addition</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">−</strong></td>
+                        <td>Subtraction</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">/</strong></td>
+                        <td>Division</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">*</strong></td>
+                        <td>Multiplication</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">^</strong></td>
+                        <td>Power/Exponent</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s01_n02">
+            <h3 class="title">Why?</h3>
+            <p class="simpara">Use Cell References</p>
+            <p class="para" id="manzoexcel_1.1-ch02_s01_s01_p05">Cell references enable Excel to dynamically produce new outputs when one or more inputs in the referenced cells are changed. Cell references also allow you to trace how outputs are being calculated in a formula. As a result, <strong class="emphasis bold">you should never use a calculator to determine a mathematical output and type it into the cell location of a worksheet</strong>. Doing so eliminates Excel’s cell-referencing benefits as well as your ability to trace a formula to determine how outputs are being produced.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s01_p06"><a class="xref" href="#manzoexcel_1.1-ch02_s01_s01_f02">Figure 2.3 "Adding a Formula to a Worksheet"</a> shows how the formula appears in cell C3 before you press the ENTER key. <a class="xref" href="#manzoexcel_1.1-ch02_s01_s01_f03">Figure 2.4 "Formula Output for Monthly Spend"</a> shows the output of the formula after you press the ENTER key. The monthly spend for Household Utilities is $250 because the formula is taking the Annual Spend in cell D3 and dividing it by 12. If the value in cell D3 is changed, the formula automatically produces a new output. We are calculating the spend per month for each category because people often get paid and are billed for these items on a monthly basis. This formula allows you to compare your monthly income to your monthly bills to determine whether you have enough income to pay these expenses.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s01_s01_f02">
+            <p class="title"><span class="title-prefix">Figure 2.3</span> Adding a Formula to a Worksheet</p>
+            <img src="section_06/31a4be7727571bfc52649155c240e00e.jpg">
+        </div>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s01_s01_f03">
+            <p class="title"><span class="title-prefix">Figure 2.4</span> Formula Output for Monthly Spend</p>
+            <img src="section_06/33f6eca18d1bdd44e177f5c7eb3badc2.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s01_n03">
+            <h3 class="title">Why?</h3>
+            <p class="simpara">Use Universal Constants</p>
+            <p class="para" id="manzoexcel_1.1-ch02_s01_s01_p07">If you are using constants, or numerical values, in an Excel formula, they should be universal constants that do not change, such as the number of days in a week, weeks in a year, and so on. <strong class="emphasis bold">Do not type the values that exist in cell locations into an Excel formula</strong>. This will eliminate Excel’s cell-referencing benefits, which means if the value in the cell location you are using in a formula is changed, Excel will not be able to produce a new output.</p>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s01_s02">
+        <h2 class="title editable block">Relative References (Copying and Pasting Formulas)</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s01_s02_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s01_s02_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.01.xlsx">Excel Objective 2.01</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s02_n01">
+            <h3 class="title">Lesson Video: Relative References</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/qE7MYCrcNGo?rel=0" condition="http://img.youtube.com/vi/qE7MYCrcNGo/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/qE7MYCrcNGo?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s02_p02">Once a formula is typed into a worksheet, it can be copied and pasted to other cell locations. For example, <a class="xref" href="#manzoexcel_1.1-ch02_s01_s01_f03">Figure 2.4 "Formula Output for Monthly Spend"</a> shows the output of the formula that was entered into cell C3. However, this calculation needs to be performed for the rest of the cell locations in Column C. Since we used the D3 cell reference in the formula, Excel automatically adjusts that cell reference when the formula is copied and pasted into the rest of the cell locations in the column. This is called <span class="margin_term"><a class="glossterm">relative referencing</a><span class="glossdef">Excel automatically adjusts a cell reference used in a formula or function relative to its original location when it is pasted into new cell locations.</span></span> and is demonstrated as follows:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s01_s02_l01">
+            <li>Click cell C3.</li>
+            <li>Click the Copy button in the Home tab of the Ribbon.</li>
+            <li>Highlight the range C4:C11.</li>
+            <li>Click the Paste button in the Home tab of the Ribbon.</li>
+            <li>Double click cell C6. Notice that the cell reference in the formula is automatically changed to D6.</li>
+            <li>Press the ENTER key.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s02_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s01_s02_f01">Figure 2.5 "Relative Reference Example"</a> shows the outputs added to the rest of the cell locations in the Monthly Spend column. For each row, the formula takes the value in the Annual Spend column and divides it by 12. You will also see that cell D6 has been double clicked to show the formula. Notice that Excel automatically changed the original cell reference of D3 to D6. This is the result of relative referencing, which means Excel automatically adjusts a cell reference relative to its original location when it is pasted into new cell locations. In this example, the formula was pasted into eight cell locations below the original cell location. As a result, Excel increased the row number of the original cell reference by a value of one for each row it was pasted into.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s01_s02_f01">
+            <p class="title"><span class="title-prefix">Figure 2.5</span> Relative Reference Example</p>
+            <img src="section_06/6c1c21fd310b61220c966289fc9a9d6e.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s02_n02">
+            <h3 class="title">Why?</h3>
+            <p class="simpara">Use Relative Referencing</p>
+            <p class="para" id="manzoexcel_1.1-ch02_s01_s02_p04">Relative referencing is a convenient feature in Excel. When you use cell references in a formula, Excel automatically adjusts the cell references when the formula is pasted into new cell locations. If this feature were not available, you would have to manually retype the formula when you want the same calculation applied to other cell locations in a column or row.</p>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s01_s03">
+        <h2 class="title editable block">Creating Complex Formulas (Controlling the Order of Operations)</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s01_s03_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s01_s03_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.02.xlsx">Excel Objective 2.02</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s03_n01">
+            <h3 class="title">Lesson Video: Complex Formulas</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/Ysl2vFE-dBo?rel=0" condition="http://img.youtube.com/vi/Ysl2vFE-dBo/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/Ysl2vFE-dBo?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s03_p02">The next formula to be added to the Personal Budget workbook is the percent change over last year. This formula determines the difference between the values in the LY (Last Year) Spend column and shows the difference in terms of a percentage. This requires that the order of mathematical operations be controlled to get an accurate result. <a class="xref" href="#manzoexcel_1.1-ch02_s01_s03_t01">Table 2.3 "Standard Order of Mathematical Operations"</a> shows the standard order of operations for a typical formula. To change the order of operations shown in the table, we use parentheses to process certain mathematical calculations first. This formula is added to the worksheet as follows:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s01_s03_l01">
+            <li>Click cell F3 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Click cell D3. This will add a cell reference to cell D3 to the formula. When building formulas, you can click cell locations instead of typing them.</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>).</li>
+            <li>Click cell E3 to add this cell reference to the formula.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>Type the slash (<strong class="emphasis bold">/</strong>) symbol for division.</li>
+            <li>Click cell E3. This completes the formula that will calculate the percent change of last year’s actual spent dollars vs. this year’s budgeted spend dollars (see <a class="xref" href="#manzoexcel_1.1-ch02_s01_s03_f01">Figure 2.6 "Adding the Percent Change Formula"</a>).</li>
+            <li>Press the ENTER key.</li>
+            <li>Click cell F3 to activate it.</li>
+            <li>Place the mouse pointer over the Auto Fill Handle.</li>
+            <li>When the mouse pointer turns from a white block plus sign to a black plus sign, click and drag down to cell F11. This pastes the formula into the range F4:F11.</li>
+        </ol>
+        <div class="table block" id="manzoexcel_1.1-ch02_s01_s03_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 2.3</span> Standard Order of Mathematical Operations</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Order</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">^</strong></td>
+                        <td>
+<em class="emphasis">First:</em> Excel executes any exponential computations first.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">* or /</strong></td>
+                        <td>
+<em class="emphasis">Second:</em> Excel performs any multiplication or division computations second. When there are multiple instances of these computations in a formula, they are executed in order from left to right.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">+ or −</strong></td>
+                        <td>
+<em class="emphasis">Third:</em> Excel performs any addition or subtraction computations third. When there are multiple instances of these computations in a formula, they are executed in order from left to right.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">( )</strong></td>
+                        <td>
+<em class="emphasis">Override Standard Order:</em> Any mathematical computations placed in parentheses are performed first and override the standard order of operations. If there are layers of parentheses used in a formula, Excel computes the innermost parentheses first and the outermost parentheses last.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s03_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s01_s03_f01">Figure 2.6 "Adding the Percent Change Formula"</a> shows the formula that was added to the <strong class="emphasis bold">Budget Detail</strong> worksheet to calculate the percent change in spending. The parentheses were added to this formula to control the order of operations. Any mathematical computations placed in parentheses are executed first before the standard order of mathematical operations (see <a class="xref" href="#manzoexcel_1.1-ch02_s01_s03_t01">Table 2.3 "Standard Order of Mathematical Operations"</a>). In this case, if parentheses were not used, Excel would produce an erroneous result for this worksheet.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s01_s03_f01">
+            <p class="title"><span class="title-prefix">Figure 2.6</span> Adding the Percent Change Formula</p>
+            <img src="section_06/2cf788c85180ca43e28a7cc066c532b6.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s03_p04"><a class="xref" href="#manzoexcel_1.1-ch02_s01_s03_f02">Figure 2.7 "Removing the Parentheses from the Percent Change Formula"</a> shows the result of the percent change formula if the parentheses are removed. The formula produces a result of a 299900% increase. Since there is no change between the LY spend and the budget Annual Spend, the result should be 0%. However, without the parentheses, Excel is following the standard order of operations. This means the value in cell E3 will be divided by E3 first (3,000/3,000), which is 1. Then, the value of 1 will be subtracted from the value in cell D3 (3,000−1), which is 2,999. Since cell F3 is formatted as a percentage, Excel expresses the output as an increase of 299900%.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s01_s03_f02">
+            <p class="title"><span class="title-prefix">Figure 2.7</span> Removing the Parentheses from the Percent Change Formula</p>
+            <img src="section_06/2a5f8cf5d98a00a98e778b595744e3ba.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s03_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Does the Output of Your Formula Make Sense?</p>
+            <p class="para" id="manzoexcel_1.1-ch02_s01_s03_p05">It is important to note that the accuracy of the output produced by a formula depends on how it is constructed. Therefore, always check the result of your formula to see whether it makes sense with data in your worksheet. As shown in <a class="xref" href="#manzoexcel_1.1-ch02_s01_s03_f02">Figure 2.7 "Removing the Parentheses from the Percent Change Formula"</a>, a poorly constructed formula can give you an inaccurate result. In other words, you can see that there is no change between the Annual Spend and LY Spend for Household Utilities. Therefore, the result of the formula should be 0%. However, since the parentheses were removed in this case, the formula is clearly producing an erroneous result.</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s03_n03">
+            <h3 class="title">Skill Refresher: Formulas</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/0aGcEwakmHk?rel=0" condition="http://img.youtube.com/vi/0aGcEwakmHk/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/0aGcEwakmHk?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_s03_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Click or type a cell location. If using constants, type a number.</li>
+                <li>Type a mathematical operator.</li>
+                <li>Click or type a cell location. If using constants, type a number.</li>
+                <li>Use parentheses where necessary to control the order of operations.</li>
+                <li>Press the ENTER key.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s01_s04">
+        <h2 class="title editable block">Auditing Formulas</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s01_s04_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s01_s04_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.03.xlsx">Excel Objective 2.03</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s04_n01">
+            <h3 class="title">Lesson Video: Auditing Formulas</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/Wr2BJCKs1Mk?rel=0" condition="http://img.youtube.com/vi/Wr2BJCKs1Mk/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/Wr2BJCKs1Mk?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s04_p02">Excel provides a few tools that you can use to review the formulas entered into a worksheet. For example, instead of showing the outputs for the formulas used in a worksheet, you can have Excel show the formula as it was entered in the cell locations. This is demonstrated as follows:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s01_s04_l01">
+            <li>With the <strong class="emphasis bold">Budget Detail</strong> worksheet open, click the Formulas tab of the Ribbon.</li>
+            <li>Click the Show Formulas button in the Formula Auditing group of commands. This displays the formulas in the worksheet instead of showing the mathematical outputs.</li>
+            <li>Click the Show Formulas button again. The worksheet returns to showing the output of the formulas.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s04_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s01_s04_f01">Figure 2.8 "Show Formulas Command"</a> shows the <strong class="emphasis bold">Budget Detail</strong> worksheet after activating the Show Values command in the Formulas tab of the Ribbon. As shown in the figure, this command allows you to view and check all the formulas in a worksheet without having to click each cell individually. After activating this command, the column widths in your worksheet increase significantly. The column widths were adjusted for the worksheet shown in <a class="xref" href="#manzoexcel_1.1-ch02_s01_s04_f01">Figure 2.8 "Show Formulas Command"</a> so all columns can be seen. The column widths return to their previous width when the Show Formulas command is deactivated.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch02_s01_s04_f01">
+            <p class="title"><span class="title-prefix">Figure 2.8</span> Show Formulas Command</p>
+            <img src="section_06/fb5b1b697ab9c6635246b274329973cc.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s04_n02">
+            <h3 class="title">Skill Refresher: Show Formulas</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/zKIS_khEYtA?rel=0" condition="http://img.youtube.com/vi/zKIS_khEYtA/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/zKIS_khEYtA?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_s04_l02">
+                <li>Click the Formulas tab on the Ribbon.</li>
+                <li>Click the Show Formulas button in the Formula Auditing group of commands.</li>
+                <li>Click the Show Formulas button again to show formula outputs.</li>
+            </ol>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s04_n03">
+            <h3 class="title">Mouseless Commands</h3>
+            <p class="simpara">Show Formulas</p>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s01_s04_l03">
+                <li>Hold down the CTRL key while pressing the accent symbol (<strong class="emphasis bold">`</strong>).</li>
+            </ul>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s04_p04">Two other tools in the Formula Auditing group of commands are the Trace Precedents and Trace Dependents commands. These commands are used to trace the cell references used in a formula. The Trace Dependents command shows where any given cell is referenced in a formula. The Trace Precedents command shows what cells have been referenced in a formula that exists in an activated cell. The following is a demonstration of these commands:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s01_s04_l04">
+            <li>Click cell D3 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Click the Trace Dependents button in the Formula Auditing group of commands in the Formulas tab of the Ribbon. A double blue arrow appears, pointing to cell locations C3 and F3 (see <a class="xref" href="#manzoexcel_1.1-ch02_s01_s04_f02">Figure 2.9 "Trace Dependents Example"</a>). This indicates that cell D3 is referenced in formulas that are entered in cells C3 and F3.</li>
+            <li>Click the Remove Arrows command in the Formula Auditing group of commands in the Formulas tab of the Ribbon. This removes the Trace Dependents arrow.</li>
+            <li>Click cell F3 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Click the Trace Precedents button in the Formula Auditing group of commands in the Formulas tab of the Ribbon. A blue arrow running through cells D3 and E3 and pointing to cell F3 appears (see <a class="xref" href="#manzoexcel_1.1-ch02_s01_s04_f03">Figure 2.10 "Trace Precedents Example"</a>). This indicates that cells D3 and E3 are references in a formula entered in cell F3.</li>
+            <li>Click the Remove Arrows command in the Formula Auditing group of commands in the Formulas tab of the Ribbon. This removes the Trace Precedents arrow.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s04_p05"><a class="xref" href="#manzoexcel_1.1-ch02_s01_s04_f02">Figure 2.9 "Trace Dependents Example"</a> shows the Trace Dependents arrow on the <strong class="emphasis bold">Budget Detail</strong> worksheet. The blue dot represents the activated cell. The arrows indicate where the cell is referenced in formulas.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch02_s01_s04_f02">
+            <p class="title"><span class="title-prefix">Figure 2.9</span> Trace Dependents Example</p>
+            <img src="section_06/ccab1082b39a08d8e99635b431a841bb.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s01_s04_p06"><a class="xref" href="#manzoexcel_1.1-ch02_s01_s04_f03">Figure 2.10 "Trace Precedents Example"</a> shows the Trace Precedents arrow on the <strong class="emphasis bold">Budget Detail</strong> worksheet. The blue dots on this arrow indicate the cells that are referenced in the formula contained in the activated cell. The arrow is pointing to the activated cell location that contains the formula.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch02_s01_s04_f03">
+            <p class="title"><span class="title-prefix">Figure 2.10</span> Trace Precedents Example</p>
+            <img src="section_06/541b170cf26fc7064f3d97837953ce85.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s04_n04">
+            <h3 class="title">Skill Refresher: Trace Dependents</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/5b4PeJGMKJ0?rel=0" condition="http://img.youtube.com/vi/5b4PeJGMKJ0/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/5b4PeJGMKJ0?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_s04_l05">
+                <li>Click a cell location that contains a number or formula.</li>
+                <li>Click the Formulas tab on the Ribbon.</li>
+                <li>Click the Trace Dependents button in the Formula Auditing group of commands.</li>
+                <li>Use the arrow(s) to determine where the cell is referenced in formulas and functions.</li>
+                <li>Click the Remove Arrows button to remove the arrows from the worksheet.</li>
+            </ol>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s01_s04_n05">
+            <h3 class="title">Skill Refresher: Trace Precedents</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/SOi9ZAl92cs?rel=0" condition="http://img.youtube.com/vi/SOi9ZAl92cs/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/SOi9ZAl92cs?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_s04_l06">
+                <li>Click a cell location that contains a formula or function.</li>
+                <li>Click the Formulas tab on the Ribbon.</li>
+                <li>Click the Trace Precedents button in the Formula Auditing group of commands.</li>
+                <li>Use the dot(s) along the line to determine what cells are referenced in the formula or function.</li>
+                <li>Click the Remove Arrows button to remove the line with the dots.</li>
+            </ol>
+        </div>
+        <div class="key_takeaways editable block" id="manzoexcel_1.1-ch02_s01_s04_n06">
+            <h3 class="title">Key Takeaways</h3>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s01_s04_l07">
+                <li>Mathematical computations are conducted through formulas and functions.</li>
+                <li>An equal sign (<strong class="emphasis bold">=</strong>) precedes all formulas and functions.</li>
+                <li>Formulas and functions must be created with cell references to conduct what-if scenarios where mathematical outputs are recalculated when one or more inputs are changed.</li>
+                <li>Mathematical operators on a typical calculator are different from those used in Excel. <a class="xref" href="#manzoexcel_1.1-ch02_s01_s01_t02">Table 2.2 "Excel Mathematical Operators"</a> lists Excel mathematical operators.</li>
+                <li>When using numerical values in formulas and functions, only use universal constants that do not change, such as days in a week, months in a year, and so on.</li>
+                <li>Relative referencing automatically adjusts the cell references in formulas and functions when they are pasted into new locations on a worksheet. This eliminates the need to retype formulas and functions when they are needed in multiple rows or columns on a worksheet.</li>
+                <li>Parentheses must be used to control the order of operations when necessary for complex formulas.</li>
+                <li>Formula auditing tools such as Trace Dependents, Trace Precedents, and Show Formulas should be used to check the integrity of formulas that have been entered into a worksheet.</li>
+            </ul>
+        </div>
+        <div class="exercises editable block" id="manzoexcel_1.1-ch02_s01_s04_n07">
+            <h3 class="title">Exercises</h3>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_s04_l08">
+                <li>
+                    <p class="para">Which of the following terms best describes how Excel is able to change the outputs of formulas and functions when one or more inputs are changed?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_s04_l09" numeration="loweralpha">
+                        <li>absolute references</li>
+                        <li>cell references</li>
+                        <li>relative references</li>
+                        <li>dynamic output referencing</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following best describes the proper use of numbers when constructing formulas in Excel?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_s04_l10" numeration="loweralpha">
+                        <li>Numbers cannot be used in the construction of formulas. You can use only cell locations.</li>
+                        <li>You cannot combine numbers and cell locations in a formula. This will produce an error.</li>
+                        <li>Numbers should always be used when creating formulas in Excel.</li>
+                        <li>Numbers should be used when constructing formulas with constants that do not change, such as the days in a week, months in a year, and so on.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following will be calculated first in the formula =((C10−D2)*A9)+B5*C5?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_s04_l11" numeration="loweralpha">
+                        <li>D2*A9</li>
+                        <li>B5*C5</li>
+                        <li>C10−D2</li>
+                        <li>A9 * the result of (C10−D2)</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following formula auditing features would you use if you wanted to see where a specific cell location was referenced in formulas entered into a worksheet?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s01_s04_l12" numeration="loweralpha">
+                        <li>Show Formulas</li>
+                        <li>Trace Precedents</li>
+                        <li>Trace Dependents</li>
+                        <li>Show Cell Reference Mapping</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+  </div>
+  
+  <div id=navbar-bottom class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s05-05-chapter-assignments-and-tests.html"><img src="shared/images/batch-left.png"></a> <a href="s05-05-chapter-assignments-and-tests.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s06-02-statistical-functions.html">Next Section</a> <a href="s06-02-statistical-functions.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="shared/book.js"></script>
+  
+  
+</body>
+</html>

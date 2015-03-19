@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="shared/bookhub.css" rel="stylesheet" type="text/css">
+  <title>Statistical Functions</title>
+</head>
+<body>
+
+  
+  <div id=navbar-top class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s06-01-formulas.html"><img src="shared/images/batch-left.png"></a> <a href="s06-01-formulas.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s06-03-functions-for-personal-finance.html">Next Section</a> <a href="s06-03-functions-for-personal-finance.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  <div id="book-content">
+    <div class="section" id="manzoexcel_1.1-ch02_s02" condition="start-of-chunk" version="5.0" lang="en">
+    <h2 class="title editable block">
+<span class="title-prefix">2.2</span> Statistical Functions</h2>
+    <div class="learning_objectives editable block" id="manzoexcel_1.1-ch02_s02_n01">
+        <h3 class="title">Learning Objectives</h3>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_l01">
+            <li>Use the <strong class="emphasis bold">SUM function</strong> to calculate totals.</li>
+            <li>Use <strong class="emphasis bold">absolute references</strong> to calculate percent of totals.</li>
+            <li>Use the <strong class="emphasis bold">COUNT function</strong> to count cell locations with numerical values.</li>
+            <li>Use the <strong class="emphasis bold">AVERAGE function</strong> to calculate the arithmetic mean.</li>
+            <li>Use the <strong class="emphasis bold">MAX and MIN functions</strong> to find the highest and lowest values in a range of cells.</li>
+            <li>Learn how to copy and paste formulas without formats applied to a cell location.</li>
+            <li>Learn how to set a <strong class="emphasis bold">multiple level sort</strong> sequence for data sets that have duplicate values or outputs.</li>
+        </ol>
+    </div>
+    <p class="para editable block" id="manzoexcel_1.1-ch02_s02_p01">In addition to formulas, another way to conduct mathematical computations in Excel is through functions. Statistical functions apply a mathematical process to a group of cells in a worksheet. For example, the SUM function is used to add the values contained in a range of cells. A list of commonly used statistical functions is shown in <a class="xref" href="#manzoexcel_1.1-ch02_s02_t01">Table 2.4 "Commonly Used Statistical Functions"</a>. Functions are more efficient than formulas when you are applying a mathematical process to a group of cells. If you use a formula to add the values in a range of cells, you would have to add each cell location to the formula one at a time. This can be very time-consuming if you have to add the values in a few hundred cell locations. However, when you use a function, you can highlight all the cells that contain values you wish to sum in just one step. This section demonstrates a variety of statistical functions that we will add to the Personal Budget workbook. In addition to demonstrating functions, this section also reviews percent of total calculations and the use of absolute references.</p>
+    <div class="table block" id="manzoexcel_1.1-ch02_s02_t01" frame="all">
+        <p class="title"><span class="title-prefix">Table 2.4</span> Commonly Used Statistical Functions</p>
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong class="emphasis bold">ABS</strong></td>
+                    <td>The absolute value of a number</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">AVERAGE</strong></td>
+                    <td>The average or arithmetic mean for a group of numbers</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">COUNT</strong></td>
+                    <td>The number of cell locations in a range that contain a numeric character</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">COUNTA</strong></td>
+                    <td>The number of cell locations in a range that contain a text or numeric character</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">MAX</strong></td>
+                    <td>The highest numeric value in a group of numbers</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">MEDIAN</strong></td>
+                    <td>The middle number in a group of numbers (half the numbers in the group are higher than the median and half the numbers in the group are lower than the median)</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">MIN</strong></td>
+                    <td>The lowest numeric value in a group of numbers</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">MODE</strong></td>
+                    <td>The number that appears most frequently in a group of numbers</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">PRODUCT</strong></td>
+                    <td>The result of multiplying all the values in a range of cell locations</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">SQRT</strong></td>
+                    <td>The positive square root of a number</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">STDEV.S</strong></td>
+                    <td>The standard deviation for a group of numbers based on a sample</td>
+                </tr>
+                <tr>
+                    <td><strong class="emphasis bold">SUM</strong></td>
+                    <td>The total of all numeric values in a group</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s02_s01">
+        <h2 class="title editable block">The SUM Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s02_s01_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s02_s01_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.03.xlsx">Excel Objective 2.03</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s01_n01">
+            <h3 class="title">Lesson Video: SUM Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/TdU1R23ZRg0?rel=0" condition="http://img.youtube.com/vi/TdU1R23ZRg0/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/TdU1R23ZRg0?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s01_p02">The SUM function is used when you need to calculate totals for a range of cells or a group of selected cells on a worksheet. With regard to the <strong class="emphasis bold">Budget Detail</strong> worksheet, we will use the SUM function to calculate the totals in row 12. It is important to note that there are several methods for adding a function to a worksheet, which will be demonstrated throughout the remainder of this chapter. The following illustrates how a function can be added to a worksheet by typing it into a cell location:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s02_s01_l01">
+            <li>Click the <strong class="emphasis bold">Budget Detail</strong> worksheet tab to open the worksheet.</li>
+            <li>Click cell C12.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the function name <strong class="emphasis bold">SUM</strong>.</li>
+            <li>Type an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Click cell C3 and drag down to cell C11. This places the range C3:C11 into the function.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>Press the ENTER key. The function calculates the total for the Monthly Spend column, which is $1,496.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s01_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s01_f01">Figure 2.11 "Adding the SUM Function to the Budget Detail Worksheet"</a> shows the appearance of the SUM function added to the <strong class="emphasis bold">Budget Detail</strong> worksheet before pressing the ENTER key.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s01_f01">
+            <p class="title"><span class="title-prefix">Figure 2.11</span> Adding the SUM Function to the Budget Detail Worksheet</p>
+            <img src="section_06/7902287923ec3197f688a8c3e90c3c5d.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s01_p04">As shown in <a class="xref" href="#manzoexcel_1.1-ch02_s02_s01_f01">Figure 2.11 "Adding the SUM Function to the Budget Detail Worksheet"</a>, the SUM function was added to cell C12. However, this function is also needed to calculate the totals in the Annual Spend and LY Spend columns. The function can be copied and pasted into these cell locations because of relative referencing. Relative referencing serves the same purpose for functions as it does for formulas. The following demonstrates how the total row is completed:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s02_s01_l02">
+            <li>Click cell C12 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Click the Copy button in the Home tab of the Ribbon.</li>
+            <li>Highlight cells D12 and E12.</li>
+            <li>Click the Paste button in the Home tab of the Ribbon. This pastes the SUM function into cells D12 and E12 and calculates the totals for these columns.</li>
+            <li>Click cell F11.</li>
+            <li>Click the Copy button in the Home tab of the Ribbon.</li>
+            <li>Click cell F12, then click the Paste button in the Home tab of the Ribbon. Since we now have totals in row 12, we can paste the percent change formula into this row.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s01_p05"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s01_f02">Figure 2.12 "Results of the SUM Function in the Budget Detail Worksheet"</a> shows the output of the SUM function that was added to cells C12, D12, and E12. In addition, the percent change formula was copied and pasted into cell F12. Notice that this version of the budget is planning a 1.7% decrease in spending compared to last year.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s01_f02">
+            <p class="title"><span class="title-prefix">Figure 2.12</span> Results of the SUM Function in the Budget Detail Worksheet</p>
+            <img src="section_06/e42df1b4c4d1b12b4eb8585d6591733b.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s01_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Cell Ranges in Statistical Functions</p>
+            <p class="para" id="manzoexcel_1.1-ch02_s02_s01_p06">When you intend to use a statistical function on a range of cells in a worksheet, make sure there are two cell locations separated by a colon and not a comma. If you enter two cell locations separated by a comma, the function will produce an output but it will be applied to only two cell locations instead of a range of cells. For example, the SUM function shown in <a class="xref" href="#manzoexcel_1.1-ch02_s02_s01_f03">Figure 2.13 "SUM Function Adding Two Cell Locations"</a> will add only the values in cells C3 and C11, not the range C3:C11.</p>
+        </div>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s01_f03">
+            <p class="title"><span class="title-prefix">Figure 2.13</span> SUM Function Adding Two Cell Locations</p>
+            <img src="section_06/2f5137748fa946f35fb4dbc2aaf110db.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s02_s02">
+        <h2 class="title editable block">Absolute References (Calculating Percent of Totals)</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s02_s02_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s02_s02_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.04.xlsx">Excel Objective 2.04</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s02_n01">
+            <h3 class="title">Lesson Video: Absolute References</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/nMGBekqxEXA?rel=0" condition="http://img.youtube.com/vi/nMGBekqxEXA/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/nMGBekqxEXA?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s02_p02">Since totals were added to row 12 of the <strong class="emphasis bold">Budget Detail</strong> worksheet, a percent of total calculation can be added to Column B beginning in cell B3. The percent of total calculation shows the percentage for each value in the Annual Spend column with respect to the total in cell D12. However, after the formula is created, it will be necessary to turn off Excel’s relative referencing feature before copying and pasting the formula to the rest of the cell locations in the column. Turning off Excel’s relative referencing feature is accomplished through an absolute reference. The following steps explain how this is done:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s02_s02_l01">
+            <li>Click cell B3 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Click cell D3.</li>
+            <li>Type a forward slash (<strong class="emphasis bold">/</strong>).</li>
+            <li>Click cell D12.</li>
+            <li>Press the ENTER key. You will see that Household Utilities represents 16.7% of the Annual Spend budget (see <a class="xref" href="#manzoexcel_1.1-ch02_s02_s02_f01">Figure 2.14 "Adding a Formula to Calculate the Percent of Total"</a>).</li>
+        </ol>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s02_f01">
+            <p class="title"><span class="title-prefix">Figure 2.14</span> Adding a Formula to Calculate the Percent of Total</p>
+            <img src="section_06/cf0d13864530d1a9072f819fd21972e6.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s02_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s02_f01">Figure 2.14 "Adding a Formula to Calculate the Percent of Total"</a> shows the completed formula that is calculating the percentage that Household Utilities Annual Spend represents to the total Annual Spend for the budget (see cell B3). Normally, we would copy this formula and paste it into the range B4:B11. However, because of relative referencing, both cell references will increase by one row as the formula is pasted into the cells below B3. This is fine for the first cell reference in the formula (D3) but not for the second cell reference (D12). <a class="xref" href="#manzoexcel_1.1-ch02_s02_s02_f02">Figure 2.15 "#DIV/0 Error from Relative Referencing"</a> illustrates what happens if we paste the formula into the range B4:B12 in its current state. Notice that Excel produces the <span class="margin_term"><a class="glossterm">#DIV/0</a><span class="glossdef">Error code displayed in a cell containing a formula or function that is trying to divide by zero.</span></span> error code. This means that Excel is trying to divide a number by zero, which is impossible. Looking at the formula in cell B4, you see that the first cell reference was changed from D3 to D4. This is fine because we now want to divide the Annual Spend for Insurance by the total Annual Spend in cell D12. However, Excel has also changed the D12 cell reference to D13. Because cell location D13 is blank, the formula produces the #DIV/0 error code.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s02_f02">
+            <p class="title"><span class="title-prefix">Figure 2.15</span> #DIV/0 Error from Relative Referencing</p>
+            <img src="section_06/893f39e3b6e20ef72515a61ae6052bd3.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s02_p04">To eliminate the divide-by-zero error shown in <a class="xref" href="#manzoexcel_1.1-ch02_s02_s02_f02">Figure 2.15 "#DIV/0 Error from Relative Referencing"</a>, we must add an absolute reference to cell D12 in the formula. An <span class="margin_term"><a class="glossterm">absolute reference</a><span class="glossdef">Prevents Excel from using relative referencing to change a cell reference used in a formula or function; an absolute reference is applied to a cell reference by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number.</span></span> prevents relative referencing from changing a cell reference in a formula. This is also referred to as <em class="emphasis">locking a cell</em>. The following explains how this is accomplished:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s02_s02_l02">
+            <li>Double click cell B3.</li>
+            <li>Place the mouse pointer in front of D12 and click. The blinking cursor should be in front of the D in the cell reference D12.</li>
+            <li>Press the F4 key. You will see a dollar sign (<strong class="emphasis bold">$</strong>) added in front of the column letter D and the row number 12. You can also type the dollar signs in front of the column letter and row number.</li>
+            <li>Press the ENTER key.</li>
+            <li>Click cell B3.</li>
+            <li>Click the Copy button in the Home tab of the Ribbon.</li>
+            <li>Highlight the range B4:B11.</li>
+            <li>Click the Paste button in the Home tab of the Ribbon.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s02_p05"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s02_f03">Figure 2.16 "Adding an Absolute Reference to a Cell Reference in a Formula"</a> shows the percent of total formula with an absolute reference added to D12. Notice that in cell B4, the cell reference remains D12 instead of changing to D13 as shown in <a class="xref" href="#manzoexcel_1.1-ch02_s02_s02_f02">Figure 2.15 "#DIV/0 Error from Relative Referencing"</a>. Also, you will see that the percentages are being calculated in the rest of the cells in the column, and the divide-by-zero error is now eliminated.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s02_f03">
+            <p class="title"><span class="title-prefix">Figure 2.16</span> Adding an Absolute Reference to a Cell Reference in a Formula</p>
+            <img src="section_06/a2eb8aeb2f1528316bd55d5850b36ca9.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s02_n02">
+            <h3 class="title">Skill Refresher: Absolute References</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/Kry_8RPeR7E?rel=0" condition="http://img.youtube.com/vi/Kry_8RPeR7E/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/Kry_8RPeR7E?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_s02_l03">
+                <li>Click in front of the column letter of a cell reference in a formula or function that you do not want altered when the formula or function is pasted into a new cell location.</li>
+                <li>Press the F4 key or type a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number of the cell reference.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s02_s03">
+        <h2 class="title editable block">The COUNT Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s02_s03_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s02_s03_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.05.xlsx">Excel Objective 2.05</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s03_n01">
+            <h3 class="title">Lesson Video: COUNT Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/gK5AMN_2L_A?rel=0" condition="http://img.youtube.com/vi/gK5AMN_2L_A/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/gK5AMN_2L_A?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s03_p02">The next function that we will add to the <strong class="emphasis bold">Budget Detail</strong> worksheet is the COUNT function. The COUNT function is used to determine how many cells in a range contain a numeric entry. For the <strong class="emphasis bold">Budget Detail</strong> worksheet, we will use the COUNT function to count the number of items that are planned in the Annual Spend column (Column D). The following explains how the COUNT function is added to the worksheet by using the function list:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s02_s03_l01">
+            <li>Click cell D13 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the letter <strong class="emphasis bold">C</strong>.</li>
+            <li>Click the down arrow on the scroll bar of the function list (see <a class="xref" href="#manzoexcel_1.1-ch02_s02_s03_f01">Figure 2.17 "Using the Function List to Add the COUNT Function"</a>) and find the word <em class="emphasis">COUNT</em>.</li>
+            <li>Double click the word <em class="emphasis">COUNT</em> from the function list.</li>
+            <li>Highlight the range D3:D11.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>Press the ENTER key. The function produces an output of 9 since there are 9 items planned on the worksheet.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s03_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s03_f01">Figure 2.17 "Using the Function List to Add the COUNT Function"</a> shows the function list box that appears after completing steps 2 and 3 for the COUNT function. The function list provides an alternative method for adding a function to a worksheet.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s03_f01">
+            <p class="title"><span class="title-prefix">Figure 2.17</span> Using the Function List to Add the COUNT Function</p>
+            <img src="section_06/b5ef28bf29f599bf3ead395e84eb5d67.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s03_p04"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s03_f02">Figure 2.18 "Completed COUNT Function in the Budget Detail Worksheet"</a> shows the output of the COUNT function after pressing the ENTER key. The function counts the number of cells in the range D3:D11 that contain a numeric value. The result of 9 indicates that there are 9 categories planned for this budget.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s03_f02">
+            <p class="title"><span class="title-prefix">Figure 2.18</span> Completed COUNT Function in the Budget Detail Worksheet</p>
+            <img src="section_06/87a81ed44630330ead98a654de675538.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s02_s04">
+        <h2 class="title editable block">The AVERAGE Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s02_s04_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s02_s04_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.06.xlsx">Excel Objective 2.06</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s04_n01">
+            <h3 class="title">Lesson Video: AVERAGE Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/gqiRSv9Micg?rel=0" condition="http://img.youtube.com/vi/gqiRSv9Micg/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/gqiRSv9Micg?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s04_p02">The next function we will add to the <strong class="emphasis bold">Budget Detail</strong> worksheet is the AVERAGE function. This function is used to calculate the arithmetic mean for a group of numbers. For the <strong class="emphasis bold">Budget Detail</strong> worksheet, we will use the function to calculate the average of the values in the Annual Spend column. We will add this to the worksheet by using the Function Library. The following steps explain how this is accomplished:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s02_s04_l01">
+            <li>Click cell D14 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the More Functions button in the Function Library group of commands.</li>
+            <li>Place the mouse pointer over the Statistical option from the drop-down list of options.</li>
+            <li>Click the AVERAGE function name from the list of functions that appear in the menu (see <a class="xref" href="#manzoexcel_1.1-ch02_s02_s04_f01">Figure 2.19 "Selecting the AVERAGE Function from the Function Library"</a>). This opens the Function Arguments dialog box.</li>
+            <li>Click the Collapse Dialog button in the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch02_s02_s04_f02">Figure 2.20 "Function Arguments Dialog Box"</a>).</li>
+            <li>Highlight the range D3:D11.</li>
+            <li>Click the Expand Dialog button in the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch02_s02_s04_f03">Figure 2.21 "Selecting a Range from the Function Arguments Dialog Box"</a>). You can also press the ENTER key to get the same result.</li>
+            <li>Click the OK button on the Function Arguments dialog box. This adds the AVERAGE function to the worksheet.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s04_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s04_f01">Figure 2.19 "Selecting the AVERAGE Function from the Function Library"</a> illustrates how a function is selected from the Function Library in the Formulas tab of the Ribbon.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch02_s02_s04_f01">
+            <p class="title"><span class="title-prefix">Figure 2.19</span> Selecting the AVERAGE Function from the Function Library</p>
+            <img src="section_06/59e1d3aff51bea167a31542b781a744b.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s04_p04"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s04_f02">Figure 2.20 "Function Arguments Dialog Box"</a> shows the Function Arguments dialog box. This appears after a function is selected from the Function Library. The Collapse Dialog button is used to hide the dialog box so a range of cells can be highlighted on the worksheet and then added to the function.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s04_f02">
+            <p class="title"><span class="title-prefix">Figure 2.20</span> Function Arguments Dialog Box</p>
+            <img src="section_06/d731a18c9d80865ede5d40c2b79a1086.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s04_p05"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s04_f03">Figure 2.21 "Selecting a Range from the Function Arguments Dialog Box"</a> shows how a range of cells can be selected from the Function Arguments dialog box once it has been collapsed.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s04_f03">
+            <p class="title"><span class="title-prefix">Figure 2.21</span> Selecting a Range from the Function Arguments Dialog Box</p>
+            <img src="section_06/b0b9126636f2ad5fd265447584dd8924.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s04_p06"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s04_f04">Figure 2.22 "Function Arguments Dialog Box after a Cell Range Is Defined for a Function"</a> shows the Function Arguments dialog box after the cell range is defined for the AVERAGE function. The dialog box shows the result of the function before it is added to the cell location. This allows you to assess the function output to determine whether it makes sense before adding it to the worksheet.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s04_f04">
+            <p class="title"><span class="title-prefix">Figure 2.22</span> Function Arguments Dialog Box after a Cell Range Is Defined for a Function</p>
+            <img src="section_06/08dfa2861aff1bccd0ee6d89f7ff9ce6.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s04_p07"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s04_f05">Figure 2.23 "Completed AVERAGE Function"</a> shows the completed AVERAGE function in the <strong class="emphasis bold">Budget Detail</strong> worksheet. The output of the function shows that on average we expect to spend $1,994 for each of the categories listed in Column A of the budget. This average spend calculation per category can be used as an indicator to determine which categories are costing more or less than the average budgeted spend dollars.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s04_f05">
+            <p class="title"><span class="title-prefix">Figure 2.23</span> Completed AVERAGE Function</p>
+            <img src="section_06/00584fe3832cdc8051dcc396551b6462.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s02_s05">
+        <h2 class="title editable block">The MAX and MIN Functions</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s02_s05_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s02_s05_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.07.xlsx">Excel Objective 2.07</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s05_n01">
+            <h3 class="title">Lesson Video: MAX and MIN Functions</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/p8RGLa9fLkU?rel=0" condition="http://img.youtube.com/vi/p8RGLa9fLkU/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/p8RGLa9fLkU?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s05_p02">The final two statistical functions that we will add to the <strong class="emphasis bold">Budget Detail</strong> worksheet are the MAX and MIN functions. These functions identify the highest and lowest values in a range of cells. The following steps explain how to add these functions to the <strong class="emphasis bold">Budget Detail</strong> worksheet:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s02_s05_l01">
+            <li>Click cell D15 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the word <strong class="emphasis bold">MIN</strong>.</li>
+            <li>Type an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Highlight the range D3:D11.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>Press the ENTER key. The MIN function produces an output of $1,200, which is the lowest value in the Annual Spend column (see <a class="xref" href="#manzoexcel_1.1-ch02_s02_s05_f01">Figure 2.24 "MIN Function Added to the Budget Detail Worksheet"</a>).</li>
+            <li>Click cell D16.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the word <strong class="emphasis bold">MAX</strong>.</li>
+            <li>Type an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Highlight the range D3:D11.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>Press the ENTER key. The MAX function produces an output of $3,500. This is the highest value in the Annual Spend column (see <a class="xref" href="#manzoexcel_1.1-ch02_s02_s05_f02">Figure 2.25 "MAX Function Added to the Budget Detail Worksheet"</a>).</li>
+        </ol>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch02_s02_s05_f01">
+            <p class="title"><span class="title-prefix">Figure 2.24</span> MIN Function Added to the Budget Detail Worksheet</p>
+            <img src="section_06/4e7bf258fa51cc30c5acfeb9ffb1b7b5.jpg">
+        </div>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s05_f02">
+            <p class="title"><span class="title-prefix">Figure 2.25</span> MAX Function Added to the Budget Detail Worksheet</p>
+            <img src="section_06/c4e0ea1e475cda53f62033ac26ff19a6.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s05_n02">
+            <h3 class="title">Skill Refresher: Statistical Functions</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/meDPNKNxZfQ?rel=0" condition="http://img.youtube.com/vi/meDPNKNxZfQ/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/meDPNKNxZfQ?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_s05_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name followed by an open parenthesis (<strong class="emphasis bold">(</strong>) or double click the function name from the function list.</li>
+                <li>Highlight a range on a worksheet or click individual cell locations followed by commas.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s02_s06">
+        <h2 class="title editable block">Copy and Paste Formulas (Pasting without Formats)</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s02_s06_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s02_s06_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.08.xlsx">Excel Objective 2.08</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s06_n01">
+            <h3 class="title">Lesson Video: Paste Special (Paste without Formats)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/fEQKHbCmFx0?rel=0" condition="http://img.youtube.com/vi/fEQKHbCmFx0/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/fEQKHbCmFx0?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s06_p02">As shown in <a class="xref" href="#manzoexcel_1.1-ch02_s02_s05_f02">Figure 2.25 "MAX Function Added to the Budget Detail Worksheet"</a>, the COUNT, AVERAGE, MIN, and MAX functions are summarizing the data in the Annual Spend column. You will also notice that there is space to copy and paste these functions under the LY Spend column. This allows us to compare what we spent last year and what we are planning to spend this year. Normally, we would simply copy and paste these functions into the range E13:E16. However, you may have noticed the double-line style border that was used around the perimeter of the range B13:E16. If we used the regular Paste command, the double line on the right side of the range E13:E16 would be replaced with a single line. Therefore, we are going to use one of the Paste Special commands to paste only the functions without any of the formatting treatments. This is accomplished through the following steps:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s02_s06_l01">
+            <li>Highlight the range D13:D16 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Click the Copy button in the Home tab of the Ribbon.</li>
+            <li>Click cell E13.</li>
+            <li>Click the down arrow below the Paste button in the Home tab of the Ribbon.</li>
+            <li>Click the Formulas option from the drop-down list of buttons (see <a class="xref" href="#manzoexcel_1.1-ch02_s02_s06_f01">Figure 2.26 "Paste Formulas Option"</a>).</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s06_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s06_f01">Figure 2.26 "Paste Formulas Option"</a> shows the list of buttons that appear when you click the down arrow below the Paste button in the Home tab of the Ribbon. One thing to note about these options is that you can preview them before you make a selection by dragging the mouse pointer over the options. As shown in the figure, when the mouse pointer is placed over the Formulas button, you can see how the functions will appear before making a selection. Notice that the double-line border does not change when this option is previewed. That is why this selection is made instead of the regular Paste option.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s06_f01">
+            <p class="title"><span class="title-prefix">Figure 2.26</span> Paste Formulas Option</p>
+            <img src="section_06/a164b8edce2e38c80f117bbc776d12ac.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s06_n02">
+            <h3 class="title">Skill Refresher: Paste Formulas</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/CzhwqqPUWPI?rel=0" condition="http://img.youtube.com/vi/CzhwqqPUWPI/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/CzhwqqPUWPI?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_s06_l02">
+                <li>Click a cell location containing a formula or function.</li>
+                <li>Click the Copy button in the Home tab of the Ribbon.</li>
+                <li>Click the cell location or cell range where the formula or function will be pasted.</li>
+                <li>Click the down arrow below the Paste button in the Home tab of the Ribbon.</li>
+                <li>Click the Formulas button under the Paste group of buttons.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s02_s07">
+        <h2 class="title editable block">Sorting Data (Multiple Levels)</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s02_s07_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s02_s07_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.09.xlsx">Excel Objective 2.09</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s07_n01">
+            <h3 class="title">Lesson Video: Sorting Data (Multiple Levels)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/HFP8XTcaHaY?rel=0" condition="http://img.youtube.com/vi/HFP8XTcaHaY/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/HFP8XTcaHaY?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s07_p02">The <strong class="emphasis bold">Budget Detail</strong> worksheet shown in <a class="xref" href="#manzoexcel_1.1-ch02_s02_s06_f01">Figure 2.26 "Paste Formulas Option"</a> is now producing several mathematical outputs through formulas and functions. The outputs allow you to analyze the details and identify trends as to how money is being budgeted and spent. Before we draw some conclusions from this worksheet, we will sort the data based on the Percent of Total column. As mentioned in <a class="xref" href="manzoexcel_1.1-ch01#manzoexcel_1.1-ch01">Chapter 1 "Fundamental Skills"</a>, sorting is a powerful tool that enables you to analyze key trends in any data set. We demonstrated the process of executing a single-level sort in <a class="xref" href="manzoexcel_1.1-ch01#manzoexcel_1.1-ch01">Chapter 1 "Fundamental Skills"</a>. For the purposes of the <strong class="emphasis bold">Budget Detail</strong> worksheet, we need to set multiple levels for the sort order. This is accomplished through the following steps:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch02_s02_s07_l01">
+            <li>Highlight the range A2:F11 in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Click the Data tab in the Ribbon.</li>
+            <li>
+                <p class="para">Click the Sort button in the Sort &amp; Filter group of commands. This opens the Sort dialog box, as shown in <a class="xref" href="#manzoexcel_1.1-ch02_s02_s07_f01">Figure 2.27 "Sort Dialog Box"</a>.</p>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch02_s02_s07_f01">
+                <p class="title"><span class="title-prefix">Figure 2.27</span> Sort Dialog Box</p>
+                    <img src="section_06/fd5a38fa10aa03b28e405b269768c047.jpg">
+                </div>
+            </li>
+            <li>Click the down arrow next to the “Sort by” box.</li>
+            <li>Click the Percent of Total option from the drop-down list.</li>
+            <li>Click the down arrow next to the sort Order box.</li>
+            <li>Click the Largest to Smallest option.</li>
+            <li>Click the Add Level button. This allows you to set a second level for any duplicate values in the Percent of Total column.</li>
+            <li>Click the down arrow next to the “Then by” box.</li>
+            <li>Select the LY Spend option.</li>
+            <li>Click the OK button at the bottom of the Sort dialog box.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s07_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s02_s07_f02">Figure 2.28 "Budget Detail Worksheet after Sorting"</a> shows the <strong class="emphasis bold">Budget Detail</strong> worksheet after it has been sorted. Notice that there are three identical values in the Percent of Total column. This is why a second sort level had to be created for this worksheet. The second sort level arranges the values of 8.4% based on the values in the LY Spend column in ascending order. Excel gives you the option to set as many sort levels as necessary for the data contained in a worksheet.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s02_s07_f02">
+            <p class="title"><span class="title-prefix">Figure 2.28</span> Budget Detail Worksheet after Sorting</p>
+            <img src="section_06/dc5bb8222052c536e26b912c69a96b0f.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s02_s07_n02">
+            <h3 class="title">Skill Refresher: Sorting Data (Multiple Levels)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/O5-J8VTFn6c?rel=0" condition="http://img.youtube.com/vi/O5-J8VTFn6c/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/O5-J8VTFn6c?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_s07_l02">
+                <li>Highlight a range of cells to be sorted.</li>
+                <li>Click the Data tab of the Ribbon.</li>
+                <li>Click the Sort button in the Sort &amp; Filter group.</li>
+                <li>Select a column from the “Sort by” drop-down list in the Sort dialog box.</li>
+                <li>Select a sort order from the Order drop-down list in the Sort dialog box.</li>
+                <li>Click the Add button in the Sort dialog box.</li>
+                <li>Repeat Steps 4 and 5.</li>
+                <li>Click the OK button on the Sort dialog box.</li>
+            </ol>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s07_p04">Now that the <strong class="emphasis bold">Budget Detail</strong> worksheet is sorted, a few key trends can be easily identified. The worksheet clearly shows that the top three categories as a percentage of total budgeted spending for the year are Taxes, Household Utilities, and Food. All three categories are necessities (or realities) of life and typically require a significant amount of income for most households. Looking at the Percent Change column, we can see how our planned spending is expected to change from last year. This is perhaps the most import column on the worksheet because it allows you to assess whether your plan is realistic. You will see that there are no changes planned for Taxes and Household Utilities. While Taxes can change from year to year, it is not too difficult to predict what they will be. In this case, we are assuming that there are no changes to the tax costs for our budget. We are also planning no change in Household Utilities. These costs can fluctuate from year to year as well. However, you can take measures to reduce costs, such as using less electricity, turning off heat when no one is in the house, keeping track of your wireless minutes so you do not go over the maximum allowed in your plan, and so on. As a result, there is no change in planned spending for Household Utilities because we will assume that any rate increases will be offset with a decrease in usage. The third item that is planned not to change is Insurance. Insurance policies for cars and homes can change, but as is true for taxes, the changes are predictable. Therefore, we are assuming no changes in our insurance policy.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s07_p05">The first big change that is noticeable in the worksheet is the Food and Entertainment categories in rows 5 and 6 (see definitions in <a class="xref" href="manzoexcel_1.1-ch02_s01#manzoexcel_1.1-ch02_s01_s01_t01">Table 2.1 "Spend Category Definitions"</a>). The Percent Change column indicates that there is an 11.1% decrease in Entertainment spending and an 11.1% increase in Food spending. This is logical because if you plan to eat in restaurants less frequently, you will be eating at home more frequently. Although this makes sense in theory, it may be hard to do in practice. Dinners and parties with friends may be tough to turn down. However, the entire process of maintaining a budget is based on discipline, and it certainly takes a significant amount of discipline to plan targets for yourself and stick to them.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s07_p06">A few other points to note are the changes in the Gasoline and Vacation categories. If you commute to school or work, the price of gas can have a significant impact on your budget. It is important to be realistic if gas prices are increasing, and you should reflect these increases in your budget. To compensate for the increased spending for gas, the spending plan for vacations has been reduced by 25%. Budgeting often requires a certain degree of creativity. Although the Vacation budget has been reduced, there is still money you can set aside to make plans for spring break or winter break.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s02_s07_p07">Finally, the budget shows a decrease in Miscellaneous spending of 19.8%. This was defined as a group containing several expenses, such as textbooks, school supplies, software updates, and so on (see <a class="xref" href="manzoexcel_1.1-ch02_s01#manzoexcel_1.1-ch02_s01_s01_t01">Table 2.1 "Spend Category Definitions"</a>). You may be able to reduce your spending in this category if you can use items such as online textbooks. This reduction in spending can free up funds for Clothes, a spend category that has increased by 20%. We will continue to develop the Personal Budget workbook further in <a class="xref" href="manzoexcel_1.1-ch02_s03#manzoexcel_1.1-ch02_s03">Section 2.3 "Functions for Personal Finance"</a>.</p>
+        <div class="key_takeaways editable block" id="manzoexcel_1.1-ch02_s02_s07_n03">
+            <h3 class="title">Key Takeaways</h3>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s02_s07_l03">
+                <li>Statistical functions are used when a mathematical process is required for a range of cells, such as summing the values in several cell locations. For these computations, functions are preferable to formulas because adding many cell locations one at a time to a formula can be very time-consuming.</li>
+                <li>Statistical functions can be created using cell ranges or selected cell locations separated by commas. Make sure you use a cell range (two cell locations separated by a colon) when applying a statistical function to a contiguous range of cells.</li>
+                <li>To prevent Excel from changing the cell references in a formula or function when they are pasted to a new cell location, you must use an absolute reference. You can do this by placing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number of a cell reference.</li>
+                <li>The #DIV/0 error appears if you create a formula that attempts to divide a constant or the value in a cell reference by zero.</li>
+                <li>The Paste Formulas option is used when you need to paste formulas without any formatting treatments into cell locations that have already been formatted.</li>
+                <li>You need to set multiple levels, or columns, in the Sort dialog box when sorting data that contains several duplicate values.</li>
+            </ul>
+        </div>
+        <div class="exercises editable block" id="manzoexcel_1.1-ch02_s02_s07_n04">
+            <h3 class="title">Exercises</h3>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_s07_l04">
+                <li>
+                    <p class="para">In the formula =C2/$C$24, the dollar signs used in the C24 cell reference indicate:</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_s07_l05" numeration="loweralpha">
+                        <li>Relative referencing has been turned off for this cell reference.</li>
+                        <li>Any value entered into cell C24 will be formatted with US currency.</li>
+                        <li>The output of the formula will be formatted with US currency.</li>
+                        <li>The value currently in C24 cannot be changed.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which statement best explains how the following function will produce a result =AVERAGE(B1,B10)?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_s07_l06" numeration="loweralpha">
+                        <li>The function will calculate the average for the values in B1 and B10.</li>
+                        <li>The function will calculate the average for the values in all cell locations in the range B1 through and including B10.</li>
+                        <li>Commas cannot be used in statistical functions. The function cannot produce an output and will display the #DIV/0 error code.</li>
+                        <li>The function will take the average of cell B1 based on the value that is entered into cell B10.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following best explains the purpose of the Paste Formulas command?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_s07_l07" numeration="loweralpha">
+                        <li>You cannot use the regular Paste command for formulas and functions. You need to use the Paste Formulas command when you copy and paste a formula or function to additional cell locations on a worksheet.</li>
+                        <li>You would use the Paste Formulas command when you want to show the formula or function in a cell location and not the calculated output.</li>
+                        <li>You would use the Paste Formulas command when you want to paste only the formula or function to a new cell location without the formatting treatments that were applied to the copied cell location.</li>
+                        <li>The Paste Formulas command is required if you want to paste a formula into multiple cell locations on a worksheet.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following explains how data in a worksheet can be sorted if the primary column of data contains several duplicate values?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s02_s07_l08" numeration="loweralpha">
+                        <li>You can only sort data based on the values in one column. Excel will take the duplicate values and sort them in the order in which they were entered into the worksheet.</li>
+                        <li>Excel will sort any duplicate values in the primary column based on the values one column to the right in ascending order.</li>
+                        <li>You can click the Add button in the Sort dialog box and designate which column Excel should use to sort any duplicate values in the primary column.</li>
+                        <li>You would sort each column in the worksheet one at a time.</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+  </div>
+  
+  <div id=navbar-bottom class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s06-01-formulas.html"><img src="shared/images/batch-left.png"></a> <a href="s06-01-formulas.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s06-03-functions-for-personal-finance.html">Next Section</a> <a href="s06-03-functions-for-personal-finance.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="shared/book.js"></script>
+  
+  
+</body>
+</html>

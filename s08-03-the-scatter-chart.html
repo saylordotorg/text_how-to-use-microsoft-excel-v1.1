@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="shared/bookhub.css" rel="stylesheet" type="text/css">
+  <title>The Scatter Chart</title>
+</head>
+<body>
+
+  
+  <div id=navbar-top class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s08-02-formatting-charts.html"><img src="shared/images/batch-left.png"></a> <a href="s08-02-formatting-charts.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s08-04-using-charts-with-microsoft-wo.html">Next Section</a> <a href="s08-04-using-charts-with-microsoft-wo.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  <div id="book-content">
+    <div class="section" id="manzoexcel_1.1-ch04_s03" condition="start-of-chunk" version="5.0" lang="en">
+    <h2 class="title editable block">
+<span class="title-prefix">4.3</span> The Scatter Chart</h2>
+    <div class="learning_objectives editable block" id="manzoexcel_1.1-ch04_s03_n01">
+        <h3 class="title">Learning Objectives</h3>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch04_s03_l01">
+            <li>Construct a scatter chart to show the supply and demand curves for a market.</li>
+            <li>Learn how to adjust the scale of the X and Y axes of a scatter chart.</li>
+            <li>Add a trendline and line equation to a data series on a scatter chart.</li>
+        </ol>
+    </div>
+    <p class="para editable block" id="manzoexcel_1.1-ch04_s03_p01">This section focuses on the <span class="margin_term"><a class="glossterm">scatter chart</a><span class="glossdef">Chart used when quantitative or numeric values are required for both the X and Y axes.</span></span> type. What makes this chart different from the other charts demonstrated in this chapter is that values are used on both the X and Y axes. So far, the charts we have demonstrated in this chapter use categories or qualitative labels for the X axis. This means that the distance between each category on the X axis will always be the same, even if numbers are used. In a scatter chart, the X axis operates just like the Y axis. In other words, the distance between the values on the X axis will vary depending on the value of the number. Depending on the format, we can create the scatter chart to look just like a line chart. Since both the X and Y axes contain quantitative values, the scatter chart is a valuable tool for studying various shapes or functional forms for a line chart. In fact, a common feature used with the scatter chart is the trendline and equation. Excel can evaluate the line that is produced on a scatter chart and produce a mathematical equation. We will demonstrate these features in this section.</p>
+    <div class="section" id="manzoexcel_1.1-ch04_s03_s01">
+        <h2 class="title editable block">Supply and Demand: The Scatter Chart</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s03_s01_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s03_s01_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.14.xlsx">Excel Objective 4.14</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s03_s01_n01">
+            <h3 class="title">Lesson Video: Supply and Demand (Scatter Chart)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/PLmRcGRmhKc?rel=0" condition="http://img.youtube.com/vi/PLmRcGRmhKc/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/PLmRcGRmhKc?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s03_s01_p02">A common use for a scatter chart is the study of supply and demand curves. This is because the data points for both the supply and demand lines require quantitative values on both the X and Y axes. The Y axis contains the price of a certain good or item; the X axis contains the quantity sold for that good or item. Fundamental economic laws state that as prices rise, sellers are willing to increase supply and sell more goods. However, the reverse is true for consumers. As prices rise, consumers purchase fewer goods. The <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet contains hypothetical data for the supply and demand of breakfast cereal. There are ten data points to show the change in supply and demand as the price changes in Column A. The values you see in Columns A through C are formula outputs that are driven by the percentage in cell C14. For example, if the percentage in cell C14 is changed to 10, each price listed in Column A will increase, as shown in <a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f01">Figure 4.45 "Hypothetical Supply and Demand Data"</a>.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s03_s01_f01">
+            <p class="title"><span class="title-prefix">Figure 4.45</span> Hypothetical Supply and Demand Data</p>
+            <img src="section_08/a2d35948f81bfdf38b14d64d5024cded.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s03_s01_p03">We will use the scatter chart to study the change in quantity supplied and demanded as the price increases over ten data points, as shown in <a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f01">Figure 4.45 "Hypothetical Supply and Demand Data"</a>. For many of the charts demonstrated in this chapter, we were able to highlight a range of cells and insert the chart type we needed. This was especially the case when the data was in a contiguous range of cells. However, this method rarely works when creating a scatter chart, even if the data are in a contiguous range. As a result, the method we present here starts with a blank chart and demonstrates how each data series is added to the chart individually. The following steps explain how we create this chart:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch04_s03_s01_l01">
+            <li>Change the value in cell C14 on the <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet to zero.</li>
+            <li>Activate cell E1 on the <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet. It is important to note that this cell location is not adjacent to any data on the worksheet.</li>
+            <li>Click the Scatter button from the Charts group of commands on the Insert tab of the Ribbon.</li>
+            <li>
+                <p class="para">Select the Scatter with Smooth Lines and Markers format from the drop-down list of options (see <a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f02">Figure 4.46 "Selecting a Scatter Chart Format"</a>). This adds a blank chart to the worksheet.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch04_s03_s01_f02">
+                <p class="title"><span class="title-prefix">Figure 4.46</span> Selecting a Scatter Chart Format</p>
+                    <img src="section_08/9725e157e61f16b37722b57e02d70690.jpg">
+                </div>
+            </li>
+            <li>Click and drag the chart so the upper left corner is in the center of cell E2.</li>
+            <li>Resize the chart so the left side is locked to the left side of Column E, the right side is locked to the right side of Column M, the top is locked to the top of Row 2, and the bottom is locked to the bottom of Row 17.</li>
+            <li>Click the Design tab in the Chart Tools section of the Ribbon. Then click the Select Data button in the Data group of commands. This opens the Select Data Source dialog box.</li>
+            <li>Click the Add button on the left side of the Select Data Source dialog box. This opens the Edit Series dialog box. Notice on this dialog box there are inputs for defining values for both the X and Y axes. Charts that we previously created using this method only had an input for putting values on the Y axis.</li>
+            <li>Type the series name <strong class="emphasis bold">Demand</strong>. This should appear in the Series name input box.</li>
+            <li>Press the TAB key on your keyboard to advance to the Series X values input box on the Edit Series dialog box.</li>
+            <li>Highlight the range B3:B12 on the <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet. You will see this range appear in the Series X values input box after it is highlighted.</li>
+            <li>Press the TAB key on your keyboard to advance to the Series Y values input box on the Edit Series dialog box.</li>
+            <li>
+                <p class="para">Highlight the range A3:A12 on the <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet.</p>
+                <p class="para" id="manzoexcel_1.1-ch04_s03_s01_p04"><a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f03">Figure 4.47 "Defining the Demand Data Series"</a> shows the final settings in the Edit Series dialog box for the Demand data series. You will see that as the X and Y axis values are defined in the dialog box, they appear on the chart. The chart in this figure shows the price along the Y axis and quantity along the X axis.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch04_s03_s01_f03">
+                <p class="title"><span class="title-prefix">Figure 4.47</span> Defining the Demand Data Series</p>
+                    <img src="section_08/426e5edf7f7d227acee2b80ab6c68eeb.jpg">
+                </div>
+            </li>
+            <li>Click the OK button at the bottom of the Edit Series dialog box.</li>
+            <li>Click the Add button on the left side of the Select Data Source dialog box.</li>
+            <li>Type the series name <strong class="emphasis bold">Supply</strong>. This should appear in the Series name input box.</li>
+            <li>Press the TAB key on your keyboard to advance to the Series X values input box on the Edit Series dialog box.</li>
+            <li>Highlight the range C3:C12 on the <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet. This range appears in the Series X values input box after it is highlighted.</li>
+            <li>Press the TAB key on your keyboard to advance to the Series Y values input box on the Edit Series dialog box.</li>
+            <li>Highlight the range A3:A12 on the <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet.</li>
+            <li>Click the OK button at the bottom of the Edit Series dialog box.</li>
+            <li>Click the OK button at the bottom of the Select Data Source dialog box.</li>
+        </ol>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s03_s01_n02">
+            <h3 class="title">Why?</h3>
+            <p class="simpara">For Scatter Charts, Start with a Blank Chart</p>
+            <p class="para" id="manzoexcel_1.1-ch04_s03_s01_p05">When creating a scatter chart, it is best to start with a blank chart and add each data series individually. This is because Excel will not always guess correctly which values belong on the X and Y axes since both contain numbers. For other chart types, such as column or line charts, the X axis contains nonnumeric data so it’s easy for Excel to configure the chart you need.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s03_s01_p06"><a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f04">Figure 4.48 "Scatter Chart Showing One Price"</a> shows the appearance of the scatter chart before any formatting enhancements are applied. Notice only two plot points are located on the chart. This is because the price change value in cell C14 is still zero. Therefore, the data are not reflecting any change in price, quantity demanded, or quantity supplied. The chart shows that at the current price of $1.50, suppliers are willing to provide fewer units compared with the number of units consumers are willing to buy.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s03_s01_f04">
+            <p class="title"><span class="title-prefix">Figure 4.48</span> Scatter Chart Showing One Price</p>
+            <img src="section_08/05d73da78658d776f9cbe2683a24b466.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s03_s01_p07">The following steps explain the formatting enhancements we will apply to the scatter chart shown in <a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f04">Figure 4.48 "Scatter Chart Showing One Price"</a>:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch04_s03_s01_l02">
+            <li>Add a title to the chart by clicking the Chart Title button in the Layout tab of the Chart Tools section of the Ribbon. Use the Above Chart option from the drop-down list.</li>
+            <li>Select Subtle Effect - Orange, Accent 6 from the preset style list in the Shape Styles group of commands on the Format tab of the Ribbon.</li>
+            <li>Change the font style of the chart title to Arial and the font size to 14 points.</li>
+            <li>Change the wording of the chart title as follows: <strong class="emphasis bold">Supply and Demand for Breakfast Cereal</strong>.</li>
+            <li>Add a title to the Y axis. Use the Rotated Title option from the Primary Vertical Axis Title drop-down list after clicking the Axis Titles button in the Layout tab of the Ribbon.</li>
+            <li>Repeat steps 2 and 3 to format the Y axis title. However, change the font size to 12 points.</li>
+            <li>Change the wording of the Y axis title as follows: <strong class="emphasis bold">Price per Unit</strong>.</li>
+            <li>Add a title to the X axis.</li>
+            <li>Repeat steps 2 and 3 to format the X axis title. However, change the font size to 12 points.</li>
+            <li>Change the wording of the X axis title as follows: <strong class="emphasis bold">Quantity in Units</strong>.</li>
+            <li>Make the following format changes to the X and Y axis values: font style Arial, font size 11 points, and bold.</li>
+            <li>
+                <p class="para">Change the color of the chart area to Aqua, Accent 5, Lighter 40% (see <a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f05">Figure 4.49 "Formatting Enhancements Added to the Scatter Chart"</a>).</p>
+                <div class="figure large" id="manzoexcel_1.1-ch04_s03_s01_f05">
+                <p class="title"><span class="title-prefix">Figure 4.49</span> Formatting Enhancements Added to the Scatter Chart</p>
+                    <img src="section_08/79ad559dfe61723d734bf75ea276d791.jpg">
+                </div>
+            </li>
+            <li>Apply a bevel effect to the plot area. Use the Circle format option from the Bevel drop-down list of options.</li>
+            <li>Change the font style of the legend to Arial and bold the font.</li>
+            <li>Change the value in cell C14 to 2. Then change it to 4 and then to 8. Change the value one more time to 14. As you change the values in cell C14, you will see the lines change on the chart.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s03_s01_p08"><a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f06">Figure 4.50 "Scatter Chart with Price Change at 2%"</a> shows the completed scatter chart when the Price Change is set to 2%, and <a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f07">Figure 4.51 "Scatter Chart with Price Change at 14%"</a> shows the same chart when the Price Change is set to 14%. The point at which the demand and supply lines intersect on <a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f07">Figure 4.51 "Scatter Chart with Price Change at 14%"</a> is known as the market equilibrium point. The <span class="margin_term"><a class="glossterm">market equilibrium</a><span class="glossdef">A state in which the quantity demanded equals the quantity supplied at a specific price.</span></span> is where the quantity demanded equals the quantity supplied at a specific price. The price where quantity demanded equals quantity supplied is referred to as the <span class="margin_term"><a class="glossterm">equilibrium price</a><span class="glossdef">The price where quantity demanded equals quantity supplied.</span></span>.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s03_s01_f06">
+            <p class="title"><span class="title-prefix">Figure 4.50</span> Scatter Chart with Price Change at 2%</p>
+            <img src="section_08/fc39e99531f7d10d10ce1810fa2ed34c.jpg">
+        </div>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s03_s01_f07">
+            <p class="title"><span class="title-prefix">Figure 4.51</span> Scatter Chart with Price Change at 14%</p>
+            <img src="section_08/7905b95e2a8a67b43fcb806997c4676a.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s03_s01_n03">
+            <h3 class="title">Skill Refresher: Creating a Scatter Plot Chart</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/tUJRcYaZd-s?rel=0" condition="http://img.youtube.com/vi/tUJRcYaZd-s/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/tUJRcYaZd-s?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch04_s03_s01_l03">
+                <li>Click a blank cell that is not adjacent to any data on the worksheet.</li>
+                <li>Click the Insert tab of the Ribbon.</li>
+                <li>Click the Scatter button in the Charts group of commands.</li>
+                <li>Select a format option from the drop-down list.</li>
+                <li>Move the blank chart off any cell locations containing data that will be used to create the chart.</li>
+                <li>Click the Select Data button in the Design tab of the Chart Tools section of the Ribbon.</li>
+                <li>Click the Add button on the Select Data Source dialog box.</li>
+                <li>Type a name for the data series in the Series name input box in the Edit Series dialog box.</li>
+                <li>Press the TAB key on your keyboard to advance to the Series X values input box.</li>
+                <li>Highlight the range of cells on your worksheet that contain values to be plotted on the X axis.</li>
+                <li>Press the TAB key on your keyboard to advance to the Series Y values input box.</li>
+                <li>Highlight the range of cells on your worksheet that contain values to be plotted on the Y axis.</li>
+                <li>Click the OK button in the Edit Series dialog box.</li>
+                <li>Repeat steps 7 through 13 for each data series you want to add to the chart.</li>
+                <li>Click the OK button at the bottom of the Select Data Source dialog box.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s03_s02">
+        <h2 class="title editable block">Changing the Scale of the X and Y Axes</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s03_s02_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s03_s02_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.15.xlsx">Excel Objective 4.15</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s03_s02_n01">
+            <h3 class="title">Lesson Video: Changing the Scale of the X and Y Axes</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/TajAv5DDxTU?rel=0" condition="http://img.youtube.com/vi/TajAv5DDxTU/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/TajAv5DDxTU?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s03_s02_p02">For all the charts demonstrated in this chapter, Excel has automatically established the scale for the Y axis. For scatter charts, Excel has also established the scale for the X axis. The <span class="margin_term"><a class="glossterm">axis scale</a><span class="glossdef">The minimum and maximum value that appears on the X or Y axis of a chart.</span></span> is the minimum and maximum value that appears on an axis. For example, in <a class="xref" href="#manzoexcel_1.1-ch04_s03_s01_f07">Figure 4.51 "Scatter Chart with Price Change at 14%"</a>, the Y axis scale is set to a minimum value of zero and a maximum value of 6.00. Although this is a very convenient feature of Excel, you may want to change the scale in some instances. If you change the value in cell C14 on the <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet, the lines jump or shift on the plot area of the chart. This is because Excel keeps rearranging the scale of both the X and Y axes. When studying the shape of lines, it is best to set the scale so it does not change. The following steps explain how to accomplish this:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch04_s03_s02_l01">
+            <li>Change the value in cell C14 on the <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet to zero.</li>
+            <li>Click anywhere on the Y axis of the chart.</li>
+            <li>Click the Format Selection button in the Layout tab of the Chart Tools section of the Ribbon. This opens the Format Axis dialog box.</li>
+            <li>Click the Fixed option next to the Minimum setting under the Axis Options in the Format Axis dialog box. This ensures that the minimum value for the Y axis will always be zero.</li>
+            <li>Click the Fixed option next to the Maximum setting under the Axis Options in the Format Axis dialog box.</li>
+            <li>Click in the input box next to the Maximum setting. Remove the 1.6 and enter the number <strong class="emphasis bold">5.0</strong>. We will not be studying the behavior of supply and demand beyond a $5.00 price point, so there is no need to extend the Y axis beyond this point.</li>
+            <li>Click the Fixed option next to the Major Unit setting under the Axis Options in the Format Axis dialog box.</li>
+            <li>Click in the input box next to the Major Unit setting and change the value from 0.2 to 0.5 (see <a class="xref" href="#manzoexcel_1.1-ch04_s03_s02_f01">Figure 4.52 "Setting the Y Axis Scale"</a>). This allows us to measure the plot points in $0.50 intervals along the Y axis. When the axis extends to $5.00, $0.20 intervals may place too many values along the Y axis, making it difficult to read.</li>
+            <li>
+                <p class="para">Click the Close button at the bottom of the Format Axis dialog box.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch04_s03_s02_f01">
+                <p class="title"><span class="title-prefix">Figure 4.52</span> Setting the Y Axis Scale</p>
+                    <img src="section_08/1da2edbf055acae5854fb1b28753b9f3.jpg">
+                </div>
+            </li>
+            <li>Click anywhere along the X axis of the chart.</li>
+            <li>Click the Format Selection button in the Layout tab of the Chart Tools section of the Ribbon. This opens the Format Axis dialog box for the X axis.</li>
+            <li>Click the Fixed option next to the Minimum setting under the Axis Options in the Format Axis dialog box. This ensures that the minimum value for the X axis will always be zero.</li>
+            <li>Click the Fixed option next to the Maximum setting under the Axis Options in the Format Axis dialog box.</li>
+            <li>Click in the input box next to the Maximum setting. Remove the 500.0 and enter the number <strong class="emphasis bold">450.0</strong>. The number of units supplied or demanded will not exceed 450 based on the price points in our study. There is no need to extend the X axis to 500.</li>
+            <li>Click the Fixed option next to the Major Unit setting under the Axis Options in the Format Axis dialog box.</li>
+            <li>Click in the input box next to the Major Unit setting and change the value from 100.0 to 50.0. This allows us to measure the plot points in 50-unit intervals along the X axis.</li>
+            <li>Click the Close button at the bottom of the Format Axis dialog box.</li>
+            <li>Change the value in cell C14 to 2. Then change it to 4 and then to 8. Change the value one more time to 14. As you change the values in cell C14, the lines change but they no longer jump or shift since the scale of both axes is fixed.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s03_s02_p03"><a class="xref" href="#manzoexcel_1.1-ch04_s03_s02_f02">Figure 4.53 "Final Appearance of the Scatter Chart"</a> shows the final appearance of the scatter chart after the scale is set for both the X and Y axes. Notice that market equilibrium is achieved at a price of approximately $2.50.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s03_s02_f02">
+            <p class="title"><span class="title-prefix">Figure 4.53</span> Final Appearance of the Scatter Chart</p>
+            <img src="section_08/4bdadd7e701af5454658aab4f7505ff5.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s03_s03">
+        <h2 class="title editable block">Adding a Trendline and Equation</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s03_s03_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s03_s03_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.16.xlsx">Excel Objective 4.16</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s03_s03_n01">
+            <h3 class="title">Lesson Video: Trendline and Equation</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/BMKfHIZJCtU?rel=0" condition="http://img.youtube.com/vi/BMKfHIZJCtU/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/BMKfHIZJCtU?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s03_s03_p02">A trendline can be applied to a chart to estimate or predict where plot points may occur at various points along the X and Y axes. Excel enables you to add a trendline to a chart and also provides the equation you can use to plot additional points. The following steps explain how to accomplish this:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch04_s03_s03_l01">
+            <li>Set the value in cell C14 on the <strong class="emphasis bold">Supply &amp; Demand</strong> worksheet to 14.</li>
+            <li>Click anywhere in the chart area of the scatter chart to activate it.</li>
+            <li>Click the Trendline button in the Layout tab of the Ribbon. Select the Linear Trendline option from the drop-down list.</li>
+            <li>
+                <p class="para">Select the Demand option from the Add Trendline dialog box and click the OK button. This adds a new line to the plot area of the chart as well as the legend.</p>
+                <p class="para" id="manzoexcel_1.1-ch04_s03_s03_p03"><a class="xref" href="#manzoexcel_1.1-ch04_s03_s03_f01">Figure 4.54 "Adding a Linear Trendline"</a> shows the scatter chart after adding a linear trendline. Notice that the line goes through only two points on the demand line. This indicates that this trendline may <em class="emphasis">not</em> be a good fit for the line that has been created on the chart.</p>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch04_s03_s03_f01">
+                <p class="title"><span class="title-prefix">Figure 4.54</span> Adding a Linear Trendline</p>
+                    <img src="section_08/b640aa52f2027f8e1547268fc81c7aca.jpg">
+                </div>
+                <p class="para" id="manzoexcel_1.1-ch04_s03_s03_p04">Finding the right shape for a trendline may require trying a few different options. As shown in <a class="xref" href="#manzoexcel_1.1-ch04_s03_s03_f01">Figure 4.54 "Adding a Linear Trendline"</a>, the linear trendline is not a good fit for the shape of the demand line. The remaining steps will demonstrate how to remove a trendline and access more trendline options:</p>
+            </li>
+            <li>Click the Trendline button in the Layout tab of the Ribbon. Select the None option from the drop-down list. This removes the trendline from the chart.</li>
+            <li>Click the Trendline button in the Layout tab of the Ribbon again. This time, select More Trendline Options from the drop-down list.</li>
+            <li>Select the Demand option from the Add Trendline dialog box and click OK. This opens the Format Trendline dialog box.</li>
+            <li>Select the Power option from the Format Trendline dialog box.</li>
+            <li>Click the “Display Equation on chart” option at the bottom of the Format Trendline dialog box (see <a class="xref" href="#manzoexcel_1.1-ch04_s03_s03_f02">Figure 4.55 "The Format Trendline Dialog Box"</a>).</li>
+            <li>Click the Close button at the bottom of the Format Trendline dialog box.</li>
+        </ol>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s03_s03_f02">
+            <p class="title"><span class="title-prefix">Figure 4.55</span> The Format Trendline Dialog Box</p>
+            <img src="section_08/8f8616b720b9eddce9af15fe7bf9bd0c.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s03_s03_p05"><a class="xref" href="#manzoexcel_1.1-ch04_s03_s03_f03">Figure 4.56 "Scatter Chart with a Power Trendline"</a> shows the scatter chart with the Power trendline added for the demand series. Notice that the line fits perfectly over the demand series in the plot area. In fact, it may be difficult to see the line in the figure. This indicates that the trendline is an excellent fit for the demand line. As a result, we can be confident in using this line to predict other demand values along the X and Y axes. You can also see that the equation for this trendline has been added to the plot area of the chart. We can use the equation to calculate the price for each quantity value substituted for X. For example, if the number 150 is substituted for X in the equation, the result is a price of $2.59. Based on the values used to create the chart, this result appears to be accurate.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s03_s03_f03">
+            <p class="title"><span class="title-prefix">Figure 4.56</span> Scatter Chart with a Power Trendline</p>
+            <img src="section_08/4bdfe868d26448a305eabff10fa6ffa4.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s03_s03_n02">
+            <h3 class="title">Skill Refresher: Adding a Trendline</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/mcs6afpXfnM?rel=0" condition="http://img.youtube.com/vi/mcs6afpXfnM/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/mcs6afpXfnM?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch04_s03_s03_l02">
+                <li>Click anywhere on the chart area.</li>
+                <li>Click the Layout tab of the Ribbon.</li>
+                <li>Click the Trendline button.</li>
+                <li>Select one of the preset trendline options from the drop-down list or select More Trendline Options to open the Add Trendline dialog box.</li>
+                <li>Select a data series in the Add Trendline dialog box and click the OK button.</li>
+                <li>Select the “Display Equation on chart” option from the Format Trendline dialog box to add the trendline equation to the chart.</li>
+                <li>Click the Close button at the bottom of the dialog box.</li>
+            </ol>
+        </div>
+        <div class="key_takeaways editable block" id="manzoexcel_1.1-ch04_s03_s03_n03">
+            <h3 class="title">Key Takeaways</h3>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch04_s03_s03_l03">
+                <li>When creating a scatter chart, it is best to start with a blank chart and add each data series individually. The highlight and click method is less reliable since numeric values are assigned to both the X and Y axes. As a result, Excel often guesses incorrectly which values are assigned to the X and Y axes.</li>
+                <li>Finding the best fit for a trendline is often a matter of trial and error. You may have to try a few different trendlines to determine which form is the best fit for your data series.</li>
+                <li>You must open the Format Trendline dialog box to add the line equation to the plot area of the chart.</li>
+            </ul>
+        </div>
+        <div class="exercises editable block" id="manzoexcel_1.1-ch04_s03_s03_n04">
+            <h3 class="title">Exercises</h3>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch04_s03_s03_l04">
+                <li>
+                    <p class="para">Which of the following is the best chart type to use if you need to create a line chart where both the X and Y axes contain numeric values?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch04_s03_s03_l05" numeration="loweralpha">
+                        <li>line chart</li>
+                        <li>scatter chart</li>
+                        <li>either a line chart or a scatter chart</li>
+                        <li>area chart</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following methods allows you to set the scale of the Y axis?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch04_s03_s03_l06" numeration="loweralpha">
+                        <li>Activate the Y axis and click the Scale button in the Page Layout tab of the Ribbon.</li>
+                        <li>Activate the Y axis and click the Format Selection button in the Layout tab of the Ribbon.</li>
+                        <li>Activate the Y axis and click the Axes button in the Layout tab of the Ribbon; select the Primary Vertical Axis option and then select More Primary Vertical Axis Options.</li>
+                        <li>Both B and C are correct.</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+  </div>
+  
+  <div id=navbar-bottom class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s08-02-formatting-charts.html"><img src="shared/images/batch-left.png"></a> <a href="s08-02-formatting-charts.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s08-04-using-charts-with-microsoft-wo.html">Next Section</a> <a href="s08-04-using-charts-with-microsoft-wo.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="shared/book.js"></script>
+  
+  
+</body>
+</html>

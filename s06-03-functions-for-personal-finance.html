@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="shared/bookhub.css" rel="stylesheet" type="text/css">
+  <title>Functions for Personal Finance</title>
+</head>
+<body>
+
+  
+  <div id=navbar-top class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s06-02-statistical-functions.html"><img src="shared/images/batch-left.png"></a> <a href="s06-02-statistical-functions.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s06-04-chapter-assignments-and-tests.html">Next Section</a> <a href="s06-04-chapter-assignments-and-tests.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  <div id="book-content">
+    <div class="section" id="manzoexcel_1.1-ch02_s03" condition="start-of-chunk" version="5.0" lang="en">
+    <h2 class="title editable block">
+<span class="title-prefix">2.3</span> Functions for Personal Finance</h2>
+    <div class="learning_objectives editable block" id="manzoexcel_1.1-ch02_s03_n01">
+        <h3 class="title">Learning Objectives</h3>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch02_s03_l01">
+            <li>Understand the fundamentals of loans and leases.</li>
+            <li>Use the PMT function to calculate monthly mortgage payments on a house.</li>
+            <li>Use the PMT function to calculate monthly lease payments for an automobile.</li>
+            <li>Learn how to summarize data in a workbook by using worksheet links to create a summary worksheet.</li>
+            <li>Understand the concept of the time value of money.</li>
+            <li>Use the FV function to calculate the future value of personal investments.</li>
+            <li>Use Goal Seek to conduct what-if scenarios.</li>
+        </ol>
+    </div>
+    <p class="para editable block" id="manzoexcel_1.1-ch02_s03_p01">In this section, we continue to develop the Personal Budget workbook. Notable items that are missing from the <strong class="emphasis bold">Budget Detail</strong> worksheet are the payments you might make for a car or a home. In addition, you may want to set and track a savings goal. This section demonstrates Excel functions used to calculate lease payments for a car, to calculate mortgage payments for a house, and to project future savings based on regular contributions and an average rate of return. This section also discusses the scenario capabilities of Excel once the Personal Budget workbook is complete.</p>
+    <div class="section" id="manzoexcel_1.1-ch02_s03_s01">
+        <h2 class="title editable block">The Fundamentals of Loans and Leases</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s03_s01_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s03_s01_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.10.xlsx">Excel Objective 2.10</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s01_n01">
+            <h3 class="title">Lesson Video: Loan and Lease Fundamentals</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/90ACYdFerf0?rel=0" condition="http://img.youtube.com/vi/90ACYdFerf0/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/90ACYdFerf0?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s01_p02">One of the functions we will add to the Personal Budget workbook is the PMT function. This function calculates the payments required for a loan or a lease. However, before demonstrating this function, it is important to cover a few fundamental concepts on loans and leases.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s01_p03">A <span class="margin_term"><a class="glossterm">loan</a><span class="glossdef">A contractual agreement in which money is borrowed from a lender and paid back over a specific period of time.</span></span> is a contractual agreement in which money is borrowed from a lender and paid back over a specific period of time. The amount of money that is borrowed from the lender is called the <span class="margin_term"><a class="glossterm">principal</a><span class="glossdef">The amount of money borrowed from a lender.</span></span> of the loan. The borrower is usually required to pay the principal of the loan plus interest. When you borrow money to buy a house, the loan is referred to as a <span class="margin_term"><a class="glossterm">mortgage</a><span class="glossdef">A loan used to purchase a home or property.</span></span>. This is because the house being purchased also serves as collateral to ensure payment. In other words, the bank can take possession of your house if you fail to make loan payments. As shown in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s01_t01">Table 2.5 "Key Terms for Loans and Leases"</a>, there are several key terms related to loans and leases.</p>
+        <div class="table block" id="manzoexcel_1.1-ch02_s03_s01_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 2.5</span> Key Terms for Loans and Leases</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th><strong class="emphasis bold">Term</strong></th>
+                        <th><strong class="emphasis bold">Definition</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Collateral</strong></td>
+                        <td>Any item of value that is used to secure a loan to ensure payments to the lender</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Down Payment</strong></td>
+                        <td>The amount of cash paid toward the purchase of a house. If you are paying 20% down, you are paying 20% of the cost of the house in cash and are borrowing the rest from a lender.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Interest Rate</strong></td>
+                        <td>The interest that is charged to the borrower as a cost for borrowing money</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Mortgage</strong></td>
+                        <td>A loan where property is put up for collateral</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Principal</strong></td>
+                        <td>The amount of money that has been borrowed</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Residual Value</strong></td>
+                        <td>The estimated selling price of a vehicle at a future point in time</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Terms</strong></td>
+                        <td>The amount of time you have to repay a loan</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s01_p04"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s01_f01">Figure 2.29 "Example of an Amortization Table"</a> shows an example of an <span class="margin_term"><a class="glossterm">amortization table</a><span class="glossdef">A schedule of payments broken down by interest and principal for a loan. By law, a lender is required to provide an amortization table to a borrower.</span></span> for a loan. A lender is required by law to provide borrowers with an amortization table when a loan contract is offered. The table in the figure shows how the payments of a loan would work if you borrowed $100,000 from a lender and agreed to pay it back over 10 years at an interest rate of 5%. You will notice that each time you make a payment, you are paying the bank an interest fee plus some of the loan principal. Each year the amount of interest paid to the bank decreases and the amount of money used to pay off the principal increases. This is because the bank is charging you interest on the amount of principal that has not been paid. As you pay off the principal, the interest rate is applied to a lower number, which reduces your interest charges. Finally, the figure shows that the sum of the values in the Interest Payment column is $29,505. This is how much it costs you to borrow this money over 10 years. Indeed, borrowing money is not free. It is important to note that to simplify this example, the payments were calculated on an annual basis. However, most loan payments are made on a monthly basis.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch02_s03_s01_f01">
+            <p class="title"><span class="title-prefix">Figure 2.29</span> Example of an Amortization Table</p>
+            <img src="section_06/4f516470675eb37c4d28cbcf9ff5a7c7.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s01_p05">A <span class="margin_term"><a class="glossterm">lease</a><span class="glossdef">A contract in which the lessee uses an asset such as a car or a piece of equipment and agrees to make regular payments to the owner or the lessor. The lessee is often required to return the leased asset to the lessor at the conclusion of the lease contract.</span></span> is a contract in which you, the lessee, use an asset such as a car or a piece of equipment and you agree to make regular payments to the owner or the lessor. When you lease a car, the manufacturer or a leasing company retains ownership of the vehicle and you agree to make regular payments for a specific period of time. The amount of money you pay depends on the price of the car, the terms of the lease contract, and the car’s expected residual value at the end of the lease. The calculation of lease payments is similar to the calculation of loan payments. However, when you lease a car, you pay only the value of the car that is used. For example, suppose you are leasing a car that is priced at $25,000. The lease contract is for 4 years at an interest rate of 5%. The residual value of the car is $10,000. This means the car will lose $15,000 of its value over 4 years. Another way to state this is that the car will depreciate $15,000. A lease will be structured so that you pay this $15,000 in depreciation. However, the interest charges will be based on the purchase price of $25,000. We will look at a demonstration of leasing a car as well as buying a home in the next section.</p>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s03_s02">
+        <h2 class="title editable block">The PMT (Payment) Function for Loans</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s03_s02_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s03_s02_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.10.xlsx">Excel Objective 2.10</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s02_n01">
+            <h3 class="title">Lesson Video: PMT Function for Loans</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/-T9wL5D8s5k?rel=0" condition="http://img.youtube.com/vi/-T9wL5D8s5k/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/-T9wL5D8s5k?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s02_p02">If you own a home, your mortgage payments are a major component of your household budget. If you are planning to buy a home, having a clear understanding of your monthly payments is critical for maintaining strong financial health. In Excel, mortgage payments are conveniently calculated through the PMT (payment) function. This function is more complex than the statistical functions covered in <a class="xref" href="manzoexcel_1.1-ch02_s02#manzoexcel_1.1-ch02_s02">Section 2.2 "Statistical Functions"</a>. With statistical functions, you are required to add only a range of cells or selected cells within the parentheses of the function. With the PMT function, you must accurately define a series of arguments in order for the function to produce a reliable output. <a class="xref" href="#manzoexcel_1.1-ch02_s03_s02_t01">Table 2.6 "Arguments for the PMT Function"</a> lists the arguments for the PMT function. It is helpful to review the key loan and lease terms in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s01_t01">Table 2.5 "Key Terms for Loans and Leases"</a> before reviewing the PMT function arguments.</p>
+        <div class="table block" id="manzoexcel_1.1-ch02_s03_s02_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 2.6</span> Arguments for the PMT Function</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Rate</strong></td>
+                        <td>This is the interest rate the lender is charging the borrower. The interest rate is usually quoted in annual terms, so you have to divide this rate by 12 if you are calculating monthly payments.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Nper</strong></td>
+                        <td>The argument letters stand for <em class="emphasis">number of periods</em>. This is the term of the loan, which is the amount of time you have to repay the bank. This is usually quoted in years, so you have to multiply the years by 12 if you are calculating monthly payments.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Pv</strong></td>
+                        <td>The argument letters stand for <em class="emphasis">present value</em>. This is the principal of the loan or the amount of money that is borrowed. When defining this argument, a minus sign must precede the cell location or value. For leases, this argument is used for the price of the item being leased.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">[Fv]</strong></td>
+                        <td>The argument letters stand for <em class="emphasis">future value</em>. The brackets around the argument indicate that it is not always necessary to define it. It is used if there is a lump-sum payment that will be made at the end of the loan terms. This is also used for the residual value of a lease. If it is not defined, Excel will assume that it is zero.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">[Type]</strong></td>
+                        <td>This argument can be defined with either a 1 or a 0. The number 1 is used if payments are made at the beginning of each period. A 0 is used if payments are made at the end of each period. The argument is in brackets because it does not have to be defined if payments are made at the end of each period. Excel assumes that this argument is 0 if it is not defined.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s02_p03">We will use the PMT function in the Personal Budget workbook to calculate the monthly mortgage payments for a house. These calculations will be made in the <strong class="emphasis bold">Mortgage Payments</strong> worksheet and then displayed in the <strong class="emphasis bold">Budget Summary</strong> worksheet through a cell reference link. So far we have demonstrated several methods for adding functions to a worksheet. The following steps explain a new method using the Insert Function command for adding the PMT function:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch02_s03_s02_l01">
+            <li>Click the <strong class="emphasis bold">Mortgage Payments</strong> worksheet tab.</li>
+            <li>Click cell B5.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>
+                <p class="para">Click the Insert Function button (see <a class="xref" href="#manzoexcel_1.1-ch02_s03_s02_f01">Figure 2.30 "Mortgage Payments Worksheet"</a>). This opens the Insert Function dialog box, which can be used for searching all functions in Excel.</p>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch02_s03_s02_f01">
+                <p class="title"><span class="title-prefix">Figure 2.30</span> Mortgage Payments Worksheet</p>
+                    <img src="section_06/7fa8ef1be95a5b33f52f085fa3304ed7.jpg">
+                </div>
+            </li>
+            <li>In the “Search for a function:” input box at the top of the Insert Function dialog box, type <strong class="emphasis bold">mortgage payments</strong> (see <a class="xref" href="#manzoexcel_1.1-ch02_s03_s02_f02">Figure 2.31 "Insert Function Dialog Box"</a>). Note that the current description in the “Search for a function:” input box will already be highlighted. You can begin typing and the description will be replaced with your entry.</li>
+            <li>Click the Go button in the upper right side of the Insert Function dialog box. This adds all the Excel functions that match your description in the “Select a function:” box in the lower half of the Insert Function dialog box (see <a class="xref" href="#manzoexcel_1.1-ch02_s03_s02_f02">Figure 2.31 "Insert Function Dialog Box"</a>).</li>
+            <li>Click the PMT option in the “Select a function:” box in the lower half of the Insert Function dialog box.</li>
+            <li>
+                <p class="para">Click the OK button at the lower right side of the Insert Function dialog box. This will open the Function Arguments dialog box.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch02_s03_s02_f02">
+                <p class="title"><span class="title-prefix">Figure 2.31</span> Insert Function Dialog Box</p>
+                    <img src="section_06/a305c8c6bbbac9fc461095ddf3ecbf72.jpg">
+                </div>
+                <div class="callout" id="manzoexcel_1.1-ch02_s03_s02_n02">
+                <h3 class="title">Mouseless Commands</h3>
+                <p class="simpara">Insert Function</p>
+                <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s03_s02_l02">
+                    <li>Hold the SHIFT key while pressing the F3 key.</li>
+                </ul>
+                </div>
+            </li>
+            <li>Click the Collapse Dialog button next to the Rate argument in the Function Arguments dialog box. This will be the first argument defined for the function.</li>
+            <li>Click cell B3 on the worksheet. This is the rate being charged on the loan.</li>
+            <li>Type a forward slash (<strong class="emphasis bold">/</strong>) for division.</li>
+            <li>Type the number <strong class="emphasis bold">12</strong>. Since our goal is to calculate the monthly payments for the loan, we need to divide the rate, which is stated in annual terms, by 12. This converts the annual rate to a monthly rate.</li>
+            <li>Press the ENTER key on your keyboard. This returns the Function Arguments dialog box to its expanded form. You will also see that the Rate argument is now defined.</li>
+            <li>Click the Collapse Dialog button next to the Nper argument in the Function Arguments dialog box. This is the second argument we define in the function.</li>
+            <li>Click cell B4 on the worksheet. This is the term or the amount of time we have to repay the loan.</li>
+            <li>Type an asterisk (<strong class="emphasis bold">*</strong>) for multiplication.</li>
+            <li>Type the number <strong class="emphasis bold">12</strong>. Since our goal is to calculate the monthly payments for the loan, we need to multiply the terms of the loan by 12. This converts the terms of the loan from years to months.</li>
+            <li>Press the ENTER key on your keyboard. This returns the Function Arguments dialog box to its expanded form. You will also see that the Nper argument is now defined.</li>
+            <li>Click the Collapse Dialog button next to the Pv argument in the Function Arguments dialog box. This is the third argument we will define in the function.</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>). When defining the Pv argument of the PMT function, any cell location or value must be preceded with a minus sign.</li>
+            <li>Click cell B2 on the worksheet. This is the principal of the loan.</li>
+            <li>Press the ENTER key on your keyboard. You will now see the Rate, Nper, and Pv arguments defined for the function.</li>
+            <li>Click the OK button at the bottom of the Function Arguments dialog box. The function will now be placed into the worksheet. Since we are not paying any lump sums of money at the end of the loan, there is no need to define the Fv argument. Also, we will assume that the monthly mortgage payments will be made at the end of each month. Therefore, there is no need to define the Type argument.</li>
+        </ol>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s02_n03">
+            <h3 class="title">Mouseless Commands</h3>
+            <p class="simpara">Function Arguments Dialog Box</p>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s03_s02_l03">
+                <li>After the equal sign (<strong class="emphasis bold">=</strong>) and function name are typed into cell a location, hold down the CTRL key and press the letter <em class="emphasis">A</em> on your keyboard.</li>
+            </ul>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s02_p04"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s02_f03">Figure 2.32 "Function Arguments Dialog Box for the PMT Function"</a> shows the completed Function Arguments dialog box for the PMT function. Notice that the dialog box shows the values for the Rate and Nper arguments. The Rate is divided by 12 to convert the annual interest rate to a monthly interest rate. The Nper argument is multiplied by 12 to convert the terms of the loan from years to months. Finally, the dialog box provides you with a definition for each argument. The definition appears when you click in the input box for the argument.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch02_s03_s02_f03">
+            <p class="title"><span class="title-prefix">Figure 2.32</span> Function Arguments Dialog Box for the PMT Function</p>
+            <img src="section_06/9a9c2808cc6170a26f6d37641cd213e3.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s02_n04">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Comparable Arguments for PMT and FV Functions</p>
+            <p class="para" id="manzoexcel_1.1-ch02_s03_s02_p05">When using functions such as PMT or FV, make sure the arguments are defined in comparable terms. For example, if you are calculating the monthly payments of a loan, make sure both the Rate and Nper argument are expressed in terms of months. The function will produce an erroneous result if one argument is expressed in years while the other is expressed in months.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s02_p06"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s02_f04">Figure 2.33 "Mortgage Payments Worksheet with the PMT Function"</a> shows the final appearance of the <strong class="emphasis bold">Mortgage Payments</strong> worksheet after the PMT function is added. The result of the function in cell B5 will be displayed in the <strong class="emphasis bold">Budget Summary</strong> worksheet.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s02_f04">
+            <p class="title"><span class="title-prefix">Figure 2.33</span> Mortgage Payments Worksheet with the PMT Function</p>
+            <img src="section_06/e3aeb3372a4a2ba84efa442144d2a0f3.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s03_s03">
+        <h2 class="title editable block">The PMT (Payment) Function for Leases</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s03_s03_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s03_s03_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.11.xlsx">Excel Objective 2.11</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s03_n01">
+            <h3 class="title">Lesson Video: PMT Function for Leases</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/1qztokXmndc?rel=0" condition="http://img.youtube.com/vi/1qztokXmndc/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/1qztokXmndc?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s03_p02">In addition to calculating the mortgage payments for a home, the PMT function will be used in the Personal Budget workbook to calculate the lease payments for a car. The details for the lease payments are found in the <strong class="emphasis bold">Car Lease Payments</strong> worksheet. Similar to the statistical functions, we can type the PMT function directly into a cell. However, you must know the definitions for each argument of the function and understand how these arguments need to be defined based on your objective. The terms for loans and leases are in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s01_t01">Table 2.5 "Key Terms for Loans and Leases"</a>, and the definitions for the arguments of the PMT function are in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s02_t01">Table 2.6 "Arguments for the PMT Function"</a>. The following steps explain how the PMT function is added to the Personal Budget workbook to calculate the lease payments for a car:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s03_s03_l01">
+            <li>Click cell B6 in the <strong class="emphasis bold">Car Lease Payments</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the letters <strong class="emphasis bold">PMT</strong>.</li>
+            <li>Type an open parenthesis (<strong class="emphasis bold">(</strong>).Excel then provides a tip box showing the arguments of the function.</li>
+            <li>Click cell B4. This is the interest rate being charged for the lease.</li>
+            <li>Type the forward slash (<strong class="emphasis bold">/</strong>) for division.</li>
+            <li>Type the number <strong class="emphasis bold">12</strong>. Since our goal is to calculate the monthly lease payments, we divide the interest rate by 12 to convert the annual rate to a monthly rate.</li>
+            <li>Type a comma. When you type a function containing arguments, you must separate each argument with a comma. This signals to Excel that one argument has been defined and you are ready to define the next argument in the function.</li>
+            <li>Click cell B5. This is the term or the length of time for the lease contract. Since the term is already expressed in months, we can just reference cell B5 and move to the next argument.</li>
+            <li>Type a comma. This advances the function to the Pv argument.</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>). Remember that cell locations or values used to define the Pv argument must be preceded with a minus sign.</li>
+            <li>Click cell B2 on the worksheet, which is the price of the car.</li>
+            <li>Type a comma. This advances the function to the [Fv] argument.</li>
+            <li>Click cell B3 on the worksheet. This is the residual value of the car. Note that cell location and values used to define the [Fv] argument are NOT preceded by a minus sign.</li>
+            <li>Type a comma. This advances the function to the [Type] argument.</li>
+            <li>Type the number <strong class="emphasis bold">1</strong>. We will assume that the lease payments will be due at the beginning of each month.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>Press the ENTER key.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s03_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s03_f01">Figure 2.34 "PMT Function Constructed to Calculate Lease Payments"</a> shows how the PMT function should appear before pressing the ENTER key. Notice the commas that separate each argument of the function. Also, the tip box will show the current argument being defined in bold font.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s03_f01">
+            <p class="title"><span class="title-prefix">Figure 2.34</span> PMT Function Constructed to Calculate Lease Payments</p>
+            <img src="section_06/6923944995e4a186ec694e07d33b3de9.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s03_p04"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s03_f02">Figure 2.35 "Results of the PMT Function in the Car Lease Payments Worksheet"</a> shows the result of the PMT function. The monthly payments for this lease are $206.56. This monthly payment will be displayed in the <strong class="emphasis bold">Budget Summary</strong> worksheet.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s03_f02">
+            <p class="title"><span class="title-prefix">Figure 2.35</span> Results of the PMT Function in the Car Lease Payments Worksheet</p>
+            <img src="section_06/89792e765bcf8606e2f0d586c7a92462.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s03_n02">
+            <h3 class="title">Skill Refresher: PMT Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/TSSzruT10Kw?rel=0" condition="http://img.youtube.com/vi/TSSzruT10Kw/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/TSSzruT10Kw?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s03_s03_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the letters <strong class="emphasis bold">PMT</strong> followed by an open parenthesis, or double click the function name from the function list.</li>
+                <li>Define the Rate argument with a cell location that contains the rate being charged by the lender for the loan or lease.</li>
+                <li>Define the Nper argument with a cell location that contains the amount of time to repay the loan or lease.</li>
+                <li>Define the Pv argument with a cell location that contains the principal of the loan or the price of the item being leased. Cell locations or values used for this argument must be preceded by a minus sign.</li>
+                <li>Define the [Fv] argument with a cell location that contains the residual value of the item being leased or the lump sum payment for a loan.</li>
+                <li>Define the [Type] argument with a 1 if payments are made at the beginning of each period or 0 if payments are made at the end of each period.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s03_s04">
+        <h2 class="title editable block">Linking Worksheets (Creating a Summary Worksheet)</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s03_s04_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s03_s04_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.12.xlsx">Excel Objective 2.12</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s04_n01">
+            <h3 class="title">Lesson Video: Linking Worksheets</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/H47dtHXGJ9k?rel=0" condition="http://img.youtube.com/vi/H47dtHXGJ9k/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/H47dtHXGJ9k?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s04_p02">So far we have used cell references in formulas and functions, which allow Excel to produce new outputs when the values in the cell references are changed. Cell references can also be used to display values or the outputs of formulas and functions in cell locations on other worksheets. This is how data will be displayed on the <strong class="emphasis bold">Budget Summary</strong> worksheet in the Personal Budget workbook. Outputs from the formulas and functions that were entered into the <strong class="emphasis bold">Budget Detail</strong>, <strong class="emphasis bold">Mortgage Payments</strong>, and <strong class="emphasis bold">Car Lease Payments</strong> worksheets will be displayed on the <strong class="emphasis bold">Budget Summary</strong> worksheet through the use of cell references. The following steps explain how this is accomplished:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s03_s04_l01">
+            <li>Click cell C3 in the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Click the <strong class="emphasis bold">Budget Detail</strong> worksheet tab.</li>
+            <li>Click cell D12 on the <strong class="emphasis bold">Budget Detail</strong> worksheet.</li>
+            <li>Press the ENTER key on your keyboard. The output of the SUM function in cell D12 on the <strong class="emphasis bold">Budget Detail</strong> worksheet will be displayed in cell C3 on the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s04_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s04_f01">Figure 2.36 "Cell Reference Showing the Total Expenses in the Budget Summary Worksheet"</a> shows how the cell reference appears in the <strong class="emphasis bold">Budget Summary</strong> worksheet. Notice that the cell reference D12 is preceded by the <strong class="emphasis bold">Budget Detail</strong> worksheet name enclosed in apostrophes followed by an exclamation point (‘Budget Detail’!) This indicates that the value displayed in the cell is referencing a cell location in the <strong class="emphasis bold">Budget Detail</strong> worksheet.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s04_f01">
+            <p class="title"><span class="title-prefix">Figure 2.36</span> Cell Reference Showing the Total Expenses in the Budget Summary Worksheet</p>
+            <img src="section_06/0c32a24bfe63c23d9a8d33722c6e3ff8.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s04_p04">As shown in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s04_f01">Figure 2.36 "Cell Reference Showing the Total Expenses in the Budget Summary Worksheet"</a>, the <strong class="emphasis bold">Budget Summary</strong> worksheet is designed to show the expense budget for the mortgage payments and the auto lease payments. However, you will recall that we used the PMT function to calculate the monthly payments. In the <strong class="emphasis bold">Budget Summary</strong> worksheet, we need to show the total annual payments. As a result, we will create a formula that references cell locations in the <strong class="emphasis bold">Mortgage Payments</strong> and <strong class="emphasis bold">Car Lease Payments</strong> worksheets. The following steps explain how this is accomplished:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s03_s04_l02">
+            <li>Click cell C4 in the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Click the <strong class="emphasis bold">Mortgage Payments</strong> worksheet tab.</li>
+            <li>Click cell B5 in the <strong class="emphasis bold">Mortgage Payments</strong> worksheet.</li>
+            <li>Type an asterisk (<strong class="emphasis bold">*</strong>) for multiplication.</li>
+            <li>Type the number <strong class="emphasis bold">12</strong>. This multiplies the monthly payments by 12 to calculate the total payments required for the year.</li>
+            <li>Press the ENTER key on your keyboard. The value of multiplying the monthly mortgage payments by 12 is now displayed on the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Click cell C5 on the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Click the <strong class="emphasis bold">Car Lease Payments</strong> worksheet tab.</li>
+            <li>Click cell B6 in the <strong class="emphasis bold">Car Lease Payments</strong> worksheet.</li>
+            <li>Type an asterisk (<strong class="emphasis bold">*</strong>) for multiplication.</li>
+            <li>Type the number <strong class="emphasis bold">12</strong>. This multiplies the monthly lease payments by 12 to calculate the total payments required for the year.</li>
+            <li>Press the ENTER key on your keyboard. The value of multiplying the monthly lease payments by 12 is now displayed on the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s04_p05"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s04_f02">Figure 2.37 "Formulas Referencing Cells in Mortgage Payments and Car Lease Payments Worksheets"</a> shows the results of creating formulas that reference cell locations in the <strong class="emphasis bold">Mortgage Payments</strong> and <strong class="emphasis bold">Car Lease Payments</strong> worksheets.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s04_f02">
+            <p class="title"><span class="title-prefix">Figure 2.37</span> Formulas Referencing Cells in Mortgage Payments and Car Lease Payments Worksheets</p>
+            <img src="section_06/b29fb9781f1cb8b8d60017b631da375b.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s04_p06">We can now add other formulas and functions to the <strong class="emphasis bold">Budget Summary</strong> worksheet that can calculate the difference between the total spend dollars vs. the total net income in cell D2. The following steps explain how this is accomplished:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s03_s04_l03">
+            <li>Click cell D6 in the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the function name <strong class="emphasis bold">SUM</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Highlight the range C3:C5.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>) and press the ENTER key on your keyboard. The total for all annual expenses now appears on the worksheet.</li>
+            <li>Click cell D7 on the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Click cell D2.</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>) and then click cell D6.</li>
+            <li>Press the ENTER key on your keyboard. This formula produces an output of $1,942, indicating our income is greater than our total expenses.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s04_p07"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s04_f03">Figure 2.38 "Formulas Added to Show Income Is Greater Than Expenses"</a> shows the results of the formulas that were added to the <strong class="emphasis bold">Budget Summary</strong> worksheet. The output for the formula in cell D7 shows that the net income exceeds total planned expenses by $1,942. Overall, having your income exceed your total expenses is a good thing because it allows you to save money for future spending needs or unexpected events.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s04_f03">
+            <p class="title"><span class="title-prefix">Figure 2.38</span> Formulas Added to Show Income Is Greater Than Expenses</p>
+            <img src="section_06/6229c391f25f0ebb426fad125984af69.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s04_p08">We can now add a few formulas that calculate both the spending rate and the savings rate as a percentage of net income. These formulas require the use of absolute references, which we covered earlier in this chapter. The following steps explain how to add these formulas:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s03_s04_l04">
+            <li>Click cell E6 in the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Click cell D6.</li>
+            <li>Type a forward slash (<strong class="emphasis bold">/</strong>) for division and then click D2.</li>
+            <li>Press the F4 key on your keyboard. This adds an absolute reference to cell D2.</li>
+            <li>Press the ENTER key. The result of the formula shows that total expenses consume 94.1% of our net income.</li>
+            <li>Click cell E6.</li>
+            <li>Place the mouse pointer over the Auto Fill Handle.</li>
+            <li>When the mouse pointer turns to a black plus sign, left click and drag down to cell E7. This copies and pastes the formula into cell E7.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s04_p09"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s04_f04">Figure 2.39 "Calculating the Savings Rate"</a> shows the output of the formulas calculating the spending rate and savings rate as a percentage of net income. The absolute reference shown for cell D2 prevents the cell from changing when the formula is copied from cell E6 and pasted into cell E7. The results of the formula show that our current budget allows for a savings rate of 5.9%. This is a fairly good savings rate. In the next section we will discuss how these savings can grow over time by exploring the time value of money concepts.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s04_f04">
+            <p class="title"><span class="title-prefix">Figure 2.39</span> Calculating the Savings Rate</p>
+            <img src="section_06/89bac9020eca0acc9cac4deb94640524.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s03_s05">
+        <h2 class="title editable block">Time Value of Money Concepts</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s03_s05_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s03_s05_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.13.xlsx">Excel Objective 2.13</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s05_n01">
+            <h3 class="title">Lesson Video: Time Value of Money Concepts</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/skSAy_vxFfE?rel=0" condition="http://img.youtube.com/vi/skSAy_vxFfE/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/skSAy_vxFfE?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s05_p02">In reviewing the <strong class="emphasis bold">Budget Summary</strong> worksheet in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s04_f04">Figure 2.39 "Calculating the Savings Rate"</a>, you will notice that the range B9:D14 contains data that can be used to assess a savings plan. We can project how much money can be saved over a specific period of time given set contributions and a rate of return. This calculation is accomplished through the future value, or FV, function. We will use the FV function in cell D10 of the <strong class="emphasis bold">Budget Summary</strong> worksheet to calculate our savings plan projection. However, before we use the FV function, it is important to review a few basic concepts regarding the time value of money, as shown in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s05_t01">Table 2.7 "Key Terms for Time Value of Money Concepts"</a>.</p>
+        <div class="table block" id="manzoexcel_1.1-ch02_s03_s05_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 2.7</span> Key Terms for Time Value of Money Concepts</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Annuity</strong></td>
+                        <td>An investment that is made in regular payments over a period of time. For example, depositing $100 a month into an interest-bearing bank account or mutual fund is considered an annuity.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Bonds</strong></td>
+                        <td>An investment in which you lend money to a company or government entity. The borrower agrees to pay you interest over a specific period time. At the end of the bond agreement, the amount of money that was borrowed, or your initial investment, is returned to you. Most bonds are considered a lower risk investment but offer a lower rate of return than stocks offer.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Mutual Funds</strong></td>
+                        <td>A collection of similar investments managed by a financial professional called a fund manager. Mutual funds allow you to invest in several stocks or bonds without having to make many individual investments. They also allow you to reduce your risk and take advantage of the investment expertise of a professional.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Rate of Return</strong></td>
+                        <td>The percentage gained or lost on an investment. Investments that offer a high predicted rate of return often carry a higher risk of losing money. Investments that offer a lower predicted rate of return often carry a lower risk of losing money.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Stocks</strong></td>
+                        <td>An investment in which you own a portion of a company. The value of this investment increases as the company produces higher profits. Most stocks are expected to generate a higher rate of return than bonds generate. However, the risk of losing money on a stock investment is much greater than the risk for bonds.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s05_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s05_t01">Table 2.7 "Key Terms for Time Value of Money Concepts"</a> provides definitions for several terms used when addressing the <em class="emphasis">time value of money</em> concepts. The <span class="margin_term"><a class="glossterm">time value of money</a><span class="glossdef">The opportunity to increase the value of money over time through investments that provide a constant or average positive rate of return.</span></span> is the opportunity to grow your money over time given a constant or average rate of return. For example, consider the data shown in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s05_f01">Figure 2.40 "Time Value of Money Example for a One-Time Investment"</a>. This data assumes that a person makes a one-time investment of $100 in a bond mutual fund that returns 5% interest per year. Notice that the interest paid in Column E increases every year. This is because the interest is reinvested in the mutual fund, which increases the total value of the investment. For example, the interest earned in year 1 is based on a $100 investment. Therefore, the interest paid is $5.00, or 5% of $100. However, in year 2, when the $5.00 interest payment is reinvested, the total investment increases to $105. Therefore, in year 2 the interest paid increases to $5.25, or 5% of $105. The value of the investment at the end of 5 years is $127.63. This is the value that can be calculated using the FV function.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s05_f01">
+            <p class="title"><span class="title-prefix">Figure 2.40</span> Time Value of Money Example for a One-Time Investment</p>
+            <img src="section_06/0647ec38c5699766092c507a8c0fc988.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s05_p04"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s05_f02">Figure 2.41 "Time Value of Money Example for an Annuity Investment"</a> shows another example demonstrating the time value of money concept. Instead of making a one-time investment, we will assume that a person invests $100 at the beginning of every year in the same bond mutual fund. This is referred to as an <span class="margin_term"><a class="glossterm">annuity</a><span class="glossdef">An investment made in regular payments over a period of time.</span></span> because the person is making reoccurring investments over a specific period of time. Notice that the value of this investment after 5 years is $580.19. Also, the total interest earned on this investment is $80.19 as opposed to the $27.63 earned on the one-time investment in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s05_f01">Figure 2.40 "Time Value of Money Example for a One-Time Investment"</a>.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s05_f02">
+            <p class="title"><span class="title-prefix">Figure 2.41</span> Time Value of Money Example for an Annuity Investment</p>
+            <img src="section_06/e2e7d7a773358aa57836a63f112e6bfa.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s03_s06">
+        <h2 class="title editable block">The FV (Future Value) Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s03_s06_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s03_s06_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.13.xlsx">Excel Objective 2.13</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s06_n01">
+            <h3 class="title">Lesson Video: FV Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/cf5VlmZlzgg?rel=0" condition="http://img.youtube.com/vi/cf5VlmZlzgg/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/cf5VlmZlzgg?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s06_p02">Establishing a personal savings plan is one of the most important financial exercises you can do. For example, a savings plan is critical for establishing financial security for your retirement years. Many people mistakenly believe that saving for retirement is something you do when you get older. However, the greatest financial gains for your retirement can be achieved if you start saving in the earliest years of your career. Now that you have an understanding of the time value of money, you can see that the more years you can earn interest on your investments and reinvest those earnings, the more money you will have when you retire. Savings plans are also important for other key life events, such as going to college or buying a home. The FV function is a convenient tool that can help you establish savings goals and project the value of your investments over time. Similar to the PMT function, the FV function requires you to accurately define specific arguments in order to produce a reliable result. <a class="xref" href="#manzoexcel_1.1-ch02_s03_s06_t01">Table 2.8 "Arguments for the FV Function"</a> provides definitions for each of the arguments in the FV function. It is helpful to review the time value of money terms in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s05_t01">Table 2.7 "Key Terms for Time Value of Money Concepts"</a> before using the FV function.</p>
+        <div class="table block" id="manzoexcel_1.1-ch02_s03_s06_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 2.8</span> Arguments for the FV Function</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Rate</strong></td>
+                        <td>This is the rate of return you expect to earn on an investment over time. This rate is usually quoted in annual terms, so you have to divide by 12 if you are calculating the value of an annuity making investments on a monthly basis.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Nper</strong></td>
+                        <td>The argument letters stand for <em class="emphasis">number of periods</em>. This is the amount of time you are using to measure the value of an investment. The amount of time used to define this argument must be comparable to the Rate argument. For example, if the rate is stated in terms of months, the amount of time used to define this argument must be in months.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Pmt</strong></td>
+                        <td>The argument letters stand for <em class="emphasis">payment</em>. This argument is used if you are measuring the value of an annuity investment. The argument is defined with the value of the investment that is made for each measure of time used to define the Nper argument. For example, if the Nper argument is expressed in terms of months, you must define this argument with the investment value that is made every month.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">[Pv]</strong></td>
+                        <td>The argument letters stand for <em class="emphasis">present value</em>. The brackets around the argument indicate that it is not always necessary to define it. Excel assumes zero if the argument is not defined. The argument is used when measuring the value of a one-time investment. Both this argument and the Pmt argument will be defined if an annuity investment has a beginning balance or includes a beginning one-time lump-sum investment.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">[Type]</strong></td>
+                        <td>This argument can be defined with either a 1 or a 0. The number 1 is used if investments are made at the beginning of each period used to define the Nper argument. A 0 is used if the investments are made at the end of each period. The argument is in brackets because it does not have to be defined if your investments are made at the end of each period. Excel assumes that this argument is 0 if it is not defined.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s06_p03">With respect to the Personal Budget workbook, we will use the FV function to project the value of the savings plan in 10 years. We will type the function directly into the <strong class="emphasis bold">Personal Budget</strong> worksheet for this demonstration. However, you can use any of the methods demonstrated in this chapter for future use. The following steps explain how this function is added to the worksheet:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s03_s06_l01">
+            <li>Click cell D10 in the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Type the letters <strong class="emphasis bold">FV</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Click cell D13. This is the expected rate of return for the investments.</li>
+            <li>Type a comma.</li>
+            <li>Click cell D12. This is the amount of time the investments are expected to grow.</li>
+            <li>Type a comma.</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>). All values or cell locations used to define the Pmt argument must be preceded by a minus sign.</li>
+            <li>Click cell D7. This is the change in cash that was calculated by subtracting the total expenses from the net income. We are expecting to save this amount of money for the 10-year period this investment is being measured.</li>
+            <li>Type a comma.</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>). All values and cell locations used to define the Pv argument must be preceded by a minus sign.</li>
+            <li>Click cell D14. Since the savings plan has a current balance, we use this to define the Pv argument of the function. This is equivalent to starting with a lump-sum investment.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>). There is no need to define the last argument of the function because we will assume that the savings in cash achieved in our budget will be invested at the end of each year of the savings plan.</li>
+            <li>Press the ENTER key. Check that cell D11 is activated.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Click cell D10.</li>
+            <li>Type a minus sign (<strong class="emphasis bold">−</strong>) and then click cell D9. This subtracts the savings plan from the current savings plan projection.</li>
+            <li>Press the ENTER key.</li>
+        </ol>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s06_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">PMT and FV Functions Produce Negative Results</p>
+            <p class="para" id="manzoexcel_1.1-ch02_s03_s06_p04">If the results of the PMT function or FV function are negative, check the Pv or Pmt arguments. Remember that these arguments must be preceded by a minus sign. If the minus sign is omitted, the functions produce a negative output.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s06_p05"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s06_f01">Figure 2.42 "Results of the Savings Plan Projections"</a> shows the results of the FV function. Notice that the current savings plan projection is $25,606. This is $606 higher than the target of $25,000 entered into cell D9, which shows that the current budget is working to achieve the goals of this savings plan. In other words, given the current net income, we are saving enough money to achieve our savings plan goals.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s06_p06">There are two important factors to notice with regard to this plan. The first factor is that our spending plan allows us to save enough money so that it can be invested to achieve our target of $25,000. The second factor is that the expected rate of return is 3.5%. This is a relatively low expected rate of return and could be achieved by investing in relatively low-risk investments such as bonds as opposed to stocks. This rate can be considered good because we can achieve our savings goals without having to make high-risk investments that could result in a significant loss of our savings.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s06_f01">
+            <p class="title"><span class="title-prefix">Figure 2.42</span> Results of the Savings Plan Projections</p>
+            <img src="section_06/f495dfa9f6eb11ca48eda16cf5ca9d29.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s06_n03">
+            <h3 class="title">Skill Refresher: FV Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/giPj74n2jSE?rel=0" condition="http://img.youtube.com/vi/giPj74n2jSE/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/giPj74n2jSE?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s03_s06_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the letters <strong class="emphasis bold">FV</strong> followed by an open parenthesis, or double click the function name from the function list.</li>
+                <li>Define the Rate argument with a cell location that contains the expected rate of return for your investment.</li>
+                <li>Define the Nper argument with a cell location that contains the amount of time you are measuring the growth of your investment.</li>
+                <li>Define the Pmt argument with a cell location that contains the value of regular investments for an annuity. Cell locations or values used for this argument must be preceded by a minus sign.</li>
+                <li>Define the [Pv] argument with a cell location that contains the value of a one-time lump-sum investment. Cell locations or values used for this argument must be preceded by a minus sign.</li>
+                <li>Define the [Type] argument with a 1 if annuity investments are made at the beginning of each period or a 0 if investments are made at the end of each period.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch02_s03_s07">
+        <h2 class="title editable block">Goal Seek (What-If Scenarios)</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch02_s03_s07_ep01">
+            <p class="para" id="manzoexcel_1.1-ch02_s03_s07_p01">Follow-along file: Continue with Excel Objective 2.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_2.14.xlsx">Excel Objective 2.14</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s07_n01">
+            <h3 class="title">Lesson Video: Goal Seek</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/kn_UU1y4dRE?rel=0" condition="http://img.youtube.com/vi/kn_UU1y4dRE/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/kn_UU1y4dRE?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s07_p02">We used several formulas and functions to complete the Personal Budget workbook shown in <a class="xref" href="#manzoexcel_1.1-ch02_s03_s06_f01">Figure 2.42 "Results of the Savings Plan Projections"</a>. All the formulas and functions entered contain cell references that allow for a variety of what-if scenarios. Goal Seek is a tool that can be used in the process of conducting these what-if scenarios. Goal Seek maximizes the benefits of Excel’s cell-referencing capabilities by changing inputs to precise values to achieve specific outputs produced by formulas or functions. We will begin by changing one of the inputs in the Personal Budget workbook through the following steps:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch02_s03_s07_l01">
+            <li>Click the <strong class="emphasis bold">Budget Detail</strong> worksheet tab.</li>
+            <li>Click cell D9.</li>
+            <li>Type the number <strong class="emphasis bold">2000</strong>. Instead of planning a decrease in our vacation spending, we will see what happens to our budget if we spend the same amount as last year, which was $2,000.</li>
+            <li>Press the ENTER key.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s07_p03"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s07_f01">Figure 2.43 "Budget Detail Worksheet "</a> and <a class="xref" href="#manzoexcel_1.1-ch02_s03_s07_f02">Figure 2.44 "Budget Detail Worksheet "</a> show the <strong class="emphasis bold">Budget Detail</strong> worksheet before and after the change in the annual vacation budget. By comparing these two figures you can see that by changing just one input, many of the outputs produced by the formulas and functions in the worksheet changed. The following is a list of the changes that occurred in the worksheet:</p>
+        <ul class="itemizedlist editable block" id="manzoexcel_1.1-ch02_s03_s07_l02">
+            <li>The formula output in cell F12 now shows that we are planning a 1.1% increase in our total spending as opposed to a −1.7% decrease.</li>
+            <li>The formula output in cell F9 changes from −25% to 0%.</li>
+            <li>The SUM function in cell D12 changes from $17,950 to $18,450.</li>
+            <li>The SUM function in cell C12 changes from $1,496 to $1,538.</li>
+            <li>The AVERAGE function in cell D14 changes from $1,994 to $2,050.</li>
+        </ul>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s07_f01">
+            <p class="title"><span class="title-prefix">Figure 2.43</span> Budget Detail Worksheet <em class="emphasis bolditalic">before</em> Changing the Annual Vacation Budget</p>
+            <img src="section_06/400e08afb612acdcf244b6c94a7be1f3.jpg">
+        </div>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s07_f02">
+            <p class="title"><span class="title-prefix">Figure 2.44</span> Budget Detail Worksheet <em class="emphasis bolditalic">after</em> Changing the Annual Vacation Budget</p>
+            <img src="section_06/57c15ce72e54808efd477706239fd0e7.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s07_p04">In addition to the changes in the <strong class="emphasis bold">Budget Detail</strong> worksheet, outputs of formulas and functions on the <strong class="emphasis bold">Budget Summary</strong> worksheet also change when the Annual Spend for the Vacation category was increased. To see the changes, compare <a class="xref" href="#manzoexcel_1.1-ch02_s03_s06_f01">Figure 2.42 "Results of the Savings Plan Projections"</a> to <a class="xref" href="#manzoexcel_1.1-ch02_s03_s07_f03">Figure 2.45 "Budget Summary Worksheet "</a>. There were a total of fourteen changes in the outputs of formulas and functions on the <strong class="emphasis bold">Budget Summary</strong> worksheet. In total, there were twenty-one outputs that changed in the Personal Budget workbook as a result of changing just one input.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s07_f03">
+            <p class="title"><span class="title-prefix">Figure 2.45</span> Budget Summary Worksheet <em class="emphasis bolditalic">after</em> Changing the Annual Vacation Budget</p>
+            <img src="section_06/0dd98df5363abb67066abef1422835d0.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s07_p05">One of the most notable changes on the <strong class="emphasis bold">Budget Summary</strong> worksheet is the Savings Projection in cell D10. By spending an additional $500 a year on vacation plans, the projected savings value in 10 years decreases by $5,865. However, what if the rate of return were to increase? An increase in the rate of return could recover the decrease in the future value of our savings plan. We can use a tool such as Goal Seek to determine exactly how much the rate of return would have to increase to achieve our savings plan target of $25,000. The following steps explain how to use Goal Seek to accomplish this goal:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch02_s03_s07_l03">
+            <li>Click the <strong class="emphasis bold">Budget Summary</strong> worksheet tab.</li>
+            <li>Click the Data tab of the Ribbon.</li>
+            <li>Click the What-If Analysis button in the Data Tools group of commands.</li>
+            <li>
+                <p class="para">Click Goal Seek from the list options (see <a class="xref" href="#manzoexcel_1.1-ch02_s03_s07_f04">Figure 2.46 "Selecting Goal Seek from the What-If Analysis Options"</a>). This opens the Goal Seek dialog box.</p>
+                <div class="callout" id="manzoexcel_1.1-ch02_s03_s07_n02">
+                <h3 class="title">Mouseless Commands</h3>
+                <p class="simpara">Goal Seek</p>
+                <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s03_s07_l04">
+                    <li>Press the Alt key on your keyboard and then the letters <em class="emphasis">A</em>, <em class="emphasis">W</em>, and <em class="emphasis">G</em> one at a time.</li>
+                </ul>
+                </div>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch02_s03_s07_f04">
+                <p class="title"><span class="title-prefix">Figure 2.46</span> Selecting Goal Seek from the What-If Analysis Options</p>
+                    <img src="section_06/6cc6b0a3491520c36f0d5f5625c3bf25.jpg">
+                </div>
+            </li>
+            <li>Click the Collapse Dialog button next to the “Set cell:” input box on the Goal Seek dialog box.</li>
+            <li>Click cell D10 on the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Press the ENTER key on your keyboard.</li>
+            <li>Place the mouse pointer over the “To value” input box in the Goal Seek dialog box and click.</li>
+            <li>Type the number <strong class="emphasis bold">25000</strong> in the “To value” input box in the Goal Seek dialog box.</li>
+            <li>Click the Collapse Dialog button next to the “By changing cell” input box in the Goal Seek dialog box.</li>
+            <li>Click cell D13 on the <strong class="emphasis bold">Budget Summary</strong> worksheet.</li>
+            <li>Press the ENTER key on your keyboard.</li>
+            <li>Click the OK button on the Goal Seek dialog box.</li>
+            <li>Click the OK button on the Goal Seek Status dialog box (see <a class="xref" href="#manzoexcel_1.1-ch02_s03_s07_f06">Figure 2.48 "Solution Calculated by Goal Seek"</a>). The status box is telling you that Excel found a value for cell D13 that produces an output of $25,000 for the FV function in cell D10.</li>
+            <li>
+<a class="xref" href="#manzoexcel_1.1-ch02_s03_s07_f05">Figure 2.47 "Final Settings for the Goal Seek Dialog Box"</a> shows the final settings for the Goal Seek dialog box before clicking the OK button.</li>
+        </ol>
+        <div class="figure large medium-height editable block" id="manzoexcel_1.1-ch02_s03_s07_f05">
+            <p class="title"><span class="title-prefix">Figure 2.47</span> Final Settings for the Goal Seek Dialog Box</p>
+            <img src="section_06/099e2177cc6f630a64df3a7970fc1e2e.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch02_s03_s07_p07"><a class="xref" href="#manzoexcel_1.1-ch02_s03_s07_f06">Figure 2.48 "Solution Calculated by Goal Seek"</a> shows the solution Goal Seek calculated for the rate of return. Notice that in order to achieve the target savings plan of $25,000, the rate of return must increase to 7.8%. Initially, it appears that we can spend the additional $500 a year on vacations and still achieve our savings goal of $25,000. However, achieving a 7.8% annual rate of return will require us to make riskier investments with our savings. Thus, there is a greater possibility that we could lose a substantial amount of our savings. This is the downside of decreasing your overall savings rate. If you save less money, it forces you to take higher risks with the money you have in order to achieve higher rates of return. Unfortunately, many people end up on the losing end of these risks, which severely compromises their ability to reach their savings goals.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch02_s03_s07_f06">
+            <p class="title"><span class="title-prefix">Figure 2.48</span> Solution Calculated by Goal Seek</p>
+            <img src="section_06/cae1f37fe7dbd846df5215abc8c1230e.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch02_s03_s07_n03">
+            <h3 class="title">Skill Refresher: Goal Seek</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/Nw6kWdrRufY?rel=0" condition="http://img.youtube.com/vi/Nw6kWdrRufY/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/Nw6kWdrRufY?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s03_s07_l05">
+                <li>Click the What-If Analysis button in the Data tab of the Ribbon.</li>
+                <li>Click the Goal Seek option.</li>
+                <li>Define the “Set cell” input box in the Goal Seek dialog box with a cell location that contains a formula or function.</li>
+                <li>Type a number in the “To value” input box in the Goal Seek dialog box. This is the number you want the formula or function to produce, which you defined for the “Set cell” input box.</li>
+                <li>Define the “By changing cell” input box in the Goal Seek dialog box with a cell location that is referenced in the formula or function used to define the “Set cell” input box.</li>
+                <li>Click the OK button on the Goal Seek dialog box.</li>
+                <li>Click the OK button on the Goal Seek Status dialog box.</li>
+            </ol>
+        </div>
+        <div class="key_takeaways editable block" id="manzoexcel_1.1-ch02_s03_s07_n04">
+            <h3 class="title">Key Takeaways</h3>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s03_s07_l06">
+                <li>The PMT function can be used to calculate the monthly mortgage payments for a house or the monthly lease payments for a car.</li>
+                <li>When using the PMT or FV functions, each argument must be separated by a comma.</li>
+                <li>When using the PMT or FV functions, the arguments must be defined in comparable terms. For example, when using the FV function, if the Pmt argument is defined using monthly payments, the Rate and Nper arguments must be defined in terms of months.</li>
+                <li>The FV function is used to calculate the value an investment at a future point in time given a constant rate of return.</li>
+                <li>The PMT and FV functions produce a negative output if the Pmt or Pv arguments are not preceded by a minus sign.</li>
+                <li>Goal Seek is a valuable tool for creating what-if scenarios by changing the value in a cell location referenced in either a formula or a function.</li>
+            </ul>
+        </div>
+        <div class="exercises editable block" id="manzoexcel_1.1-ch02_s03_s07_n05">
+            <h3 class="title">Exercises</h3>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch02_s03_s07_l07">
+                <li>
+                    <p class="para">Which statement best explains the setup of the following payment function: =PMT(.06,30,−200000,50000,0)? Note that the 6% annual interest rate is expressed in decimal terms as .06.</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s03_s07_l08" numeration="loweralpha">
+                        <li>The function is calculating the monthly payments of a $200,000 loan, 6% interest rate, over 30 years, with a lump-sum payment of $50,000 at the end of the loan. Payments are due at the end of every month.</li>
+                        <li>The function is calculating the annual payments of a $200,000 loan, 6% interest rate, over 30 years, with a lump-sum payment of $50,000 at the end of the loan. Payments are due at the end of every year.</li>
+                        <li>The function is calculating the monthly payments of a $200,000 loan, 6% interest rate, over 30 years, with a lump-sum payment of $50,000 at the end of the loan. Payments are due at the beginning of every month.</li>
+                        <li>The function is calculating the annual payments of a $200,000 loan, 6% interest rate, over 30 years, with a lump-sum payment of $50,000 at the end of the loan. Payments are due at the beginning of every year.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">When leasing a car, the residual value will be used to define which of the following?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s03_s07_l09" numeration="loweralpha">
+                        <li>the Pv argument in the FV function</li>
+                        <li>the Pv argument in the PMT function</li>
+                        <li>the Pmt argument in the FV function</li>
+                        <li>the Fv argument in the PMT function</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">The recurring investments in an annuity investment would be used to define which of the following?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s03_s07_l10" numeration="loweralpha">
+                        <li>the Pmt argument in the FV function</li>
+                        <li>the Pv argument in the FV function</li>
+                        <li>the Fv argument in the PMT function</li>
+                        <li>the Pv argument in the PMT function</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following PMT functions will accurately calculate the monthly payments on a mortgage if the price of the house is $300,000, a down payment of $60,000 is made, the interest rate is 5%, the term of the loan is 30 years, and payments are due at the end of every month?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch02_s03_s07_l11" numeration="loweralpha">
+                        <li>=PMT(.05/12,30*12,−300000,60000,0)</li>
+                        <li>=PMT(.05,30*12,−300000,60000,0)</li>
+                        <li>=PMT(.05/12,30*12,−240000)</li>
+                        <li>=PMT(.05/12,30,−240000,0)</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+  </div>
+  
+  <div id=navbar-bottom class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s06-02-statistical-functions.html"><img src="shared/images/batch-left.png"></a> <a href="s06-02-statistical-functions.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s06-04-chapter-assignments-and-tests.html">Next Section</a> <a href="s06-04-chapter-assignments-and-tests.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="shared/book.js"></script>
+  
+  
+</body>
+</html>

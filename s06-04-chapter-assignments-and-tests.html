@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="shared/bookhub.css" rel="stylesheet" type="text/css">
+  <title>Chapter Assignments and Tests</title>
+</head>
+<body>
+
+  
+  <div id=navbar-top class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s06-03-functions-for-personal-finance.html"><img src="shared/images/batch-left.png"></a> <a href="s06-03-functions-for-personal-finance.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s07-01-logical-functions.html">Next Section</a> <a href="s07-01-logical-functions.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  <div id="book-content">
+    <div class="section" id="manzoexcel_1.1-ch02_s04" condition="start-of-chunk" version="5.0" lang="en">
+    <h2 class="title editable block">
+<span class="title-prefix">2.4</span> Chapter Assignments and Tests</h2>
+    <p class="para editable block" id="manzoexcel_1.1-ch02_s04_p100">To assess your understanding of the material covered in the chapter, please complete the following assignments.</p>
+    <div class="callout block" id="manzoexcel_1.1-ch02_s04_n02">
+        <h3 class="title">Careers in Practice (Skills Review)</h3>
+        <p class="simpara">Financial Plan for a Lawn Care Business (Comprehensive Review)</p>
+        <p class="simpara">Starter File: <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Chapter_2_CiP_Exercise_1.xlsx">Chapter 2 CiP Exercise 1</a></p>
+        <p class="simpara">Difficulty: Level 1 Easy</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p02">Running your own lawn care business can be an excellent way to make money over the summer while on break from college. It can also be a way to supplement your existing income for the purpose of saving money for retirement or for a college fund. However, managing the costs of the business will be critical in order for it to be a profitable venture. In this exercise you will create a simple financial plan for a lawn care business by using the skills covered in this chapter. Begin this exercise by opening the file named Chapter 2 CiP Exercise 1.</p>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch02_s04_l02">
+            <li>Click cell C5 in the <strong class="emphasis bold">Annual Plan</strong> worksheet.</li>
+            <li>Enter a formula that calculates the average price per lawn cut. Type an equal sign (<strong class="emphasis bold">=</strong>), then click cell B3. Type the asterisk symbol (<strong class="emphasis bold">*)</strong> for multiplication, then click cell B4. Press the ENTER key.</li>
+            <li>Click cell C8 in the <strong class="emphasis bold">Annual Plan</strong> worksheet.</li>
+            <li>Enter a formula that calculates the total number of lawns that will be cut during the year. Type an equal sign (<strong class="emphasis bold">=</strong>), then click cell B6. Type the asterisk symbol (<strong class="emphasis bold">*</strong>) for multiplication, then click cell B7. Press the ENTER key.</li>
+            <li>Click cell D9 in the <strong class="emphasis bold">Annual Plan</strong> worksheet.</li>
+            <li>Enter a formula that calculates the total sales for the plan. Type an equal sign (<strong class="emphasis bold">=</strong>), then click cell C5. Type the asterisk symbol (<strong class="emphasis bold">*</strong>) for multiplication, then click cell C8. Press the ENTER key.</li>
+            <li>Click cell F3 in the <strong class="emphasis bold">Leases</strong> worksheet. The PMT function will be used to calculate the monthly lease payment for the first item. For many businesses, leasing (or renting) equipment is a more favorable option than purchasing equipment because it requires far less cash. This enables you to begin a business such as a lawn care business without having to put up a lot of money to buy equipment.</li>
+            <li>
+                <p class="para">Type an equal sign (<strong class="emphasis bold">=</strong>) followed by the function name <strong class="emphasis bold">PMT</strong> and an open parenthesis (<strong class="emphasis bold">(</strong>). Define the arguments of the function as follows:</p>
+                <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s04_l03">
+                    <li>
+<em class="emphasis bolditalic">Rate:</em> Click cell B3, type a forward slash (<strong class="emphasis bold">/</strong>) for division, type the number <strong class="emphasis bold">12</strong>, and type a comma. Since we are calculating monthly payments, the annual interest rate must be converted to a monthly interest rate.</li>
+                    <li>
+<em class="emphasis bolditalic">Nper:</em> Click cell C3, type an asterisk (<strong class="emphasis bold">*</strong>) for multiplication, type the number 12, and type a comma. Similar to the Rate argument, the terms of the lease must be converted to months since we are calculating monthly payments.</li>
+                    <li>
+<em class="emphasis bolditalic">Pv:</em> Type a minus sign (<strong class="emphasis bold">−</strong>), click cell D3, and type a comma. Remember that this argument must always be preceded by a minus sign.</li>
+                    <li>
+<em class="emphasis bolditalic">Fv:</em> Click cell E3 and type a comma.</li>
+                    <li>
+<em class="emphasis bolditalic">Type:</em> Type the number 1, type a closing parenthesis (<strong class="emphasis bold">)</strong>), and press the ENTER key. We will assume the lease payments will be made at the beginning of each month, which requires that this argument be defined with a value of 1.</li>
+                </ul>
+            </li>
+            <li>Copy the PMT function in cell F3 and paste it into the range F4:F6.</li>
+            <li>Click cell F10 in the <strong class="emphasis bold">Leases</strong> worksheet. A SUM function will be added to calculate the total for the monthly lease payments.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>) followed by the word <strong class="emphasis bold">SUM</strong> and an open parenthesis (<strong class="emphasis bold">(</strong>). Highlight the range F3:F9, type a closing parenthesis (<strong class="emphasis bold">)</strong>), and press the ENTER key. You will notice that blank rows were included in this range for the SUM function. If other items are added to the worksheet, they will be included in the output of the SUM function.</li>
+            <li>Highlight the range A2:F6 on the <strong class="emphasis bold">Leases</strong> worksheet. The data in this range will be sorted.</li>
+            <li>Click the Sort button in the Data tab of the Ribbon. In the Sort dialog box, select the Interest Rate option in the “Sort by” drop-down box. Select Largest to Smallest for the sort order. Then, click the Add Level button on the Sort dialog box. Select the Price option in the “Then by” drop-down box. Select Largest to Smallest for the sort order. Click the OK button in the Sort dialog box.</li>
+            <li>Click cell B11 on the <strong class="emphasis bold">Annual Plan</strong> worksheet. The monthly lease payments that are calculated in the <strong class="emphasis bold">Lease</strong> worksheet will be displayed in this cell.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>). Click the <strong class="emphasis bold">Leases</strong> worksheet tab, click cell F10, and press the ENTER key.</li>
+            <li>Click cell C12 on the <strong class="emphasis bold">Annual Plan</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>) and click cell B11. Type an asterisk (<strong class="emphasis bold">*</strong>), type the number <strong class="emphasis bold">12</strong>, and press the ENTER key. This formula calculates the annual lease payments.</li>
+            <li>Format the output of the formula in cell C12 so the decimal places are reduced to zero.</li>
+            <li>Click cell C14 on the <strong class="emphasis bold">Annual Plan</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>) and click cell B13. Type an asterisk (<strong class="emphasis bold">*</strong>), click cell C8, and press the ENTER key.</li>
+            <li>Click cell D16 on the <strong class="emphasis bold">Annual Plan</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>) followed by the word <strong class="emphasis bold">SUM</strong> and an open parenthesis (<strong class="emphasis bold">(</strong>). Highlight the range C11:C15, type a closing parenthesis (<strong class="emphasis bold">)</strong>), and press the ENTER key. This SUM function adds the total expenses for the business.</li>
+            <li>Click cell D17 on the <strong class="emphasis bold">Annual Plan</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>). Click cell D9, type a minus sign (<strong class="emphasis bold">–</strong>), click cell D16, and press the ENTER key. This formula calculates the annual profit for the business.</li>
+            <li>Click cell B10 on the <strong class="emphasis bold">Investments</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>) followed by the word <strong class="emphasis bold">COUNT</strong> and an open parenthesis (<strong class="emphasis bold">(</strong>). Highlight the range B3:B8, type a closing parenthesis (<strong class="emphasis bold">)</strong>), and press the ENTER key. This function counts the number of investments that currently have a balance. Notice that additional blank rows were included in the range for this function. The function output will automatically change if any new investments are added to the worksheet.</li>
+            <li>Click cell D3 on the <strong class="emphasis bold">Investments</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>). Click the <strong class="emphasis bold">Annual Plan</strong> worksheet tab. Click cell D17 and type a forward slash (<strong class="emphasis bold">/</strong>) for division. Click the <strong class="emphasis bold">Investments</strong> worksheet tab. Click cell B10 and press the ENTER key. This formula divides the profit calculated on the <strong class="emphasis bold">Annual Plan</strong> worksheet by the number of investments in the <strong class="emphasis bold">Investments</strong> worksheet. We will assume that the profits from this business will be invested evenly among the funds listed in Column A of the <strong class="emphasis bold">Investments</strong> worksheet.</li>
+            <li>Before copying and pasting the formula created in step 28, absolute references must be added to the cell locations in the formula. Double click cell D3 on the <strong class="emphasis bold">Investments</strong> worksheet. Place the mouse pointer in front of D17 in the formula and click. Press the F4 key on your keyboard. Place the mouse pointer in front of cell B10 in the formula and click. Press the F4 key on your keyboard. Press the ENTER key.</li>
+            <li>Copy cell D3 and paste it into cells D4 and D5.</li>
+            <li>Click cell E3 on the <strong class="emphasis bold">Investments</strong> worksheet. The future value function will be added to project the total growth of the investments listed in Column A. We will assume that the business will be able to consistently generate the profit, which will be invested evenly in the funds every year.</li>
+            <li>
+                <p class="para">Type an equal sign (<strong class="emphasis bold">=</strong>) followed by the function name <strong class="emphasis bold">FV</strong> and an open parenthesis (<strong class="emphasis bold">(</strong>). Define the arguments of the function as follows:</p>
+                <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s04_l04">
+                    <li>
+<em class="emphasis bolditalic">Rate:</em> Click cell C3 and type a comma. This is the expected growth rate of the first fund.</li>
+                    <li>
+<em class="emphasis bolditalic">Nper:</em> Type the number <strong class="emphasis bold">10</strong> and then type a comma. We will project the growth of these investments in 10 years.</li>
+                    <li>
+<em class="emphasis bolditalic">Pmt:</em> Type a minus sign (<strong class="emphasis bold">−</strong>), click cell D3, and type a comma. Remember that this argument must always be preceded by a minus sign. We are assuming that the business will consistently generate the profits calculated in the <strong class="emphasis bold">Annual Plan</strong> worksheet and that these profits will be invested evenly into each fund.</li>
+                    <li>
+<em class="emphasis bolditalic">Pv:</em> Type a minus sign (<strong class="emphasis bold">–</strong>) and click cell B3. Since each fund currently has a balance, we need to add this to the Pv argument of the function. Similar to the Pmt argument, remember that this argument must also be preceded by a minus sign.</li>
+                    <li>
+<em class="emphasis bolditalic">Type:</em> Type a closing parenthesis (<strong class="emphasis bold">)</strong>) and press the ENTER key. We will assume the investments will be made at the end of each year. Therefore, it is not necessary to define this argument since Excel will assume zero, or end of the period, if it is not defined.</li>
+                </ul>
+            </li>
+            <li>Copy the FV function in cell E3 and paste it into cells E4 and E5.</li>
+            <li>Click cell B9 on the <strong class="emphasis bold">Investments</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>) followed by the word <strong class="emphasis bold">SUM</strong> and an open parenthesis (<strong class="emphasis bold">(</strong>). Highlight the range B3:B8, type a closing parenthesis (<strong class="emphasis bold">)</strong>), and press the ENTER key. This SUM function adds the current balance for all investments. Blank rows are added to the range for the function so additional investments will automatically be included in the function output.</li>
+            <li>Copy the SUM function in cell B9 and paste it into cells D9 and E9.</li>
+            <li>We will use Goal Seek to determine how many customers we need to service in order to reach a savings goal of $250,000. Click cell E9 on the <strong class="emphasis bold">Investments</strong> worksheet. Click the What-If Analysis button in the Data tab of the Ribbon and select Goal Seek. Click in the “To value” input box on the Goal Seek dialog box. Type the number <strong class="emphasis bold">250000</strong>. Click the Collapse Dialog button next to the “By changing cell” input box on the Goal Seek dialog box. Click the <strong class="emphasis bold">Annual Plan</strong> worksheet tab and click cell B6. Press the ENTER key, and click the OK button on the Goal Seek dialog box. Click the OK button on the Goal Seek Status dialog box. View the number of customers showing in cell B6 in the <strong class="emphasis bold">Annual Plan</strong> worksheet.</li>
+            <li>Save the workbook by adding your name in front of the current workbook name (i.e., “<em class="emphasis">your name</em> Chapter 2 CiP Exercise 1”).</li>
+            <li>Close the workbook and Excel.</li>
+        </ol>
+        <div class="figure large" id="manzoexcel_1.1-ch02_s04_f01">
+            <p class="title"><span class="title-prefix">Figure 2.49</span> Completed CiP Exercise 1 Annual Plan Worksheet</p>
+            <img src="section_06/50590ff108ce20a1883d92dd87fa37bf.jpg">
+        </div>
+        <div class="figure large" id="manzoexcel_1.1-ch02_s04_f02">
+            <p class="title"><span class="title-prefix">Figure 2.50</span> Completed CiP Exercise 1 Investments Worksheet</p>
+            <img src="section_06/edf8d98d9dc5e420cf34166bbfdc55f7.jpg">
+        </div>
+        <div class="figure large" id="manzoexcel_1.1-ch02_s04_f03">
+            <p class="title"><span class="title-prefix">Figure 2.51</span> Completed CiP Exercise 1 Leases Worksheet</p>
+            <img src="section_06/687bd5ee0b6ff3b41ff7408534d7bbc2.jpg">
+        </div>
+        <p class="simpara">Hotel Management Cost Analysis</p>
+        <p class="simpara">Starter File: <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Chapter_2_CiP_Exercise_2.xlsx">Chapter 2 CiP Exercise 2</a></p>
+        <p class="simpara">Difficulty: Level 2 Moderate</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p03">The hotel management industry presents a wide variety of career opportunities. These range from running your own bed and breakfast to a management position at a large hotel corporation. No matter what hotel management career you choose to pursue, understanding the costs for any hotel operation is critical to running a successful operation. This exercise examines the relationship between cleaning expenses and the occupancy rate of a small hotel. Cleaning expenses are obviously influenced by the occupancy rate of the hotel. As more rooms need to be cleaned, the amount of overall cleaning expenses increases. However, to accurately estimate these expenses, you need to know whether there is a baseline, or fixed portion, of these expenses that does not change no matter how many rooms need to be cleaned. In other words, if you pay a cleaning staff a fixed salary, it does not matter if they clean 1 room or 100 rooms; their salary will remain the same. However, you may need more cleaning supplies as the number of rooms that need to be cleaned increases. In addition, the replacement of guest necessities such as soap, shampoo, lotions, and so on will also increase as the number of rooms to be cleaned increases. This exercise will demonstrate how these costs can be estimated through a technique called the <em class="emphasis">high-low method</em>. Begin this exercise by opening the file named Chapter 2 CiP Exercise 2.</p>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch02_s04_l05">
+            <li>Enter a formula in cell C5 on the <strong class="emphasis bold">Historical Costs</strong> worksheet to calculate the January capacity for the hotel. The capacity is calculated by multiplying the occupants per room (cell C3) by the number of rooms in the hotel (cell C2). This result is then multiplied by the number of days in the month (cell C5). Construct this formula so that relative referencing does not change cells C3 and C2 when the formula is pasted into other cell locations in Column C.</li>
+            <li>Copy the formula in cell C5 and paste it into the range C6:C16. Use a paste method that does not remove the border at the bottom of cell C16.</li>
+            <li>Enter a formula in cell E5 on the <strong class="emphasis bold">Historical Costs</strong> worksheet to calculate the occupancy capacity of the hotel. Your formula should divide the Hotel Capacity into the Actual Capacity. Format your result to a percentage with two decimal places. Then copy and paste the formula into the range E6:E16. Use a paste method that does not remove the border at the bottom of cell E16.</li>
+            <li>Enter a function in cell C17 on the <strong class="emphasis bold">Historical Costs</strong> worksheet that sums the values in the range C5:C16. Copy the function and paste it into cells D17 and F17. Use a paste method that does not change the border on the right side of cell F17.</li>
+            <li>Copy the formula in cell E16 and paste it into cell E17. Use a paste method that does not change the border at the bottom of cell E17.</li>
+            <li>Sort the data in the <strong class="emphasis bold">Historical Costs</strong> worksheet based on the values in the Actual Occupancy column in descending order (largest to smallest). For any duplicate values in the Actual Occupancy column, sort using the values in the Cleaning Expenses column in descending order.</li>
+            <li>On the <strong class="emphasis bold">Cost Analysis</strong> worksheet, enter a function into cell B3 that shows the highest value in the range D5:D16 in the Actual Occupancy column on the <strong class="emphasis bold">Historical Costs</strong> worksheet.</li>
+            <li>On the <strong class="emphasis bold">Cost Analysis</strong> worksheet, enter a function into cell B4 that shows the lowest value in the range D5:D16 in the Actual Occupancy column on the <strong class="emphasis bold">Historical Costs</strong> worksheet.</li>
+            <li>On the <strong class="emphasis bold">Cost Analysis</strong> worksheet, enter a function into cell C3 that shows the highest value in the range F5:F16 in the Actual Occupancy column on the <strong class="emphasis bold">Historical Costs</strong> worksheet.</li>
+            <li>On the <strong class="emphasis bold">Cost Analysis</strong> worksheet, enter a function into cell C4 that shows the lowest value in the range F5:F16 in the Actual Occupancy column on the <strong class="emphasis bold">Historical Costs</strong> worksheet.</li>
+            <li>On the <strong class="emphasis bold">Cost Analysis</strong> worksheet, format cells B3 and B4 with a comma and zero decimal places. Format cells C3 and C4 with US dollars with zero decimal places.</li>
+            <li>On the <strong class="emphasis bold">Cost Analysis</strong> worksheet, enter a formula in cell B5 that subtracts the lowest actual occupancy value from the highest actual occupancy value. Copy this formula and paste it into cell C5.</li>
+            <li>Enter a formula in cell C6 on the <strong class="emphasis bold">Cost Analysis</strong> worksheet that calculates that variable cost portion for the cleaning expenses per month. As mentioned in the introduction to this exercise, the cleaning expense contains costs that increase with each room that is cleaned. This is known as a <em class="emphasis">variable expense</em> and can be estimated by dividing the Actual Occupancy High Low Difference (cell B5) into the Cleaning Expenses High Low Difference (cell C5). Format the output of this formula to US dollars with two decimal places.</li>
+            <li>Enter a formula in cell C7 on the <strong class="emphasis bold">Cost Analysis</strong> worksheet that calculates the <em class="emphasis">fixed cost</em> portion for the cleaning expenses per month. This is the amount of money that will be spent on cleaning expenses no matter how many rooms are cleaned. Since we have calculated the variable cost portion of the cleaning expense, we can now use it to calculate the fixed expense. To do this, subtract from the High Cleaning Expense (cell C3) the result of multiplying the variable expense (cell C6) by the High Actual Occupancy (cell B3). Format the result of the formula to US dollars with zero decimal places.</li>
+            <li>Enter the number 3500 in cell C2 on the <strong class="emphasis bold">Cleaning Cost Estimates</strong> worksheet. Format the number with commas and zero decimal places.</li>
+            <li>Apply a yellow fill color to cell C2 on the <strong class="emphasis bold">Cleaning Cost Estimates</strong> worksheet. This is being formatted to indicate to the user of this worksheet that a number is to be entered into the cell.</li>
+            <li>On the <strong class="emphasis bold">Cleaning Cost Estimates</strong> worksheet, enter a formula in cell C3 that calculates the estimated cleaning expenses given the number that was entered into cell C2. Now that we have calculated the variable and fixed expenses on the <strong class="emphasis bold">Cost Analysis</strong> worksheet, we can use the results to estimate the cleaning expenses. The formula is <em class="emphasis">a</em> + <em class="emphasis">bX</em>, where <em class="emphasis">a</em> is the fixed cost, <em class="emphasis">b</em> is the variable cost, and <em class="emphasis">X</em> is the activity level that is typed into cell C2. The fixed cost is added to the result of multiplying the variable cost by the activity level in cell C2. Format the output of the formula to US dollars with zero decimal places.</li>
+            <li>Save the workbook by adding your name in front of the current workbook name (i.e., “<em class="emphasis">your name</em> Chapter 2 CiP Exercise 2”).</li>
+            <li>Close the workbook and Excel.</li>
+        </ol>
+        <div class="figure large medium-height" id="manzoexcel_1.1-ch02_s04_f04">
+            <p class="title"><span class="title-prefix">Figure 2.52</span> Completed CiP Exercise 2 Historical Costs Worksheet</p>
+            <img src="section_06/4fb1ed2414c77126fee2194218f22045.jpg">
+        </div>
+        <div class="figure large medium-height" id="manzoexcel_1.1-ch02_s04_f05">
+            <p class="title"><span class="title-prefix">Figure 2.53</span> Completed CiP Exercise 2 Cost Analysis Worksheet</p>
+            <img src="section_06/191860c633ea688195555789cd16a33c.jpg">
+        </div>
+    </div>
+    <div class="callout block" id="manzoexcel_1.1-ch02_s04_n03">
+        <h3 class="title">Integrity Check</h3>
+        <p class="simpara">Starter File: <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Chapter_2_IC_Exercise_3.xlsx">Chapter 2 IC Exercise 3</a></p>
+        <p class="simpara">Difficulty: Level 3 Difficult</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p04">The purpose of this exercise is to analyze a worksheet to determine whether there are any integrity flaws. Read the scenario below, then open the Excel workbook related to this exercise. You will find a worksheet in the workbook named <strong class="emphasis bold">AnswerSheet</strong>. This worksheet is to be used for any written responses required for this exercise.</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p05"><em class="emphasis bolditalic">Scenario</em></p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p06">You are the manager of a large do-it-yourself hardware store that is part of a national retail chain. Your assistant manager has constructed a sales and profit budget for the upcoming year. The <strong class="emphasis bold">Budget</strong> worksheet contains several formulas used to calculate the expected sales and profit dollars for the store by product category. The following is a list of key elements and calculations used on this worksheet:</p>
+        <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s04_l06">
+            <li>Cells shaded in yellow are intended for data entry values. For example, last year sales results in Column B are typed into the cells. Also, the expected growth rates in Column D and profit percentages in Column E are also typed into the cells. These values fluctuate from year to year, and the assistant manager intends to create a few scenarios for the budget by changing the growth rates and expected profit percentages for each product category.</li>
+            <li>
+<a class="xref" href="#manzoexcel_1.1-ch02_s04_t01">Table 2.9 "Formulas Used on the Budget Worksheet"</a> contains a list of the formulas that are used to produce the outputs on the <strong class="emphasis bold">Budget</strong> worksheet.</li>
+        </ul>
+        <div class="table" id="manzoexcel_1.1-ch02_s04_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 2.9</span> Formulas Used on the Budget Worksheet</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Formula</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Budgeted Profit Dollars</strong></td>
+                        <td>Budgeted Sales × Profit Percent</td>
+                        <td>F4:F7</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Budgeted Sales</strong></td>
+                        <td>Sales Last Year × (1 + Sales Growth)</td>
+                        <td>C4:C7</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Total Profit Growth</strong></td>
+                        <td>(Total Budgeted Profit Dollars ÷ Total Budgeted Sales)</td>
+                        <td>E8</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Total Sales Growth</strong></td>
+                        <td>(Total Budgeted Sales − Total Sales Last Year) ÷ Total Sales Last Year</td>
+                        <td>D8</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p07"><em class="emphasis bolditalic">Assignment</em></p>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch02_s04_l07">
+            <li>As noted in <a class="xref" href="#manzoexcel_1.1-ch02_s04_t01">Table 2.9 "Formulas Used on the Budget Worksheet"</a>, the Sales Last Year is used in the formula calculating the Budgeted Sales dollars. Use the Trace Dependents command to locate the formula referencing any value in the Sales Last Year column on the <strong class="emphasis bold">Budget</strong> worksheet. Document your observation in the <strong class="emphasis bold">AnswerSheet</strong> worksheet.</li>
+            <li>The assistant manager intends to use the <strong class="emphasis bold">Budget</strong> worksheet to create a few scenarios for the budgeted sales and profit dollars. Change a few values in the Profit Percent column and document your observations in the <strong class="emphasis bold">AnswerSheet</strong> worksheet.</li>
+            <li>Look at each value in the Totals row (row 8) on the <strong class="emphasis bold">Budget</strong> worksheet. Are there any values that do not make sense? Type your answer on the <strong class="emphasis bold">AnswerSheet</strong> worksheet.</li>
+            <li>Using <a class="xref" href="#manzoexcel_1.1-ch02_s04_t01">Table 2.9 "Formulas Used on the Budget Worksheet"</a> as a guide, evaluate all formulas that were entered into the <strong class="emphasis bold">Budget</strong> worksheet. Make any necessary corrections to the worksheet so when any value is changed in Columns B, D, and E, new outputs are created.</li>
+            <li>Save the workbook by adding your name in front of the current workbook name.</li>
+        </ol>
+        <p class="simpara">Starter File: <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Chapter_2_IC_Exercise_4.xlsx">Chapter 2 IC Exercise 4</a></p>
+        <p class="simpara">Difficulty: Level 3 Difficult</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p08">The purpose of this exercise is to analyze a worksheet to determine whether there are any integrity flaws. Read the scenario below, then open the Excel workbook related to this exercise. You will find a worksheet in the workbook named <strong class="emphasis bold">AnswerSheet</strong>. This worksheet is to be used for any written responses required for this exercise.</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p09"><em class="emphasis bolditalic">Scenario</em></p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p10">Your friend is working on a few financial calculations in Excel and is asking for your assistance. The workbook that was given to you contains calculations for estimating the future value of investments and monthly mortgage calculations for purchasing a home. Your friend explained the following in an e-mail that was sent with the workbook:</p>
+        <ul class="itemizedlist" id="manzoexcel_1.1-ch02_s04_l08">
+            <li>You will see in the <strong class="emphasis bold">Investment Plan</strong> worksheet that I have estimated the value of my investments in 5 years. My company is taking money out of my paycheck at the end of every month and investing it in the funds I have listed in Column A. I am pretty sure I did this right, but all my results in Column E are negative. I am not sure why this is happening.</li>
+            <li>In the <strong class="emphasis bold">Mortgage Payments</strong> worksheet, I am trying to calculate the monthly payments for a house I am thinking about buying. However, the output of the function in cell B6 seems really high. There is no way I would be paying over $9,000 a month in mortgage payments. Something must be wrong.</li>
+            <li>I don’t want to spend more than $775 a month for a mortgage. I thought I would be able to use Excel to determine what my target price for the house should be. My agent said that the current owners were probably willing to negotiate on the asking price for the house.</li>
+        </ul>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p11"><em class="emphasis bolditalic">Assignment</em></p>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch02_s04_l09">
+            <li>Look at the FV function that was entered into cell E3 on the <strong class="emphasis bold">Investment Plan</strong> worksheet. Why is the output for this function negative?</li>
+            <li>Assume that the output of the FV function in cell E3 was a positive $17,385 instead of negative. Does it make sense that given a 4.5% annual rate of return, starting balance of $10,000, and an ongoing investment of $900 per month that the value of the investment would be $17,385 after 5 years?</li>
+            <li>Look at the PMT function in cell B6 on the <strong class="emphasis bold">Mortgage Payments</strong> worksheet. Is the function set up to calculate monthly payments?</li>
+            <li>You friend states that the target monthly mortgage payment is $775. What Excel tool could you use to change the price in cell B2 on the <strong class="emphasis bold">Mortgage Payments</strong> worksheet so the mortgage payment is equal to $775?</li>
+            <li>Based on your friend’s comments, make any necessary corrections to all the functions in the Investment Plan and <strong class="emphasis bold">Mortgage Payments</strong> worksheets. Set the price of the home in cell B2 on the <strong class="emphasis bold">Mortgage Payments</strong> worksheet so the monthly payment equals $775.</li>
+            <li>Save the workbook by adding your name in front of the current workbook name.</li>
+        </ol>
+    </div>
+    <div class="callout block" id="manzoexcel_1.1-ch02_s04_n04">
+        <h3 class="title">Applying Excel Skills</h3>
+        <p class="simpara">Lease vs. Buy</p>
+        <p class="simpara">Starter File: None</p>
+        <p class="simpara">Difficulty: Level 2 Moderate</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p12">You are in the process of getting a new car but are not sure if you should buy or lease. The price of the car you want is $18,000, but you do not want to spend more than $250 a month on car payments. If you lease the car, the terms of the lease will be 48 months at an annual interest rate of 5%. The residual value of the car will be set at $9,000. If you buy the car, your bank will offer you a 7-year loan at an annual interest rate of 6%. You are not required to make a down payment with either the lease or loan options, and payments are made at the end of the month for both options.</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p13">Should you lease or buy the car given your budget limit of $250 a month? Create a new workbook and design a worksheet that shows the difference between leasing and buying the car in terms of monthly payments. Use proper formatting so your worksheet is easy to read. Remember to use column and row headings, add a title to your worksheet, and rename the worksheet tab with an appropriate label. Include your name in the file name of the workbook.</p>
+        <p class="simpara">Amortization Table for a Home Loan</p>
+        <p class="simpara">Starter File: None</p>
+        <p class="simpara">Difficulty: Level 3 Difficult</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p14">You are considering the purchase of a new home offered at a price of $225,000. Create an amortization table in a new workbook that shows how much interest and principal you will pay each month for the duration of the loan. The following is a list of assumptions and requirements you need to consider for this assignment:</p>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch02_s04_l10">
+            <li>You will be making a down payment of 20% on the home (refer to <a class="xref" href="manzoexcel_1.1-ch02_s03#manzoexcel_1.1-ch02_s03_s01_t01">Table 2.5 "Key Terms for Loans and Leases"</a> for loan and lease terms).</li>
+            <li>The bank will offer you a loan at an annual interest rate of 5.5% for 30 years.</li>
+            <li>Your mortgage payments will be made at the end of each month.</li>
+            <li>You must construct the amortization table so that any change in the loan variables, down payment percent, length of loan, interest rate, and so on will automatically produce new outputs for each month of the amortization table.</li>
+            <li>The amortization table must show the interest payment, principal payment, and balance remaining to be paid on the loan for every month of the loan duration. The beginning balance for the last month of the loan should be equal to the principal payment in the last month. Refer to <a class="xref" href="manzoexcel_1.1-ch02_s03#manzoexcel_1.1-ch02_s03_s01_f01">Figure 2.29 "Example of an Amortization Table"</a> for establishing the format for the table.</li>
+            <li>Remember to use column and/or row headings, add a title to your worksheet, and rename the worksheet tab with an appropriate label.</li>
+            <li>Include your name in the file name of the workbook.</li>
+        </ol>
+    </div>
+    <div class="exercises editable block" id="manzoexcel_1.1-ch02_s04_n01">
+        <h3 class="title">Chapter Skills Test</h3>
+        <p class="simpara">Starter File: <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Chapter_2_Skills_Test.xlsx">Chapter 2 Skills Test</a></p>
+        <p class="simpara">Difficulty: Level 2 Moderate</p>
+        <p class="para" id="manzoexcel_1.1-ch02_s04_p01">Answer the following questions by executing the skills on the starter file required for this test. Answer each question in the order in which it appears. If you do not know the answer, skip to the next question. Open the starter file listed above before you begin this test.</p>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch02_s04_l01">
+            <li>Enter a function in cell B9 on the <strong class="emphasis bold">Investments</strong> worksheet that calculates the total of the values in the range B3:B8.</li>
+            <li>Copy the function in cell B9 and paste it into cells C9 and G9.</li>
+            <li>Enter a formula in cell E3 on the <strong class="emphasis bold">Investments</strong> worksheet that calculates the growth rate for the investments. Your formula should first subtract the value in the Invested Principal column from the value in the Current Balance column. Then, divide this result by the value in the Invested Principal column.</li>
+            <li>Copy the formula in cell E3 and paste it into the range E4:E8.</li>
+            <li>Copy the formula in cell E3 and paste it into cell E9 using the Paste Formulas option.</li>
+            <li>Enter a formula in cell D3 on the <strong class="emphasis bold">Investments</strong> worksheet that divides the Current Balance by the total in cell C9. Add an absolute reference to C9 in this formula.</li>
+            <li>Copy the formula in cell D3 and paste it into the range D4:D8.</li>
+            <li>In cell G3 on the <strong class="emphasis bold">Investments</strong> worksheet, use the Future Value function to calculate the future value of the investment in 2 years. Use the Target Growth Rate to define the Rate argument. This is not an annuity so there are no periodic investments. Use the Current Balance to define the Pv argument. Assume that the investment is made at the beginning of the period.</li>
+            <li>Copy the function in cell G3 and paste it into the range G4:G8.</li>
+            <li>Enter a function in cell B10 on the <strong class="emphasis bold">Investments</strong> worksheet that calculates the average of the values in the range B3:B8.</li>
+            <li>Copy the function in cell B10 and paste it into cells C10 and G10.</li>
+            <li>On the <strong class="emphasis bold">Mortgage</strong> worksheet, use the data provided to enter a formula in cell B6 to calculate the principal of the loan that will be required to purchase the house.</li>
+            <li>On the <strong class="emphasis bold">Mortgage</strong> worksheet, use the PMT function in cell B7 to calculate the <strong class="emphasis bold">monthly</strong> payments of the mortgage. Use cell locations from this worksheet to define each argument of the function. Assume that payments are made at the end of each month.</li>
+            <li>On the <strong class="emphasis bold">Auto Lease</strong> worksheet, use the PMT function in cell B6 to calculate the <strong class="emphasis bold">monthly</strong> lease payments. Use cell locations from this worksheet to define each argument of the function. Assume that the lease payments are due at the beginning of each month.</li>
+            <li>On the <strong class="emphasis bold">Auto Lease</strong> worksheet, use Goal Seek to change the Annual Interest rate in cell B2 so the monthly payments are exactly $200.</li>
+            <li>In cell E2 on the <strong class="emphasis bold">Summary</strong> worksheet, use a cell reference to display the value in cell B9 in the <strong class="emphasis bold">Investments</strong> worksheet.</li>
+            <li>In cell E3 on the <strong class="emphasis bold">Summary</strong> worksheet, use a cell reference to display the value in cell G9 in the <strong class="emphasis bold">Investments</strong> worksheet.</li>
+            <li>Enter a formula in cell F4 on the <strong class="emphasis bold">Summary</strong> worksheet that subtracts the Principal of Investments from the 2 Year Future Value of Investments.</li>
+            <li>Enter a formula in cell F5 on the <strong class="emphasis bold">Summary</strong> worksheet that calculates the amount of mortgage payments that will be made over 2 years. Your formula should multiply the value in B7 on the <strong class="emphasis bold">Mortgage</strong> worksheet by 24.</li>
+            <li>Enter a formula in cell F6 on the <strong class="emphasis bold">Summary</strong> worksheet that calculates the amount of lease payments that will be made over 2 years. Your formula should multiply the value in B6 on the <strong class="emphasis bold">Auto Lease</strong> worksheet by 24.</li>
+            <li>Enter a formula in cell F7 on the <strong class="emphasis bold">Summary</strong> worksheet that subtracts the sum of the values in the range F5:F6 from the value in cell F4.</li>
+            <li>Sort the data in the range A2:G8 on the <strong class="emphasis bold">Investments</strong> worksheet. Sort the data based on the values in the Invested Principal column in ascending order (smallest to largest). For duplicate values in this column, sort using the values in the Target Growth Rate column in descending order (largest to smallest).</li>
+            <li>Save the workbook by adding your name in front of the current workbook name (i.e., “<em class="emphasis">your name</em> Chapter 2 Skills Test”).</li>
+            <li>Close the workbook and Excel.</li>
+        </ol>
+    </div>
+</div>
+
+  </div>
+  
+  <div id=navbar-bottom class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s06-03-functions-for-personal-finance.html"><img src="shared/images/batch-left.png"></a> <a href="s06-03-functions-for-personal-finance.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s07-01-logical-functions.html">Next Section</a> <a href="s07-01-logical-functions.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="shared/book.js"></script>
+  
+  
+</body>
+</html>

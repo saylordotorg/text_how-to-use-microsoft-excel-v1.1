@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="shared/bookhub.css" rel="stylesheet" type="text/css">
+  <title>Choosing a Chart Type</title>
+</head>
+<body>
+
+  
+  <div id=navbar-top class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s07-04-chapter-assignments-and-tests.html"><img src="shared/images/batch-left.png"></a> <a href="s07-04-chapter-assignments-and-tests.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s08-02-formatting-charts.html">Next Section</a> <a href="s08-02-formatting-charts.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  <div id="book-content">
+    <div class="section" id="manzoexcel_1.1-ch04_s01" condition="start-of-chunk" version="5.0" lang="en">
+    <h2 class="title editable block">
+<span class="title-prefix">4.1</span> Choosing a Chart Type</h2>
+    <div class="learning_objectives editable block" id="manzoexcel_1.1-ch04_s01_n01">
+        <h3 class="title">Learning Objectives</h3>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_l01">
+            <li>Construct a line chart to show a time series trend.</li>
+            <li>Learn how to adjust the Y axis scale.</li>
+            <li>Construct a line chart to present a comparison of two trends.</li>
+            <li>Learn how to use a column chart to show a frequency distribution.</li>
+            <li>Create a separate chart sheet for a chart embedded in a worksheet.</li>
+            <li>Construct a column chart that compares two frequency distributions.</li>
+            <li>Learn how to use a pie chart to show the percent of total for a data set.</li>
+            <li>Construct a stacked column chart to show how a percent of total changes over time.</li>
+        </ol>
+    </div>
+    <p class="para editable block" id="manzoexcel_1.1-ch04_s01_p01">This section reviews the most commonly used Excel chart types. To demonstrate the variety of chart types available in Excel, it is necessary to use a variety of data sets. Therefore, instead of addressing a specific theme, we will use a variety of themes. This is necessary not only to demonstrate the construction of charts but also to explain how to choose the right type of chart given your data and the idea you intend to communicate.</p>
+    <p class="para editable block" id="manzoexcel_1.1-ch04_s01_p02">Before we begin, let’s review a few key points you need to consider before creating any chart in Excel. The first is identifying your idea or message. It is important to keep in mind that the primary purpose of a chart is to present quantitative information to an audience. Therefore, you must first decide what message or idea you wish to present. This is critical in helping you select specific data from a worksheet that will be used in a chart. Throughout this chapter, we will reinforce the intended message first before creating each chart.</p>
+    <p class="para editable block" id="manzoexcel_1.1-ch04_s01_p03">The second key point is selecting the right chart type. The chart type you select will depend on the data you have and the message you intend to communicate.</p>
+    <p class="para editable block" id="manzoexcel_1.1-ch04_s01_p04">The third key point is identifying the values that should appear on the X and Y axes. One of the ways to identify which values belong on the X and Y axes is to sketch the chart on paper first. If you can visualize what your chart is supposed to look like, you will have an easier time using Excel to construct an effective chart that accurately communicates your message. <a class="xref" href="#manzoexcel_1.1-ch04_s01_t01">Table 4.1 "Key Steps before Constructing an Excel Chart"</a> provides a brief summary of these points.</p>
+    <div class="callout block" id="manzoexcel_1.1-ch04_s01_n02">
+        <h3 class="title">Integrity Check</h3>
+        <p class="simpara">Carefully Select Data When Creating a Chart</p>
+        <p class="para" id="manzoexcel_1.1-ch04_s01_p05">Just because you have data in a worksheet does not mean it must all be placed onto a chart. When creating a chart, it is common for only specific data points to be used. To determine what data should be used when creating a chart, you must first identify the message or idea that you want to communicate to an audience.</p>
+    </div>
+    <div class="table block" id="manzoexcel_1.1-ch04_s01_t01" frame="all">
+        <p class="title"><span class="title-prefix">Table 4.1</span> Key Steps before Constructing an Excel Chart</p>
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Step</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. Define your message.</td>
+                    <td>Identify the main idea you are trying to communicate to an audience. If there is no main point or important message that can be revealed by a chart, you might want to question the necessity of creating a chart.</td>
+                </tr>
+                <tr>
+                    <td>2. Identify the data you need.</td>
+                    <td>Once you have a clear message, identify the data on a worksheet that you will need to construct a chart. In some cases, you may need to create formulas or consolidate items into broader categories.</td>
+                </tr>
+                <tr>
+                    <td>3. Select a chart type.</td>
+                    <td>The type of chart you select will depend on the message you are communicating and the data you are using.</td>
+                </tr>
+                <tr>
+                    <td>4. Identify the values for the X and Y axes.</td>
+                    <td>After you have selected a chart type, you may find that drawing a sketch is helpful in identifying which values should be on the X and Y axes. (The X axis is horizontal, and the Y axis is vertical.)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s01_s01">
+        <h2 class="title editable block">Time Series Trend: Line Chart 1</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s01_s01_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s01_p01">Follow-along file: <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.00.xlsx">Excel Objective 4.00</a></p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s01_n01">
+            <h3 class="title">Lesson Video: Line Chart 1 (Time Series Trend)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/CXq-iovUTH8?rel=0" condition="http://img.youtube.com/vi/CXq-iovUTH8/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/CXq-iovUTH8?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s01_p02">The first chart we will demonstrate is a line chart. <a class="xref" href="#manzoexcel_1.1-ch04_s01_s01_f01">Figure 4.1 "52 Week Data for the S&amp;P 500 and Microsoft"</a> shows part of the data that will be used to create two line charts. The first line chart will show the trend of the <span class="margin_term"><a class="glossterm">S&amp;P 500</a><span class="glossdef">An aggregate price index for five hundred of the largest publicly traded US companies.</span></span> stock index. This is an aggregate price index of five hundred of the largest publicly traded companies. This chart will be used to communicate a simple message: to show how the index has performed over a fifty-two-week period. We can use this chart in a presentation to show whether stock prices have been increasing, decreasing, or remaining constant over the designated period of time.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s01_s01_f01">
+            <p class="title"><span class="title-prefix">Figure 4.1</span> 52 Week Data for the S&amp;P 500 and Microsoft</p>
+            <img src="section_08/0c4c79d274746cd09e9a83caf628cc4d.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s01_p03">Before we create the line chart, it is important to identify why it is an appropriate chart type given the message we wish to communicate and the data we have. When presenting the trend for any data over a designated period of time, the most commonly used chart types are the line chart and the column chart. With the column chart, you are limited to a certain number of bars or data points. As you increase the number of bars on a column chart, it becomes increasingly difficult to read. As you scroll through the data on the worksheet shown in <a class="xref" href="#manzoexcel_1.1-ch04_s01_s01_f01">Figure 4.1 "52 Week Data for the S&amp;P 500 and Microsoft"</a>, you will see that there are fifty-two points of data used to construct the chart. This is generally too many data points to put on a column chart, which is why we are using a line chart. Our line chart will show the closing price for the S&amp;P 500 on the <span class="margin_term"><a class="glossterm">Y axis</a><span class="glossdef">The vertical axis of a chart.</span></span> and the week number on the <span class="margin_term"><a class="glossterm">X axis</a><span class="glossdef">The horizontal axis of a chart.</span></span>. The following steps explain how to construct this chart:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch04_s01_s01_l01">
+            <li>Highlight the range A3:B55 on the <strong class="emphasis bold">Stock Trend</strong> worksheet.</li>
+            <li>Click the Insert tab of the Ribbon.</li>
+            <li>Click the Line button in the Charts group of commands (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s01_f02">Figure 4.2 "Selecting the Basic Line Chart"</a>).</li>
+            <li>Click the first option from the list, which is a basic line chart (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s01_f02">Figure 4.2 "Selecting the Basic Line Chart"</a>). This adds, or embeds, the line chart to the worksheet, as shown in <a class="xref" href="#manzoexcel_1.1-ch04_s01_s01_f03">Figure 4.3 "Embedded Line Chart in the Stock Trend Worksheet"</a>.</li>
+        </ol>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s01_s01_f02">
+            <p class="title"><span class="title-prefix">Figure 4.2</span> Selecting the Basic Line Chart</p>
+            <img src="section_08/bcd189bc870bcca60ac954e63e52f128.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s01_n02">
+            <h3 class="title">Why?</h3>
+            <p class="simpara">Line Chart vs. Column Chart</p>
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s01_p04">We can use both a line chart and a column chart to illustrate a trend over time. However, a line chart is far more effective when there are many periods of time being measured. For example, if we are measuring fifty-two weeks, a column chart would require fifty-two bars. A general rule of thumb is to use a column chart when twenty bars or less are required. A column chart becomes difficult to read as the number of bars exceeds twenty.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s01_p05"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s01_f03">Figure 4.3 "Embedded Line Chart in the Stock Trend Worksheet"</a> shows the embedded line chart in the <strong class="emphasis bold">Stock Trend</strong> worksheet. Notice that three additional tabs, or <span class="margin_term"><a class="glossterm">contextual tabs</a><span class="glossdef">Hidden tabs on the Ribbon that contain commands related to a specific object. Contextual tabs become visible when the related object is added or activated.</span></span>, are added to the Ribbon. We will demonstrate the commands in these tabs throughout this chapter. These tabs appear only when the chart is activated.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s01_s01_f03">
+            <p class="title"><span class="title-prefix">Figure 4.3</span> Embedded Line Chart in the Stock Trend Worksheet</p>
+            <img src="section_08/8eee6e388f5d9b8e378cdc3ae647f26e.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s01_p06">As shown in <a class="xref" href="#manzoexcel_1.1-ch04_s01_s01_f03">Figure 4.3 "Embedded Line Chart in the Stock Trend Worksheet"</a>, the <span class="margin_term"><a class="glossterm">embedded chart</a><span class="glossdef">Any chart that is created and placed within a worksheet.</span></span> is not placed in an ideal location on the worksheet since it is covering several cell locations that contain data. The following steps demonstrate common adjustments that are made when working with embedded charts:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch04_s01_s01_l02">
+            <li>
+<strong class="emphasis bold">Moving a chart:</strong> Click and drag the upper left corner of the chart to the center of cell H2.</li>
+            <li>
+<strong class="emphasis bold">Resizing a chart:</strong> Place the mouse pointer over the left middle sizing handle, hold down the ALT key on your keyboard, and click and drag the chart so it “snaps” to the left side of Column H.</li>
+            <li>Repeat step 2 to resize the chart so the top “snaps” to the top of Row 2, the bottom “snaps” to the bottom of Row 17, and the right side “snaps” to the right side of Column P.</li>
+            <li>
+<strong class="emphasis bold">Adjusting the chart title:</strong> Click the chart title once. Then click in front of the letter <em class="emphasis">S</em>. You should see a blinking cursor in front of the letter <em class="emphasis">S</em>. This allows you to modify the title of the chart.</li>
+            <li>Type the following in front of the letter <em class="emphasis">S</em> in the chart title: <strong class="emphasis bold">52 Week Trend for the</strong>.</li>
+            <li>
+<strong class="emphasis bold">Removing the legend:</strong> Click the legend once and press the DELETE key on your keyboard. This removes the legend from the chart. Since the chart contains only one data series, the legend is not necessary. Once you remove the legend, the plot area automatically expands.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s01_p07"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s01_f04">Figure 4.4 "Line Chart Moved and Resized"</a> shows the line chart after it is moved and resized. You can also see that the title of the chart has been edited to read <em class="emphasis">52 Week Trend for the S&amp;P 500</em>. Also notice that the sizing handles do not appear around the perimeter of the chart. This is because the chart has been deactivated. To activate the chart, click anywhere inside the chart perimeter.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s01_s01_f04">
+            <p class="title"><span class="title-prefix">Figure 4.4</span> Line Chart Moved and Resized</p>
+            <img src="section_08/40fee230890c53f71e5d5c63415f9b6d.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s01_n03">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">The X Axes on Line Charts Use Labels, Not Values</p>
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s01_p08">When using line charts in Excel, keep in mind that anything placed on the X axis is considered a descriptive label, not a numeric value. This is important because there will never be a change in the spacing of any items placed on the X axis of a line chart. If you need to create a line chart using numeric data on the X axis, you must use a scatter chart type.</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s01_n04">
+            <h3 class="title">Skill Refresher: Inserting a Line Chart</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/MitzwnBkJVU?rel=0" condition="http://img.youtube.com/vi/MitzwnBkJVU/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/MitzwnBkJVU?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s01_l03">
+                <li>Highlight a range of cells that contain data that will be used to create the chart.</li>
+                <li>Click the Insert tab of the Ribbon.</li>
+                <li>Click the Line button in the Charts group.</li>
+                <li>Select a format option from the Line Chart drop-down menu.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s01_s02">
+        <h2 class="title editable block">Adjusting the Y Axis Scale</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s01_s02_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s02_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.01.xlsx">Excel Objective 4.01</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s02_n01">
+            <h3 class="title">Lesson Video: Adjusting the Y Axis Scale</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/iDYgZ4dnne0?rel=0" condition="http://img.youtube.com/vi/iDYgZ4dnne0/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/iDYgZ4dnne0?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s02_p02">After creating an Excel chart, you may find it necessary to adjust the scale of the Y axis. Excel automatically sets the maximum value for the Y axis based on the data used to create the chart. However, the minimum value is usually set to zero. Depending on the data you are using to create the chart, setting the minimum value to zero can substantially minimize the graphical presentation of a trend. For example, the trend shown in <a class="xref" href="#manzoexcel_1.1-ch04_s01_s01_f04">Figure 4.4 "Line Chart Moved and Resized"</a> appears to be increasing slightly. However, the S&amp;P 500 increased by over 20% during this period, which is substantial. The presentation of this trend can be improved if the minimum value started at eight hundred. While it is certainly possible for the S&amp;P 500 to fall below eight hundred, it is most likely remote. The following steps explain how to make this adjustment to the Y axis:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch04_s01_s02_l01">
+            <li>Click anywhere on the Y axis on the <em class="emphasis">52 Week Trend for the S&amp;P 500</em> line chart (<strong class="emphasis bold">Stock Trend</strong> worksheet).</li>
+            <li>Click the Format tab in the Chart Tools section of the Ribbon.</li>
+            <li>
+                <p class="para">Click the Format Selection button in the Current Selection group of commands (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s02_f01">Figure 4.5 "Format Axis Dialog Box"</a>). This opens the Format Axis dialog box.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch04_s01_s02_f01">
+                <p class="title"><span class="title-prefix">Figure 4.5</span> Format Axis Dialog Box</p>
+                    <img src="section_08/15bf0c06dc460060ad338a0d30181c49.jpg">
+                </div>
+            </li>
+            <li>Click the Fixed option next to the “Minimum” axis option in the Format Axis dialog box.</li>
+            <li>Click the input box for the “Minimum” axis option and delete the zero. Then type the number <strong class="emphasis bold">800</strong>. As soon as you make this change, the Y axis on the chart adjusts.</li>
+            <li>Click the Close button at the bottom of the Format Axis dialog box.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s02_p03"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s02_f02">Figure 4.6 "Adjusted Y Axis for the S&amp;P 500 Chart"</a> shows the change in the presentation of the trendline. Notice that with the Y axis starting at 800, the trend for the S&amp;P 500 is more pronounced and reflects the substantial increase over the 52-week period. This adjustment makes it easier for the audience to see the magnitude of the trend.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s01_s02_f02">
+            <p class="title"><span class="title-prefix">Figure 4.6</span> Adjusted Y Axis for the S&amp;P 500 Chart</p>
+            <img src="section_08/a33c66ced980cd8bffafab24101c8e70.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s02_n02">
+            <h3 class="title">Skill Refresher: Adjusting the Y Axis Scale</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/usSeYuHf7-w?rel=0" condition="http://img.youtube.com/vi/usSeYuHf7-w/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/usSeYuHf7-w?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s02_l02">
+                <li>Click anywhere along the Y axis to activate it.</li>
+                <li>Click the Format tab in the Chart Tools section of the Ribbon.</li>
+                <li>Click the Format Selection button in the Current Selection group of commands.</li>
+                <li>In the Format Axis dialog box, click the Fixed option next to any axis option where you wish to change the value.</li>
+                <li>Click in the input box next to the desired axis option and then type the new scale value.</li>
+                <li>Click the Close button at the bottom of the Format Axis dialog box.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s01_s03">
+        <h2 class="title editable block">Trend Comparisons: Line Chart 2</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s01_s03_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s03_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.02.xlsx">Excel Objective 4.02</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s03_n01">
+            <h3 class="title">Lesson Video: Line Chart 2 (Trend Comparisons)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/dksN6aaVdgQ?rel=0" condition="http://img.youtube.com/vi/dksN6aaVdgQ/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/dksN6aaVdgQ?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s03_p02">We will now create a second line chart using the data in the <strong class="emphasis bold">Stock Trend</strong> worksheet. The purpose of this chart is to compare two trends: the change in value for the S&amp;P 500 and the Microsoft common stock. <a class="xref" href="manzoexcel_1.1-ch03#manzoexcel_1.1-ch03">Chapter 3 "Logical and Lookup Functions"</a> presented a personal investment portfolio where the investments were compared to a benchmark. The S&amp;P 500 is a benchmark that is commonly used to judge the performance of individual stocks. The purpose and message of this chart is to show whether Microsoft is performing better or worse than the S&amp;P 500 index. This type of analysis can be used to determine whether a stock should be sold, purchased, or held.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s03_p03">Before creating the chart to compare the S&amp;P 500 and Microsoft, it is important to review the data in the range E4:F55 on the <strong class="emphasis bold">Stock Trend</strong> worksheet. We cannot use the price data for Microsoft and the S&amp;P 500 because the values are not comparable. That is, the data for Microsoft is in a range of $22.00 to $28.00, but the data for the S&amp;P 500 is in a range of 1,022 to 1,363. If we used these values to create a chart, we would not be able to see any substantial change in the trend for either the S&amp;P 500 or Microsoft. Therefore, formulas were used to calculate the percent change in value for the S&amp;P 500 and Microsoft for each week. For example, looking at cells E5 and F5 on the <strong class="emphasis bold">Stock Trend</strong> worksheet, you see that the S&amp;P 500 increased 2.4% in week 2, whereas Microsoft increased 3.1%. The percent change calculations now provide an appropriate method of comparison. This is a very important step to consider when comparing trends.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s03_p04">The construction of this second line chart will be similar to the first line chart. The X axis will be the 52 weeks in the range A4:A55. However, the Y axis will be the percentages in the range E4:F55. This creates a problem because Columns B, C, and D will not be used in this chart. Therefore, we cannot simply highlight one contiguous range of cells to create the chart. In this chapter we will demonstrate two options for charting data that is not in a contiguous range. The following steps demonstrate the first option:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch04_s01_s03_l01">
+            <li>Highlight the range A3:A55 on the <strong class="emphasis bold">Stock Trend</strong> worksheet.</li>
+            <li>Hold down the CTRL key on your keyboard and highlight the range E3:F55.</li>
+            <li>Click the Insert tab of the Ribbon.</li>
+            <li>Click the Line button in the Charts group of commands.</li>
+            <li>
+                <p class="para">Click the first option from the list, which is a basic line chart.</p>
+                <p class="para" id="manzoexcel_1.1-ch04_s01_s03_p05"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s03_f01">Figure 4.7 "Trend Comparison Line Chart"</a> shows the appearance of the line chart comparing the S&amp;P 500 and Microsoft before it is moved and resized. Notice that Excel does not add a title to the chart.</p>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch04_s01_s03_f01">
+                <p class="title"><span class="title-prefix">Figure 4.7</span> Trend Comparison Line Chart</p>
+                    <img src="section_08/f584a7517660844499f69a1e0110e0eb.jpg">
+                </div>
+            </li>
+            <li>Move the chart so the upper left corner is in the middle of cell H20.</li>
+            <li>Resize the chart so the left side is locked to the left side of Column H, the right side is locked to the right side of Column P, the top is locked to the top of Row 20, and the bottom is locked to the bottom of Row 35.</li>
+            <li>Click the Layout tab in the Chart Tools section of the Ribbon.</li>
+            <li>Click the Chart Title button in the Labels group of commands. Select the Above Chart option from the drop-down list (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s03_f02">Figure 4.8 "Adding a Title to a Chart"</a>). This adds a generic title above the plot area of the chart.</li>
+            <li>Click in the text box containing the chart title. Delete the generic chart title and replace it with the following: <strong class="emphasis bold">52 Week Trend Comparison</strong>.</li>
+        </ol>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s01_s03_f02">
+            <p class="title"><span class="title-prefix">Figure 4.8</span> Adding a Title to a Chart</p>
+            <img src="section_08/bb0fe1983c98521f33ce1c11eb6e1969.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s03_p06"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s03_f03">Figure 4.9 "Final Trend Comparison Line Chart"</a> shows that Microsoft has not performed as well as the S&amp;P 500 benchmark. From week 31 to week 52, Microsoft is showing a significant decline compared to the S&amp;P 500, which continues to grow. What makes this chart effective is that an audience can quickly see how Microsoft compares with the S&amp;P 500 over the 52-week period.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s01_s03_f03">
+            <p class="title"><span class="title-prefix">Figure 4.9</span> Final Trend Comparison Line Chart</p>
+            <img src="section_08/180fed60b02591b0e73031334e5adc46.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s03_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Comparing Trends with Incompatible Values</p>
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s03_p07">When creating a chart to compare the trends of two or more data series, the values for each data series must be compatible. In other words, the values for each data series must be within a reasonable range in order for an effective comparison to be made. If the variance between the values in your data series is never less than a multiple of 2 (i.e., 500 × 2 = 1000 or 1000 ÷ 2 = 500), calculate the percent change for each point in time on your worksheet. The percent change must be calculated with respect to the <em class="emphasis">first data point</em> for each series. Then create your chart using the percentages instead of the actual values for each data series.</p>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s01_s04">
+        <h2 class="title editable block">Frequency Distribution: Column Chart 1</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s01_s04_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s04_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.03.xlsx">Excel Objective 4.03</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s04_n01">
+            <h3 class="title">Lesson Video: Column Chart 1 (Frequency Distribution)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/O8z0htq4leQ?rel=0" condition="http://img.youtube.com/vi/O8z0htq4leQ/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/O8z0htq4leQ?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s04_p02">A column chart is commonly used to show trends over time so long as the data are limited to approximately twenty points or less. For example, in <a class="xref" href="manzoexcel_1.1-ch01#manzoexcel_1.1-ch01">Chapter 1 "Fundamental Skills"</a> we showed a sales trend over a twelve-month period. Another common use for column charts is frequency distributions. A <span class="margin_term"><a class="glossterm">frequency distribution</a><span class="glossdef">The number of occurrences for an established set of categories.</span></span> shows the number of occurrences by established categories. For example, a common frequency distribution used in most academic institutions is a grade distribution. A grade distribution shows the number of students that achieve each level of a typical grading scale (A, A−, B+, B, etc.). The <strong class="emphasis bold">Grade Distribution</strong> worksheet contains final grades for a hypothetical academic class. To show the grade frequency distribution, the numbers of students appear on the Y axis and the grade categories appear on the X axis. The following steps explain how to create this chart:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch04_s01_s04_l01">
+            <li>Highlight the range A3:B8 on the <strong class="emphasis bold">Grade Distribution</strong> worksheet. Column B shows the number of students that achieved a grade within the grade category shown in Column A.</li>
+            <li>Click the Column button in the Charts group section on the Insert tab of the Ribbon. Select the first format from the drop-down list of options, which is the Clustered Column format.</li>
+            <li>Click and drag the chart so the upper left corner is in the middle of cell H2.</li>
+            <li>Resize the chart so the left side is locked to the left side of Column H, the right side is locked to the right side of Column P, the top is locked to the top of Row 2, and the bottom is locked to the bottom of Row 16.</li>
+            <li>Click the legend one time and press the DELETE key on your keyboard. Since the chart presents only one data series, the legend is not necessary.</li>
+            <li>Click the title of the chart twice so the cursor is placed in front of the word <em class="emphasis">Class</em>.</li>
+            <li>Type the following in front of the word <em class="emphasis">Class</em>: <strong class="emphasis bold">Final Grades for the</strong>.</li>
+            <li>Click any cell location on the <strong class="emphasis bold">Grade Distribution</strong> worksheet to deactivate the chart.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s04_p03"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s04_f01">Figure 4.10 "Grade Frequency Distribution Chart"</a> shows the completed grade frequency distribution chart. By looking at the chart, you can immediately see that the greatest number of students earned a final grade in the <em class="emphasis">B+ to B−</em> or the <em class="emphasis">C+ to C−</em> categories.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s01_s04_f01">
+            <p class="title"><span class="title-prefix">Figure 4.10</span> Grade Frequency Distribution Chart</p>
+            <img src="section_08/1f6a0667d5695bedf97fe091e38ccf1c.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s04_n02">
+            <h3 class="title">Why?</h3>
+            <p class="simpara">Column Chart vs. Bar Chart</p>
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s04_p04">When using charts to show frequency distributions, the difference between a column chart and a bar chart is really a matter of preference. Both are very effective in showing frequency distributions. However, if you are showing a trend over a period of time, a column chart is preferred over a bar chart. This is because a period of time is typically shown horizontally, with the oldest date on the far left and the newest date on the far right. Therefore, the descriptive categories for the chart would have to fall on the X axis, which is the configuration of a column chart. On a bar chart, the descriptive categories are displayed vertically along the Y axis.</p>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s01_s05">
+        <h2 class="title editable block">Creating a Chart Sheet</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s01_s05_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s05_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.04.xlsx">Excel Objective 4.04</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s05_n01">
+            <h3 class="title">Lesson Video: Chart Sheets</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/A7sBJXuWBpY?rel=0" condition="http://img.youtube.com/vi/A7sBJXuWBpY/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/A7sBJXuWBpY?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s05_p02">The charts we have created up to this point have been added to, or embedded in, an existing worksheet. Charts can also be placed in a dedicated worksheet called a <span class="margin_term"><a class="glossterm">chart sheet</a><span class="glossdef">An Excel worksheet that is designated for a chart.</span></span>. It is called a chart sheet because it can contain only an Excel chart. Chart sheets are useful if you need to create several charts using the data in a single worksheet. If you embed several charts in one worksheet, it can be cumbersome to navigate and browse through the charts. It is easier to browse through charts when they are moved to a chart sheet because a separate sheet tab is added to the workbook for each chart. The following steps explain how to move the grade frequency distribution chart to a dedicated chart sheet:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch04_s01_s05_l01">
+            <li>Click anywhere on the Final Grades for the Class chart on the <strong class="emphasis bold">Grade Distribution</strong> worksheet.</li>
+            <li>Click the Move Chart button in the Design tab of the Chart Tools set of commands. This opens the Move Chart dialog box. You can use this dialog box to move the chart to a different worksheet or create a dedicated chart sheet.</li>
+            <li>Click the New sheet option on the Move Chart dialog box.</li>
+            <li>The entry in the input box for assigning a name to the chart sheet tab should automatically be highlighted once you click the New sheet option (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s05_f01">Figure 4.11 "Moving a Chart to a Chart Sheet"</a>). Type <strong class="emphasis bold">Class Grades</strong>. This replaces the generic name in the input box.</li>
+            <li>Click the OK button at the bottom of the Move Chart dialog box. This adds a new chart sheet to the workbook with the name <em class="emphasis">Class Grades</em>.</li>
+        </ol>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s01_s05_f01">
+            <p class="title"><span class="title-prefix">Figure 4.11</span> Moving a Chart to a Chart Sheet</p>
+            <img src="section_08/f8bf68fb189896eec9bbbedfaf253269.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s05_p03"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s05_f02">Figure 4.12 "Chart Sheet Added to the Workbook"</a> shows the Final Grades for the Class column chart in a separate chart sheet. Notice the new sheet tab added to the workbook matches the tab name entered into the Move Chart dialog box. Since the chart is moved to a separate chart sheet, it no longer is displayed in the <strong class="emphasis bold">Grade Distribution</strong> worksheet.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s01_s05_f02">
+            <p class="title"><span class="title-prefix">Figure 4.12</span> Chart Sheet Added to the Workbook</p>
+            <img src="section_08/b75ab1d06931cb6e1f392a8a35bf8e9f.jpg">
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s01_s06">
+        <h2 class="title editable block">Frequency Comparison: Column Chart 2</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s01_s06_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s06_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.05.xlsx">Excel Objective 4.05</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s06_n01">
+            <h3 class="title">Lesson Video: Column Chart 2 (Frequency Comparison)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/NGzjo2KpsWk?rel=0" condition="http://img.youtube.com/vi/NGzjo2KpsWk/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/NGzjo2KpsWk?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s06_p02">We will create a second column chart to show a comparison between two frequency distributions. Column C on the <strong class="emphasis bold">Grade Distribution</strong> worksheet contains data showing the number of students who received grades within each category for the entire college. We will use a column chart to compare the grade distribution for the class (Column B) with the overall grade distribution for the college (Column C). However, since the number of students in the class is significantly different from the total number of students in the college, we must calculate percentages in order to make an effective comparison. The following steps explain how to calculate the percentages:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch04_s01_s06_l01">
+            <li>Highlight the range B9:C9 on the <strong class="emphasis bold">Grade Distribution</strong> worksheet.</li>
+            <li>Click the AutoSum button in the Editing group of commands on the Home tab of the Ribbon. This automatically adds SUM functions that sum the values in the range B4:B8 and C4:C8.</li>
+            <li>Activate cell E4 on the <strong class="emphasis bold">Grade Distribution</strong> worksheet.</li>
+            <li>Enter a formula that divides the value in cell B4 by the total in cell B9. Add an absolute reference to cell B9 in the formula <em class="emphasis">=B4/$B$9</em>.</li>
+            <li>Copy the formula in cell E4 and paste it into the range E5:E8 using the Paste Formulas command.</li>
+            <li>Activate cell F4 on the <strong class="emphasis bold">Grade Distribution</strong> worksheet.</li>
+            <li>Enter a formula that divides the value in cell C4 by the total in cell C9. Add an absolute reference to cell C9 in the formula <em class="emphasis">=C4/$C$9</em>.</li>
+            <li>Copy the formula in cell F4 and paste it into the range F5:F8 using the Paste Formulas command.</li>
+        </ol>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s01_s06_f01">
+            <p class="title"><span class="title-prefix">Figure 4.13</span> Completed Grade Distribution Percentages</p>
+            <img src="section_08/e2563236d89984cdcc6ceeeb67c19124.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s06_p03"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s06_f01">Figure 4.13 "Completed Grade Distribution Percentages"</a> shows the completed percentages added to the <strong class="emphasis bold">Grade Distribution</strong> worksheet. The column chart uses the grade categories in the range A4:A8 on the X axis and the percentages in the range E4:F8 on the Y axis. Similar to the trend comparison line chart, this chart uses data that is not in a contiguous range. The following steps explain a second method for creating charts with data that is not in a contiguous range:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch04_s01_s06_l02">
+            <li>Activate cell H2 on the <strong class="emphasis bold">Grade Distribution</strong> worksheet. It is important to note that this is a blank cell that is not adjacent to any data on the worksheet.</li>
+            <li>Click the Insert tab of the Ribbon.</li>
+            <li>Click the Column button in the Charts group of commands. Select the first option from the drop-down list of chart formats, which is the Clustered Column. This adds a blank chart to the worksheet.</li>
+            <li>Click and drag the blank chart so the upper left corner is in the middle of cell H2.</li>
+            <li>Resize the blank chart so the left side is locked to the left side of Column H, the right side is locked to the right side of Column P, the top is locked to the top of Row 2, and the bottom is locked to the bottom of Row 16.</li>
+            <li>Click the Select Data button in the Design tab of the Chart Tools section of the Ribbon. This opens the Select Data Source dialog box.</li>
+            <li>Click the Add button on the Select Data Source dialog box. This opens the Edit Series dialog box.</li>
+            <li>In the Series name input box on the Edit Series dialog box, type the word <strong class="emphasis bold">Class</strong>.</li>
+            <li>Press the TAB key on your keyboard to advance to the Series values input box on the Edit Series dialog box.</li>
+            <li>Highlight the range E4:E8 on the <strong class="emphasis bold">Grade Distribution</strong> worksheet. This automatically adds the range to the Series values input box. You also see bars added to the column chart (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s06_f02">Figure 4.14 "Completed Data Series for the Class Grade Distribution"</a>).</li>
+            <li>
+                <p class="para">Click the OK button on the Edit Series dialog box.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch04_s01_s06_f02">
+                <p class="title"><span class="title-prefix">Figure 4.14</span> Completed Data Series for the Class Grade Distribution</p>
+                    <img src="section_08/0235f70417ee0be5664dbb0a944814c8.jpg">
+                </div>
+            </li>
+            <li>Click the Add button on the Select Data Source dialog box.</li>
+            <li>In the Series name input box on the Edit Series dialog box, type the word <strong class="emphasis bold">College</strong>.</li>
+            <li>Press the TAB key on your keyboard to advance to the Series values input box on the Edit Series dialog box.</li>
+            <li>Highlight the range F4:F8 on the <strong class="emphasis bold">Grade Distribution</strong> worksheet. This automatically adds the range to the Series values input box. You also see bars added to the column chart.</li>
+            <li>Click the OK button on the Edit Series dialog box.</li>
+            <li>Click the Edit button on the right side of the Select Data Source dialog box under the Horizontal (Category) Axis Labels section. This is used to define the labels that will appear on the X axis of the chart and opens the Axis Labels dialog box.</li>
+            <li>Highlight the range A4:A8 on the <strong class="emphasis bold">Grade Distribution</strong> worksheet. This adds the range to the Axis Labels dialog box, and the labels appear on the X axis on the column chart (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s06_f03">Figure 4.15 "Final Settings for the Select Data Source Dialog Box"</a>).</li>
+            <li>Click the OK button on the Axis Labels dialog box.</li>
+            <li>
+                <p class="para">Click the OK button on the Select Data Source dialog box.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch04_s01_s06_f03">
+                <p class="title"><span class="title-prefix">Figure 4.15</span> Final Settings for the Select Data Source Dialog Box</p>
+                    <img src="section_08/0fddcf5365b6487b0344a22742a898fe.jpg">
+                </div>
+            </li>
+            <li>Click the Chart Title button on the Layout tab of the Chart Tools section of the Ribbon. Select the Above Chart option from the drop-down list.</li>
+            <li>Click in the text box containing the chart title. Delete the generic chart title and replace it with the following: <strong class="emphasis bold">Grade Distribution Comparison</strong>.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s06_p04"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s06_f04">Figure 4.16 "Completed Grade Distribution Column Chart"</a> shows the final appearance of the column chart. The column chart is an appropriate type for this data because there are fewer than twenty data points and we can easily see the comparison for each category. An audience can quickly see that the class issued fewer As compared to the college. However, the class had more Bs and Cs compared with the college population.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s01_s06_f04">
+            <p class="title"><span class="title-prefix">Figure 4.16</span> Completed Grade Distribution Column Chart</p>
+            <img src="section_08/3db41632045ae5170568441cf18d5b0f.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s06_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Too Many Bars on a Column Chart?</p>
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s06_p05">Although there is no specific limit for the number of bars you should use on a column chart, a general rule of thumb is twenty bars or less. <a class="xref" href="#manzoexcel_1.1-ch04_s01_s06_f05">Figure 4.17 "Poor Use of a Column Chart"</a> contains a total of thirty-two bars. This is considered a poor use of a column chart because it is difficult to identify meaningful trends or comparisons. The data used to create this chart might be better used in two or three different column charts, each with a distinct idea or message.</p>
+            <div class="figure large" id="manzoexcel_1.1-ch04_s01_s06_f05">
+                <p class="title"><span class="title-prefix">Figure 4.17</span> Poor Use of a Column Chart</p>
+                <img src="section_08/50fdd35e339951447cecd73f4526661b.jpg">
+            </div>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s06_n03">
+            <h3 class="title">Skill Refresher: Charts: Using Data in a Noncontiguous Range</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/J269WHK7C9Y?rel=0" condition="http://img.youtube.com/vi/J269WHK7C9Y/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/J269WHK7C9Y?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s06_l03">
+                <li>Click a blank cell location that is not adjacent to any data on the worksheet.</li>
+                <li>Click the Insert tab of the Ribbon.</li>
+                <li>Select a chart type and format in the Charts group of commands.</li>
+                <li>Click the Select Data button in the Design tab of the Chart Tools section of the Ribbon.</li>
+                <li>Click the Add button on the Select Data Source dialog box.</li>
+                <li>In the Edit Series dialog box, type a name in the Series name input box or highlight a cell location on the worksheet that contains a description for the data series.</li>
+                <li>Press the TAB key on your keyboard to advance to the Series values input box.</li>
+                <li>Highlight the range of cells on the worksheet that contain the data that will appear on the Y axis for the series identified in step 6.</li>
+                <li>Click the OK button on the Edit Series dialog box.</li>
+                <li>Repeat steps 5 through 9 for each data series that you need to add to the chart.</li>
+                <li>Click the Edit button on the right side of the Select Data Source dialog box.</li>
+                <li>Highlight the range of cells that contain the descriptions for the X axis.</li>
+                <li>Click the OK button on the Axis Labels dialog box.</li>
+                <li>Click the OK button on the Select Data Source dialog box.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s01_s07">
+        <h2 class="title editable block">Percent of Total: Pie Chart</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s01_s07_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s07_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.06.xlsx">Excel Objective 4.06</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s07_n01">
+            <h3 class="title">Lesson Video: Pie Chart (Percent of Total)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/2_KohEC896Q?rel=0" condition="http://img.youtube.com/vi/2_KohEC896Q/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/2_KohEC896Q?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s07_p02">The next chart we will demonstrate is a pie chart. A <span class="margin_term"><a class="glossterm">pie chart</a><span class="glossdef">A chart used to show the percent of total for each component of a data set.</span></span> is used to show a percent of total for a data set at a specific point in time. The data we will use to demonstrate a pie chart is related to the overall spending activity in the health-care industry. The <strong class="emphasis bold">Health Care</strong> worksheet contains data that shows total spending in the United States for the years 1969 and 2009. In 1969, the total amount spent in the United States for health-related expenses was over $66 billion. The pie chart shows how this $66 billion was funded. The following steps explain how to accomplish this:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch04_s01_s07_l01">
+            <li>Highlight the range A2:B7 on the <strong class="emphasis bold">Health Care</strong> worksheet.</li>
+            <li>Click the Insert tab of the Ribbon.</li>
+            <li>Click the Pie button in the Charts group of commands.</li>
+            <li>Select the “Exploded pie in 3-D” option from the drop-down list of options.</li>
+            <li>Click and drag the pie chart so the upper left corner is in the middle of cell E2.</li>
+            <li>
+                <p class="para">Resize the pie chart so the left side is locked to the left side of Column E, the right side is locked to the right side of Column M, the top is locked to the top of Row 2, and the bottom is locked to the bottom of Row 17 (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s07_f01">Figure 4.18 "Pie Chart Moved and Resized"</a>).</p>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch04_s01_s07_f01">
+                <p class="title"><span class="title-prefix">Figure 4.18</span> Pie Chart Moved and Resized</p>
+                    <img src="section_08/38756b65606625589ec2bec5ea58daf8.jpg">
+                </div>
+            </li>
+            <li>Click the chart legend once and press the DELETE key on your keyboard. A pie chart typically shows labels next to each wedge. Therefore, the legend is not needed.</li>
+            <li>Click the Data Labels button in the Layout tab of the Chart Tools section of the Ribbon.</li>
+            <li>Select More Data Label Options from the drop-down list. This opens the Format Data Labels dialog box.</li>
+            <li>Click the box next to the Value option under the Label Options section in the Format Data Labels dialog box. This removes the check mark (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s07_f02">Figure 4.19 "Final Settings in the Format Data Labels Dialog Box"</a>).</li>
+            <li>Click the Percentage option under the Label Options section in the Format Data Labels dialog box. A green check should appear in the box next to this option (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s07_f02">Figure 4.19 "Final Settings in the Format Data Labels Dialog Box"</a>).</li>
+            <li>Click the Category Name option under the Label Options section in the Format Data Labels dialog box. A green check should appear in the box next to this option (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s07_f02">Figure 4.19 "Final Settings in the Format Data Labels Dialog Box"</a>).</li>
+            <li>Click the Close button at the bottom of the Format Data Labels dialog box.</li>
+            <li>
+                <p class="para">Click the Home tab of the Ribbon and then click the Bold button. This should bold the data labels on the pie chart.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch04_s01_s07_f02">
+                <p class="title"><span class="title-prefix">Figure 4.19</span> Final Settings in the Format Data Labels Dialog Box</p>
+                    <img src="section_08/ed01c2a5709a0f0b728e7cae2a978793.jpg">
+                </div>
+            </li>
+            <li>Click the chart title twice.</li>
+            <li>Click in front of the year 1969 and type <strong class="emphasis bold">Health Care Spending by Source:</strong>.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s07_p03"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s07_f03">Figure 4.20 "Final Health Care Pie Chart"</a> shows the completed pie chart. You can quickly see that Health Insurance and Out of Pocket made up the majority of health-care spending in 1969. Similar to the column chart, the key to creating an effective pie chart is the number of categories presented on the chart. Although there are no specific limits for the number of categories you can use on a pie chart, a good rule of thumb is ten or less. As the number of categories exceeds ten, it becomes more difficult to identify key categories that make up the majority of the total. In this example, it is easy to see that two categories compose 75% of the total.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch04_s01_s07_f03">
+            <p class="title"><span class="title-prefix">Figure 4.20</span> Final Health Care Pie Chart</p>
+            <img src="section_08/66f58c374c0861337ddd23c4d551f2ee.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s07_n02">
+            <h3 class="title">Skill Refresher: Inserting a Pie Chart</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/YQMQJzmt83A?rel=0" condition="http://img.youtube.com/vi/YQMQJzmt83A/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/YQMQJzmt83A?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s07_l02">
+                <li>Highlight a range of cells that contain the data you will use to create the chart.</li>
+                <li>Click the Insert tab of the Ribbon.</li>
+                <li>Click the Pie button in the Charts group.</li>
+                <li>Select a format option from the Pie Chart drop-down menu.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch04_s01_s08">
+        <h2 class="title editable block">Percent of Total Trend: Stacked Column Chart</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch04_s01_s08_ep01">
+            <p class="para" id="manzoexcel_1.1-ch04_s01_s08_p01">Follow-along file: Continue with Excel Objective 4.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_4.07.xlsx">Excel Objective 4.07</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s08_n01">
+            <h3 class="title">Lesson Video: Stacked Column Chart (Percent of Total Trend)</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/V1R6ascb64s?rel=0" condition="http://img.youtube.com/vi/V1R6ascb64s/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/V1R6ascb64s?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s08_p02">The last chart type we will demonstrate is the <span class="margin_term"><a class="glossterm">stacked column chart</a><span class="glossdef">A chart used to show how a percent of total changes over time or between two or more entities.</span></span>. We use a stacked column chart to show how a percent of total changes over time. For example, the data on the <strong class="emphasis bold">Health Care</strong> worksheet shows spending by source for 1969 and 2009. A stacked column chart can show whether there is any change in the percent of total for each source between the two years. The Y axis of the chart shows the percentage from 0% to 100%. The X axis shows the two years: 1969 and 2009. The following steps explain how to create this chart:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch04_s01_s08_l01">
+            <li>Highlight the range A2:C7 on the <strong class="emphasis bold">Health Care</strong> worksheet.</li>
+            <li>Click the Insert tab of the Ribbon.</li>
+            <li>
+                <p class="para">Click the Column button in the Charts group of commands. Select the 100% Stacked Column format option from the drop-down list (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s08_f01">Figure 4.21 "Selecting the 100% Stacked Column Format"</a>).</p>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch04_s01_s08_f01">
+                <p class="title"><span class="title-prefix">Figure 4.21</span> Selecting the 100% Stacked Column Format</p>
+                    <img src="section_08/c0701cf0a926cf650c2d9c0731c1b7b3.jpg">
+                </div>
+                <p class="para" id="manzoexcel_1.1-ch04_s01_s08_p03"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s08_f02">Figure 4.22 "Initial Construction of the 100% Stacked Column Chart"</a> shows the column chart that is created after selecting the 100% Stacked Column format option. As mentioned, the goal of this chart is to show the percentages on the Y axis and the years 1969 and 2009 on the X axis. However, notice that Excel places the spend sources on the X axis. The remaining steps explain how to correct this problem and complete the chart:</p>
+                <div class="figure large large-height" id="manzoexcel_1.1-ch04_s01_s08_f02">
+                <p class="title"><span class="title-prefix">Figure 4.22</span> Initial Construction of the 100% Stacked Column Chart</p>
+                    <img src="section_08/48b38b748bf6043f7c8904e0c853afa2.jpg">
+                </div>
+            </li>
+            <li>Click the Switch Row/Column button in the Design tab on the Chart Tools section of the Ribbon. This reverses the legend and current X axis categories (see <a class="xref" href="#manzoexcel_1.1-ch04_s01_s08_f02">Figure 4.22 "Initial Construction of the 100% Stacked Column Chart"</a>).</li>
+            <li>Click and drag the chart so the upper left corner is in the middle of cell E19.</li>
+            <li>Resize the chart so the left side is locked to the left side of Column E, the right side is locked to the right side of Column N, the top is locked to the top of Row 19, and the bottom is locked to the bottom of Row 37.</li>
+            <li>Click the legend one time and press the DELETE key on your keyboard.</li>
+            <li>Click the Layout tab on the Chart Tools section of the Ribbon.</li>
+            <li>Click the Data Table button in the Labels group of commands and select the Show Data Table with Legend Keys option from the drop-down menu. This is another way of displaying a legend for a column chart along with the numerical values that make up each component.</li>
+            <li>Click the Chart Title button in the Layout tab of the Chart Tools section of the Ribbon.</li>
+            <li>Select the Above Chart option for the drop-down menu.</li>
+            <li>Click the chart title two times. Delete the generic chart title name and type <strong class="emphasis bold">Change in Health Care Spend Source</strong>.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch04_s01_s08_p04"><a class="xref" href="#manzoexcel_1.1-ch04_s01_s08_f03">Figure 4.23 "Final 100% Stacked Column Chart"</a> shows the final stacked column chart. Notice that the Out of Pocket category, or the amount of cash people paid for health-care expenses, decreased significantly from 1969 to 2009. However, the Health Insurance category increased significantly from 1969 to 2009. Overall, the chart shows that the total out-of-pocket and health insurance expense increased significantly from 1969 to 2009. These two categories made up approximately 75% of total health-care spending in 1969. By 2009, these two categories increased to over 80% of total health-care spending.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch04_s01_s08_f03">
+            <p class="title"><span class="title-prefix">Figure 4.23</span> Final 100% Stacked Column Chart</p>
+            <img src="section_08/ce9a0296b5600cbe558c67b2a0d1980d.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch04_s01_s08_n02">
+            <h3 class="title">Skill Refresher: Inserting a Stacked Column Chart</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/nPn75r4HNjg?rel=0" condition="http://img.youtube.com/vi/nPn75r4HNjg/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/nPn75r4HNjg?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s08_l02">
+                <li>Highlight a range of cells that contain data that will be used to create the chart.</li>
+                <li>Click the Insert tab of the Ribbon.</li>
+                <li>Click the Column button in the Charts group.</li>
+                <li>Select the Stacked Column format option from the Column Chart drop-down menu to show the values of each category on the Y axis. Select the 100% Stacked Column option to show the percent of total for each category on the Y axis.</li>
+            </ol>
+        </div>
+        <div class="key_takeaways editable block" id="manzoexcel_1.1-ch04_s01_s08_n03">
+            <h3 class="title">Key Takeaways</h3>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch04_s01_s08_l03">
+                <li>Identifying the message you wish to convey to an audience is a critical first step in creating an Excel chart.</li>
+                <li>Both a column chart and a line chart can be used to present a trend over a period of time. However, a line chart is preferred over a column chart when presenting data over long periods of time.</li>
+                <li>The number of bars on a column chart should be limited to approximately twenty bars or less.</li>
+                <li>For column, line, and bar charts, the X axis can be used only for labels, not for numeric values.</li>
+                <li>When creating a chart to compare trends, the values for each data series must be within a reasonable range. If there is a wide variance between the values in the two data series (two times or more), the percent change should be calculated with respect to the first data point for each series.</li>
+                <li>When working with frequency distributions, the use of a column chart or a bar chart is a matter of preference. However, a column chart is preferred when working with a trend over a period of time.</li>
+                <li>A pie chart is used to present the percent of total for a data set.</li>
+                <li>A stacked column chart is used to show how a percent total changes over time.</li>
+            </ul>
+        </div>
+        <div class="exercises editable block" id="manzoexcel_1.1-ch04_s01_s08_n04">
+            <h3 class="title">Exercises</h3>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s08_l04">
+                <li>
+                    <p class="para">You need to create a chart showing the past year sales results for the university bookstore. Your chart will show the total sales by month for twelve months. Which of the following is the best chart type?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s08_l05" numeration="loweralpha">
+                        <li>pie chart</li>
+                        <li>line chart</li>
+                        <li>scatter chart</li>
+                        <li>either line or column chart</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following should you do first to create an effective chart in Excel?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s08_l06" numeration="loweralpha">
+                        <li>Identify a chart type.</li>
+                        <li>Define the message you need to communicate.</li>
+                        <li>Determine which values belong on the Y axis.</li>
+                        <li>Highlight all the data on your worksheet.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following is the most efficient method for adding labels to each section of a pie chart?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s08_l07" numeration="loweralpha">
+                        <li>Use the Data Labels button in the Layout tab of the Ribbon.</li>
+                        <li>Click the Text Box button in the Layout tab of the Ribbon and add labels next to each section of the chart.</li>
+                        <li>Use the Legend button in the Layout tab of the Ribbon to reposition the legend around each section of the chart.</li>
+                        <li>Click the Select Data button in the Design tab of the Ribbon to select and arrange specific data points to be placed on the chart.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">You have established a personal budget for your household. The spending section of the budget is broken down into five major categories. To show how the percent of total for each spend category has changed over a three-year period of time, it would be best to use which of the following chart types?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch04_s01_s08_l08" numeration="loweralpha">
+                        <li>column chart</li>
+                        <li>line chart</li>
+                        <li>stacked column chart</li>
+                        <li>pie chart</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+  </div>
+  
+  <div id=navbar-bottom class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s07-04-chapter-assignments-and-tests.html"><img src="shared/images/batch-left.png"></a> <a href="s07-04-chapter-assignments-and-tests.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s08-02-formatting-charts.html">Next Section</a> <a href="s08-02-formatting-charts.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="shared/book.js"></script>
+  
+  
+</body>
+</html>

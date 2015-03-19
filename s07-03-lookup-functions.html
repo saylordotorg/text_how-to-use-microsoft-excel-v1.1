@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="shared/bookhub.css" rel="stylesheet" type="text/css">
+  <title>Lookup Functions</title>
+</head>
+<body>
+
+  
+  <div id=navbar-top class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s07-02-statistical-if-functions.html"><img src="shared/images/batch-left.png"></a> <a href="s07-02-statistical-if-functions.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s07-04-chapter-assignments-and-tests.html">Next Section</a> <a href="s07-04-chapter-assignments-and-tests.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  <div id="book-content">
+    <div class="section" id="manzoexcel_1.1-ch03_s03" condition="start-of-chunk" version="5.0" lang="en">
+    <h2 class="title editable block">
+<span class="title-prefix">3.3</span> Lookup Functions</h2>
+    <div class="learning_objectives editable block" id="manzoexcel_1.1-ch03_s03_n01">
+        <h3 class="title">Learning Objectives</h3>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch03_s03_l01">
+            <li>Use the VLOOKUP function to search and display the contents of a cell location for data that is organized in columns.</li>
+            <li>Use the HLOOKUP function to search and display the contents of a cell location for data that is organized in rows.</li>
+            <li>Create a web query that imports stock price data into a worksheet from a website.</li>
+        </ol>
+    </div>
+    <p class="para editable block" id="manzoexcel_1.1-ch03_s03_p01">The final section of this chapter addresses lookup functions. <span class="margin_term"><a class="glossterm">Lookup functions</a><span class="glossdef">Functions that are used to search for and display data located in an existing worksheet or in other worksheets or workbooks.</span></span> are typically used to search for and display data located in other worksheets or workbooks. The two lookup functions we will use in our example of the personal investment portfolio are the VLOOKUP and HLOOKUP functions. In addition to demonstrating these functions, we will also show how we can enhance the personal investment portfolio workbook with a web query. Web queries are used to bring live or current data into a worksheet from a website.</p>
+    <div class="section" id="manzoexcel_1.1-ch03_s03_s01">
+        <h2 class="title editable block">The VLOOKUP Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s03_s01_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s03_s01_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.14.xlsx">Excel Objective 3.14</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s03_s01_n01">
+            <h3 class="title">Lesson Video: VLOOKUP Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/7PrecSieZ3o?rel=0" condition="http://img.youtube.com/vi/7PrecSieZ3o/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/7PrecSieZ3o?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s03_s01_p02">The VLOOKUP function is typically used to access and display data located in another worksheet or workbook. The function can also be used to access and display data located in the same worksheet. This is a very powerful and versatile function because it eliminates the need to copy or recreate data that exists in other worksheets or workbooks. It is called a <em class="emphasis">V</em>LOOKUP function because the function will search <em class="emphasis">v</em>ertically down the first column of a range of cells to find what is called a lookup value. This process is very similar to the statistical IF functions in <a class="xref" href="manzoexcel_1.1-ch03_s02#manzoexcel_1.1-ch03_s02">Section 3.2 "Statistical IF Functions"</a>. You will recall that these functions used criteria to select cells from a range that was used in the mathematical output. The VLOOKUP function is essentially performing the same process; however, instead of selecting multiple cells from a range, the function is only looking for one specific cell location. Once the function finds the specific cell location, it will display the contents of that cell location or another cell location in the range. Before using the VLOOKUP function in the personal investment portfolio workbook, it is strongly recommended that you carefully read the definitions for the function arguments listed in <a class="xref" href="#manzoexcel_1.1-ch03_s03_s01_t01">Table 3.10 "Arguments for the VLOOKUP Function"</a>.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s03_s01_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.10</span> Arguments for the VLOOKUP Function</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Lookup_value</strong></td>
+                        <td>This argument is typically defined with a cell location, number, or text. Text data must be enclosed in quotation marks for this argument. The function will search for the criteria entered into this argument in the <em class="emphasis">first column</em> of the range used to define the <strong class="emphasis bold">Table_array</strong> argument. For example, if the word <em class="emphasis">Hat</em> is used to define this argument, the function will search for the word <em class="emphasis">Hat</em> in the first column of the range used to define the <strong class="emphasis bold">Table_array</strong> argument.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Table_array</strong></td>
+                        <td>Range of cells that contain data you wish the VLOOKUP function to search though (Lookup_value) and display. This cell range <em class="emphasis">must</em> contain the criteria used to define the <strong class="emphasis bold">Lookup_value</strong> in the first column. For example, if the range A2:D15 is used to define this argument, the criteria used to define the <strong class="emphasis bold">Lookup_value</strong> argument must exist in Column A.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Col_index_num</strong></td>
+                        <td>This is the column index number argument. It is defined with the number of columns to the right of the first column in the range used to define the <strong class="emphasis bold">Table_array</strong> argument that contains the data you wish to display. For example, suppose the data you wish the function to display is contained in Column C. If the range used to define the <strong class="emphasis bold">Table_array</strong> argument is A2:D15, then the column index number will be 3. Counting the columns to the right of the first column in this range, Column A would be 1, Column B would be 2, and Column C would be 3. It is important to remember to count the first column in the table array range as 1.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">[Range_lookup]</strong></td>
+                        <td>This argument is defined with either the word <em class="emphasis">TRUE</em> or the word <em class="emphasis">FALSE</em>. When this argument is defined with the word <em class="emphasis">FALSE</em>, the function will look for an exact match to the criteria used to define the <strong class="emphasis bold">Lookup_value</strong> argument in the first column of the table array range. It is important to note the function will search the entire range to find a match. If this argument is defined with the word <em class="emphasis">TRUE</em>, the function will look for a value that is an exact match or the closest match that is <em class="emphasis bolditalic">less than</em> the lookup value. For example, if the lookup value is 80 and the highest value in the first column of the table array range is a 78, the function will consider 78 a match for the number 80. However, if the lookup value is 80 and the lowest number in the first column of the table array range is 85, the function will produce an error. This is because the number 80 and any value less than 80 do not exist in the first column of the table array range. <em class="emphasis">It is important to note that if you define this argument with the word TRUE, the data in the table array range must be sorted in ascending order.</em> This is because the function will stop searching for a match once the value in the first column exceeds the lookup value. If the data in the table array range is not sorted, the function can either produce an error code or display an erroneous result. This argument is in brackets because if it is not defined it will automatically be defined with the word <em class="emphasis">TRUE</em>.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s03_s01_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Using a TRUE Range Lookup for VLOOKUP and HLOOKUP</p>
+            <p class="para" id="manzoexcel_1.1-ch03_s03_s01_p03">If you are defining the <strong class="emphasis bold">Range_lookup</strong> argument with the word <em class="emphasis">TRUE</em> for either the VLOOKUP or HLOOKUP function, the range used to define the <strong class="emphasis bold">Table_array</strong> argument must be sorted in ascending order. For the VLOOKUP function, the table array range must be sorted from smallest to largest or from A to Z based on the values in the first column. For the HLOOKUP function, the table array range must be sorted from left to right based on the values in the first row, from smallest to largest or A to Z.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s03_s01_p04">You may have noticed that on the <strong class="emphasis bold">Investment Detail</strong> worksheet, the Description column is blank (see <a class="xref" href="manzoexcel_1.1-ch03_s01#manzoexcel_1.1-ch03_s01_s01_f01">Figure 3.2 "Investment Detail Worksheet"</a>). Descriptions for several investments are included in the workbook in the <strong class="emphasis bold">Investment List</strong> worksheet as shown in <a class="xref" href="#manzoexcel_1.1-ch03_s03_s01_f01">Figure 3.42 "Investment List Worksheet"</a>. The VLOOKUP function will be used to search for a specific symbol in Column A of the Investment List worksheet and display the description for that symbol located in Column B. The following steps explain how to accomplish this:</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s03_s01_f01">
+            <p class="title"><span class="title-prefix">Figure 3.42</span> Investment List Worksheet</p>
+            <img src="section_07/13e854e7b9698e2f30426a5eab04ebfe.jpg">
+        </div>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s03_s01_l01">
+            <li>Click cell C4 on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the Lookup &amp; Reference button in the Function Library group of commands.</li>
+            <li>Select the VLOOKUP function from the list of functions. Use the scroll bar to scroll down to the bottom of the list. This will open the Function Arguments dialog box for the VLOOKUP function.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Lookup_value</strong> argument on the Function Arguments dialog box.</li>
+            <li>Click cell B4 and press the ENTER key on your keyboard. The symbol in cell B4 is the lookup value that will be searched in the first column of the range defined for the <strong class="emphasis bold">Table_array</strong> argument.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Table_array</strong> argument on the Function Arguments dialog box.</li>
+            <li>Click the <strong class="emphasis bold">Investment List</strong> worksheet tab.</li>
+            <li>Highlight the range A3:F23 on the <strong class="emphasis bold">Investment List</strong> worksheet and press the ENTER key on your keyboard. The function will look in Column A of this range for the lookup value.</li>
+            <li>Click in the input box for the <strong class="emphasis bold">Table_array</strong> argument and place an absolute reference on the range A3:F23. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number of each cell location in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Col_index_num</strong> argument and type the number <strong class="emphasis bold">2</strong>. Once the function finds the lookup value in Column A of the range A3:F23, it will display the description that is in Column B of the same row.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Range_lookup</strong> argument and type the word <strong class="emphasis bold">FALSE</strong>. This will direct the function to search for only exact matches to lookup value.</li>
+            <li>Click the OK button at the bottom of the Function Arguments dialog box.</li>
+            <li>Copy the VLOOKUP function in cell C4 and paste it into the range C5:C18 using the Paste Formulas command.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s03_s01_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s03_s01_f02">Figure 3.43 "Completed Function Arguments Dialog Box for the VLOOKUP Function"</a> shows the completed Function Arguments dialog box for the VLOOKUP function. Notice that the Range_lookup argument is defined with the word <em class="emphasis">FALSE</em>. This will direct the function to search for an exact match to the lookup value and will also direct the function to search the entire first column of the table array range. Finally, it is important to note the absolute reference on the table array range. This will prevent the table array range from changing when the function is pasted into other cell locations.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s03_s01_f02">
+            <p class="title"><span class="title-prefix">Figure 3.43</span> Completed Function Arguments Dialog Box for the VLOOKUP Function</p>
+            <img src="section_07/a9e4a2fe3804cd9b78ada47a94f7eb2b.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s03_s01_p06"><a class="xref" href="#manzoexcel_1.1-ch03_s03_s01_f03">Figure 3.44 "Results of the VLOOKUP Function in the Investment Detail Worksheet"</a> shows the results of the VLOOKUP function in the <strong class="emphasis bold">Investment Detail</strong> worksheet. The function is searching for each symbol in Column B of the <strong class="emphasis bold">Investment Detail</strong> worksheet in Column A of the <strong class="emphasis bold">Investment List</strong> worksheet. When the function finds a match, it will display whatever is in the cell location two columns to the right, or Column B, in the <strong class="emphasis bold">Investment List</strong> worksheet. For example, the symbol VDMIX, which is in cell B8 on the <strong class="emphasis bold">Investment Detail</strong> worksheet (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s01_f03">Figure 3.44 "Results of the VLOOKUP Function in the Investment Detail Worksheet"</a>), is also in cell A15 on the <strong class="emphasis bold">Investment List</strong> worksheet (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s01_f01">Figure 3.42 "Investment List Worksheet"</a>). As a result, the function is displaying whatever is in cell B15 on the <strong class="emphasis bold">Investment List</strong> worksheet, which is the description “Developed Markets.”</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s03_s01_f03">
+            <p class="title"><span class="title-prefix">Figure 3.44</span> Results of the VLOOKUP Function in the Investment Detail Worksheet</p>
+            <img src="section_07/333bd2d10291fa32851a73bff514eb4e.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s03_s01_n03">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Absolute References on the Table Array Range for the VLOOKUP and HLOOKUP Functions</p>
+            <p class="para" id="manzoexcel_1.1-ch03_s03_s01_p07">If you are copying and pasting a VLOOKUP or HLOOKUP function, you will most likely need to place an absolute reference on the range used to define the <strong class="emphasis bold">Table_array</strong> argument. The table array range will change because of relative referencing once the function is pasted to new cell locations. This may result in an error output for either the VLOOKUP or HLOOKUP function. This is because the function will not be able to find the lookup value since the range has been adjusted. If you are defining the <strong class="emphasis bold">Range_lookup</strong> argument with the word <em class="emphasis">TRUE</em>, an adjustment in the table array range may result in an erroneous output.</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s03_s01_n04">
+            <h3 class="title">Skill Refresher: VLOOKUP Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/EE29uWiWI-c?rel=0" condition="http://img.youtube.com/vi/EE29uWiWI-c/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/EE29uWiWI-c?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s03_s01_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">VLOOKUP</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">Lookup_value</strong> argument with a cell location, number, or text that will be searched in another workbook or worksheet. Text must be placed in quotation marks.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Table_array</strong> argument with a range of cells that contain the lookup value in the first column along with data that is to be displayed or used by the function.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Col_index_num</strong> argument with a number that designates the columns to the right in the table array range that will be displayed by the function. Count the first column of the table array range as 1.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Range_lookup</strong> argument with either the word <em class="emphasis">FALSE</em> or the word <em class="emphasis">TRUE</em>. The word <em class="emphasis">FALSE</em> will search for exact matches to the lookup value. The word <em class="emphasis">TRUE</em> will search for an exact or closest match less than the lookup value. Excel will define this argument as TRUE if it is omitted.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s03_s02">
+        <h2 class="title editable block">The HLOOKUP Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s03_s02_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s03_s02_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.15.xlsx">Excel Objective 3.15</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s03_s02_n01">
+            <h3 class="title">Lesson Video: HLOOKUP Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/r_wfuI986pw?rel=0" condition="http://img.youtube.com/vi/r_wfuI986pw/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/r_wfuI986pw?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s03_s02_p02">The HLOOKUP function serves the same purpose as the VLOOKUP function. The HLOOKUP function can be used to display data from another worksheet or workbook. However, instead of searching for the lookup value vertically down the first column of the table array range, the HLOOKUP function searches horizontally across the <em class="emphasis">first row</em> of the table array range. When the function finds a match for the lookup value, it will display the contents in a cell location based on a row index number. This number designates how many rows below the first row of the table array range the function should display. <a class="xref" href="#manzoexcel_1.1-ch03_s03_s02_t01">Table 3.11 "Arguments for the HLOOKUP Function"</a> provides a definition for each argument of the HLOOKUP function. It is best to review the definitions of these arguments carefully before using the function.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s03_s02_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.11</span> Arguments for the HLOOKUP Function</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Lookup_value</strong></td>
+                        <td>This argument is typically defined with a cell location, number, or text. Text data must be enclosed in quotation marks for this argument. The function will search for the criteria entered into this argument in the <em class="emphasis">first row</em> of the range used to define the <strong class="emphasis bold">Table_array</strong> argument. For example, if the word <em class="emphasis">Hat</em> is used to define this argument, the function will search for the word <em class="emphasis">Hat</em> in the first row of the range used to define the <strong class="emphasis bold">Table_array</strong> argument.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Table_array</strong></td>
+                        <td>Range of cells that contain data you wish the HLOOKUP function to search though (Lookup_value) and display. This cell range <em class="emphasis">must</em> contain the criteria used to define the <strong class="emphasis bold">Lookup_value</strong> in the first row. For example, if the range A2:D15 is used to define this argument, the criteria used to define the <strong class="emphasis bold">Lookup_value</strong> argument must exist in Row 2.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Row_index_num</strong></td>
+                        <td>This is the row index number argument. It is defined with the number of rows below the first row in the range used to define the <strong class="emphasis bold">Table_array</strong> argument that contains the data you wish to display. For example, suppose the data you wish the function to display is contained in Row 5. If the range used to define the <strong class="emphasis bold">Table_array</strong> argument is A2:D15, then the column index number will be 4. Counting the rows below the first row in this range, Row 2 would be 1, Row 3 would be 2, Row 4 would be 3, and Row 5 would be 4. It is important to remember to count the first row in the table array range as 1.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">[Range_lookup]</strong></td>
+                        <td>This argument is defined with either the word <em class="emphasis">TRUE</em> or the word <em class="emphasis">FALSE</em>. When this argument is defined with the word <em class="emphasis">FALSE</em>, the function will look for an exact match to the criteria used to define the <strong class="emphasis bold">Lookup_value</strong> argument in the first row of the table array range. It is important to note the function will search the entire range to find a match. If this argument is defined with the word <em class="emphasis">TRUE</em>, the function will look for a value that is an exact match or the closest match that is <em class="emphasis bolditalic">less than</em> the lookup value. For example, if the lookup value is 80 and the highest value in the first row of the table array range is a 78, the function will consider 78 a match for the number 80. However, if the lookup value is 80 and the lowest number in the first row of the table array range is 85, the function will produce an error. This is because the number 80 and any value less than 80 do not exist in the first row of the table array range. <em class="emphasis">It is important to note that if you define this argument with the word TRUE, the data in the table array range must be sorted based on the values in the first row in ascending order from left to right.</em> This is because the function will stop searching for a match once the value in the first row exceeds the lookup value. If the data in the table array range is not sorted, the function can either produce an error code or display an erroneous result. This argument is in brackets because if it is not defined it will automatically be defined with the word <em class="emphasis">TRUE</em>.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s03_s02_p03">The HLOOKUP function will be used on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet to display the benchmark growth rates in the range G4:G7. A <span class="margin_term"><a class="glossterm">benchmark</a><span class="glossdef">A value or qualitative example that can be used as a standard point of comparison. Results that are higher or better than a benchmark are typically considered positive, whereas results that are lower or worse than the benchmark are typically considered negative.</span></span> is a value that can be used as a standard point of comparison. The <strong class="emphasis bold">Benchmarks</strong> worksheet contains growth rates at different year intervals for the benchmarks that will be used to compare the performance for each investment type (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s02_f01">Figure 3.45 "Benchmarks Worksheet"</a>). For the purposes of this workbook, we will be comparing the growth rates for each investment type to the 5-year average growth rate for the benchmarks categories listed in the range H4:H7. The following steps explain how to construct the HLOOKUP function to display the 5-year benchmark values in the <strong class="emphasis bold">Portfolio Summary</strong> worksheet:</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s03_s02_f01">
+            <p class="title"><span class="title-prefix">Figure 3.45</span> Benchmarks Worksheet</p>
+            <img src="section_07/ae32947cf1569b79d2047636f0fe0782.jpg">
+        </div>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s03_s02_l01">
+            <li>Click cell G4 in the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the Lookup &amp; Reference button in the Function Library group of commands.</li>
+            <li>Select the HLOOKUP function from the list of functions. This will open the Function Arguments dialog box for the HLOOKUP function.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Lookup_value</strong> argument on the Function Arguments dialog box.</li>
+            <li>Click cell H4 and press the ENTER key on your keyboard. The description in cell H4 will be the lookup value that will be searched in the first row of the range defined for the <strong class="emphasis bold">Table_array</strong> argument.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Table_array</strong> argument on the Function Arguments dialog box.</li>
+            <li>Click the <strong class="emphasis bold">Benchmarks</strong> worksheet tab.</li>
+            <li>Highlight the range B2:E6 on the <strong class="emphasis bold">Benchmarks</strong> worksheet and press the ENTER key on your keyboard. The function will look in Row 2 of this range for the lookup value.</li>
+            <li>Click in the input box for the <strong class="emphasis bold">Table_array</strong> argument and place an absolute reference on the range B2:E6. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number of each cell location in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Row_index_num</strong> argument and type the number <strong class="emphasis bold">4</strong>. Once the function finds the lookup value in Row 2 of the range B2:E6, it will display the value that is in Row 5 of the same column. Remember that Row 2 is counted as Row 1 for the row index number in this example.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Range_lookup</strong> argument on the Function Arguments dialog box and type the word <strong class="emphasis bold">FALSE</strong>. This will direct the function to search for only exact matches of the lookup value.</li>
+            <li>Click the OK button at the bottom of the Function Arguments dialog box.</li>
+            <li>Copy the HLOOKUP function in cell G4 and paste it into the range G5:G7 using the Paste Formulas command.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s03_s02_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s03_s02_f02">Figure 3.46 "Completed Function Arguments Dialog Box for the HLOOKUP Function"</a> shows the completed Function Arguments dialog box for the HLOOKUP function. The row index number 4 indicates that the function will display the contents of the cell location in the fourth row of the table array range.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s03_s02_f02">
+            <p class="title"><span class="title-prefix">Figure 3.46</span> Completed Function Arguments Dialog Box for the HLOOKUP Function</p>
+            <img src="section_07/e975c81086a6540c4e495cd9e028cff8.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s03_s02_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s03_s02_f03">Figure 3.47 "Completed Portfolio Summary Worksheet"</a> shows the output of the HLOOKUP function. Notice that the output of the function in cell G4 is 6.0%. This is because the lookup value was defined with the entry in cell H4, which is the Barclays index. Looking at <a class="xref" href="#manzoexcel_1.1-ch03_s03_s02_f01">Figure 3.45 "Benchmarks Worksheet"</a>, if you count the first row of the table array range as Row 1, the value 6.03% is the fourth row in the Barclays column. Since the values in Column G on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet are set to 1 decimal place, the value is displayed as 6.0%.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s03_s02_f03">
+            <p class="title"><span class="title-prefix">Figure 3.47</span> Completed Portfolio Summary Worksheet</p>
+            <img src="section_07/562e1bbc7d56b6ee139aa02454880f5d.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s03_s02_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">#N/A and #REF! Errors with Lookup Functions</p>
+            <p class="para" id="manzoexcel_1.1-ch03_s03_s02_p06">If you receive the <strong class="emphasis bold">#N/A</strong> error code when using the VLOOKUP or HLOOKUP function, it indicates that Excel cannot find the lookup value in the table array range. Check that the lookup value exists in the first column for the VLOOKUP, or the first row for the HLOOKUP, in the range used to define the <strong class="emphasis bold">Table_array</strong> argument. You may also see this error code if you copy and paste the function and forget to put an absolute reference on the range used to define the <strong class="emphasis bold">Table_array</strong> argument. The <strong class="emphasis bold">#REF!</strong> error code indicates that the column index number or row index number exceeds the number of columns or rows in the range used to define the <strong class="emphasis bold">Table_array</strong> argument.</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s03_s02_n03">
+            <h3 class="title">Skill Refresher: HLOOKUP Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/1hIoRQ4DvWk?rel=0" condition="http://img.youtube.com/vi/1hIoRQ4DvWk/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/1hIoRQ4DvWk?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s03_s02_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">HLOOKUP</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">Lookup_value</strong> argument with a cell location, number, or text that will be searched in another workbook or worksheet. Text must be placed in quotation marks.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Table_array</strong> argument with a range of cells that contain the lookup value in the first row along with data that is to be displayed or used by the function.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Row_index_num</strong> argument with a number that designates the rows from the top of the table array range that will be displayed by the function. Count the first row of the table array range as 1.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Range_lookup</strong> argument with either the word <em class="emphasis">FALSE</em> or the word <em class="emphasis">TRUE</em>. The word <em class="emphasis">FALSE</em> will search for exact matches to the lookup value. The word <em class="emphasis">TRUE</em> will search for an exact or closest match less than the lookup value. Excel will define this argument as TRUE if it is omitted.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s03_s03">
+        <h2 class="title editable block">Web Queries</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s03_s03_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s03_s03_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.16.xlsx">Excel Objective 3.16</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s03_s03_n01">
+            <h3 class="title">Lesson Video: Web Queries</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/srI2TbYYxpM?rel=0" condition="http://img.youtube.com/vi/srI2TbYYxpM/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/srI2TbYYxpM?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s03_s03_p02">The final skill we will demonstrate in this chapter is the creation of a web query. Web queries allow you to import external data from a website into an Excel worksheet. We can enhance the personal investment portfolio demonstrated in this chapter through the use of web queries to import current stock prices from a website. Once a stock price is imported into the workbook, a cell reference can be added to the <strong class="emphasis bold">Investment Detail</strong> worksheet to reflect the most current price for an investment. It is important to note that you must establish an Internet connection before proceeding with this exercise. The following steps explain how to retrieve the current stock price for Microsoft from the Yahoo! Finance website and import it into the <strong class="emphasis bold">Price Data</strong> worksheet:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch03_s03_s03_l01">
+            <li>Click cell A2 on the <strong class="emphasis bold">Price Data</strong> worksheet.</li>
+            <li>Click the Data tab of the Ribbon.</li>
+            <li>Click the From Web button located in the Get External Data group of commands. This will open the New Web Query dialog box.</li>
+            <li>Type the following Internet address (URL) in the Address input box (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f01">Figure 3.48 "New Web Query Dialog Box"</a>): <strong class="emphasis bold"><a class="link" target="_blank" href="http://www.yahoo.com">http://www.yahoo.com</a></strong>. Press the ENTER key on your keyboard after entering the URL.</li>
+            <li>
+                <p class="para">Use the scroll bar on the right side of the New Web Query dialog box to locate the Finance link on the left navigation pane of the website. Click the Finance link (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f01">Figure 3.48 "New Web Query Dialog Box"</a>).</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s03_s03_f01">
+                <p class="title"><span class="title-prefix">Figure 3.48</span> New Web Query Dialog Box</p>
+                    <img src="section_07/c211f3519f3b90a6359ebdd199509bd6.jpg">
+                </div>
+            </li>
+            <li>Locate the Get Quotes input box by using the scroll bar to scroll to the top of the website (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f02">Figure 3.49 "Get Quotes Input Box on Yahoo! Finance"</a>).</li>
+            <li>
+                <p class="para">Click in the Get Quotes input box, type the stock symbol <strong class="emphasis bold">MSFT</strong>, and press the ENTER key on your keyboard (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f02">Figure 3.49 "Get Quotes Input Box on Yahoo! Finance"</a>).</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s03_s03_f02">
+                <p class="title"><span class="title-prefix">Figure 3.49</span> Get Quotes Input Box on Yahoo! Finance</p>
+                    <img src="section_07/0c40e0f8de5cabcf29201adb16b1118c.jpg">
+                </div>
+            </li>
+            <li>
+                <p class="para">When viewing the stock price data for MSFT, you will see several yellow boxes or tags with arrows (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f03">Figure 3.50 "Selecting a Tag to Import Data from a Website"</a>). These tags indicate blocks or tables of data that can be imported into a worksheet from a website. Click the yellow tag next to the Last Trade price. The yellow tag will turn green with a check mark inside of it.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s03_s03_f03">
+                <p class="title"><span class="title-prefix">Figure 3.50</span> Selecting a Tag to Import Data from a Website</p>
+                    <img src="section_07/bfd79573e19603e8a01749273dfe2c23.jpg">
+                </div>
+            </li>
+            <li>
+                <p class="para">Click the Import button at the bottom of the New Web Query dialog box. This will open the Import Data dialog box, as shown in <a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f04">Figure 3.51 "Import Data Dialog Box"</a>.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s03_s03_f04">
+                <p class="title"><span class="title-prefix">Figure 3.51</span> Import Data Dialog Box</p>
+                    <img src="section_07/afca14dab6bab4ae7891e567d5944c57.jpg">
+                </div>
+            </li>
+            <li>Click the Properties button at the bottom of the Import Data dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f04">Figure 3.51 "Import Data Dialog Box"</a>). This will open the External Data Range Properties dialog box.</li>
+            <li>Click in the Name input box on the External Data Range Properties dialog box and delete the query name that is provided. Type the new query name <strong class="emphasis bold">Microsoft Stock Price</strong>.</li>
+            <li>
+                <p class="para">Click the box next to the “Refresh every” property. Change the refresh minutes to 5. This means the query will automatically search the website every 5 minutes to retrieve an updated stock price for Microsoft (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f05">Figure 3.52 "Final Settings for the External Data Range Properties Dialog Box"</a>).</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s03_s03_f05">
+                <p class="title"><span class="title-prefix">Figure 3.52</span> Final Settings for the External Data Range Properties Dialog Box</p>
+                    <img src="section_07/c220bbcffdde483fc8354642d9c3f7d3.jpg">
+                </div>
+            </li>
+            <li>Click the option at the bottom of the External Data Range Properties dialog box that reads “Overwrite existing cells with new data, clear unused cells” (see <a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f05">Figure 3.52 "Final Settings for the External Data Range Properties Dialog Box"</a>). It is important to select this option if you intend to add more than one web query to a worksheet or if you are using formulas in adjacent columns to a web query. This option will prevent the web query from deleting entire rows of data from the worksheet.</li>
+            <li>Click the OK button at the bottom of the External Data Range Properties dialog box.</li>
+            <li>Click the OK button at the bottom of the Import Data dialog box.</li>
+            <li>After the data is imported, click cell H17 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+            <li>Click the <strong class="emphasis bold">Price Data</strong> worksheet tab.</li>
+            <li>Click cell B2 on the <strong class="emphasis bold">Price Data</strong> worksheet and press the ENTER key on your keyboard. This will display the price that is imported from the web query on the <strong class="emphasis bold">Investment Detail</strong> worksheet.</li>
+            <li>
+<a class="xref" href="#manzoexcel_1.1-ch03_s03_s03_f06">Figure 3.53 "Stock Price for Microsoft Imported into the Price Data Worksheet"</a> shows the results of importing the Microsoft stock price from the Yahoo! Finance website. It is important to note that the data you retrieve from the website will be different from what is shown in this figure.</li>
+        </ol>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s03_s03_f06">
+            <p class="title"><span class="title-prefix">Figure 3.53</span> Stock Price for Microsoft Imported into the Price Data Worksheet</p>
+            <img src="section_07/9d2b7e94375cf51b7771f2535f03c8e4.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s03_s03_n02">
+            <h3 class="title">Skill Refresher: Web Queries</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/9zNyQIFPxEA?rel=0" condition="http://img.youtube.com/vi/9zNyQIFPxEA/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/9zNyQIFPxEA?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s03_s03_l02">
+                <li>Click a cell location on a worksheet where the first column of the data being imported should appear.</li>
+                <li>Click the Data tab of the Ribbon.</li>
+                <li>Click the From Web button in the Get External Data group of commands.</li>
+                <li>Enter a website address in the Address input box on the New Web Query dialog box and press the ENTER key on your keyboard.</li>
+                <li>Use the scroll bars and website links to navigate the website.</li>
+                <li>Select one or more yellow tags that contain the block or blocks of data you wish to import.</li>
+                <li>Click the Import button at the bottom of the New Web Query dialog box.</li>
+                <li>Click the Properties button at the bottom of the Import Data dialog box.</li>
+                <li>Make any necessary changes on the External Data Range Properties dialog box.</li>
+                <li>Click the OK button at the bottom of the External Data Range Properties dialog box.</li>
+                <li>Click the OK button at the bottom of the Import Data dialog box.</li>
+            </ol>
+        </div>
+        <div class="key_takeaways editable block" id="manzoexcel_1.1-ch03_s03_s03_n03">
+            <h3 class="title">Key Takeaways</h3>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch03_s03_s03_l03">
+                <li>Lookup functions are powerful and versatile tools because they eliminate the need to copy or recreate data that exists in other worksheets or workbooks.</li>
+                <li>The VLOOKUP function will look vertically down the first column of the table array range to find the lookup value. The lookup value must exist in the first column of the table array range when using the VLOOKUP function.</li>
+                <li>The HLOOKUP function will look horizontally across the first row of the table array range to find the lookup value. The lookup value must exist in the first row of the table array range when using the HLOOKUP function.</li>
+                <li>If the <strong class="emphasis bold">Range_lookup</strong> argument for the VLOOKUP function is defined with the word <em class="emphasis">TRUE</em>, the data in the table array range must be sorted in ascending order (smallest to largest) based on the values in the first column.</li>
+                <li>If the <strong class="emphasis bold">Range_lookup</strong> argument for the HLOOKUP function is defined with the word <em class="emphasis">TRUE</em>, the data in the table array range must be sorted in ascending order (smallest to largest), left to right, based on the values in the first row.</li>
+                <li>If you are copying and pasting a VLOOKUP or HLOOKUP function to other cell locations on a worksheet, make sure there is an absolute reference placed on the table array range.</li>
+                <li>Web queries are used to import external data from a website into an Excel worksheet.</li>
+            </ul>
+        </div>
+        <div class="exercises editable block" id="manzoexcel_1.1-ch03_s03_s03_n04">
+            <h3 class="title">Exercises</h3>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s03_s03_l04">
+                <li>
+                    <p class="para">Which of the following is true with respect to the range of cells used to define the Table_array argument when using the VLOOKUP function?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s03_s03_l05" numeration="loweralpha">
+                        <li>The lookup value must exist in the first row of this range.</li>
+                        <li>The lookup value must exist in the first column of this range.</li>
+                        <li>This range must be sorted in ascending order if the Range_lookup argument is defined with the word <em class="emphasis">FALSE</em>.</li>
+                        <li>The range used to define the Table_array argument is the lookup value.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Assume that the range B3:E23 is used to define the Table_array argument for an HLOOKUP function. How should the Row_index_num argument be defined if the output of the function should be the contents of the cell location in Row 15 in the same column as the lookup value?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s03_s03_l06" numeration="loweralpha">
+                        <li>with the number 15</li>
+                        <li>with the range B3:B15</li>
+                        <li>with cell location B15</li>
+                        <li>with the number 13</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Column A contains values that will be used to define the Lookup_value argument of a VLOOKUP function. The function will search for an exact match to the lookup value in the range A2:D15 in the <strong class="emphasis bold">Description List</strong> worksheet. The output of the function should be the contents in the cell location in Column C of the same row as the lookup value. Once the function is created, it will be copied and pasted to other cell locations in the same column. Which of the following VLOOKUP functions will provide an accurate result based on these criteria?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s03_s03_l07" numeration="loweralpha">
+                        <li>=VLOOKUP(A4,‘Description List’!A2:D15,2,FALSE)</li>
+                        <li>=VLOOKUP($A$4,‘Description List’!$A$2:$D$15,2,FALSE)</li>
+                        <li>=VLOOKUP(A4,‘Description List’!$A$2:$D$15,3,TRUE)</li>
+                        <li>=VLOOKUP(A4,‘Description List’!$A$2:$D$15,3,FALSE)</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">When using a web query, what is the appropriate setting to make if you want Excel to search the website for new information every minute?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s03_s03_l08" numeration="loweralpha">
+                        <li>Click the “Refresh every” option and change the minutes to 1 in the Import Data dialog box.</li>
+                        <li>Click the “Refresh every” option and change the minutes to 1 in the External Data Range Properties dialog box.</li>
+                        <li>Click the “Refresh every” option and change the minutes to 1 in the New Web Query dialog box.</li>
+                        <li>Click the “Refresh every” option and change the minutes to 1; also select the “Overwrite existing cells with new data, clear unused cells” option in the External Data Range Properties dialog box.</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+  </div>
+  
+  <div id=navbar-bottom class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s07-02-statistical-if-functions.html"><img src="shared/images/batch-left.png"></a> <a href="s07-02-statistical-if-functions.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s07-04-chapter-assignments-and-tests.html">Next Section</a> <a href="s07-04-chapter-assignments-and-tests.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="shared/book.js"></script>
+  
+  
+</body>
+</html>

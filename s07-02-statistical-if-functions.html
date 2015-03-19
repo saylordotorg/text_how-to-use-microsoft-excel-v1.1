@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="shared/bookhub.css" rel="stylesheet" type="text/css">
+  <title>Statistical IF Functions</title>
+</head>
+<body>
+
+  
+  <div id=navbar-top class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s07-01-logical-functions.html"><img src="shared/images/batch-left.png"></a> <a href="s07-01-logical-functions.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s07-03-lookup-functions.html">Next Section</a> <a href="s07-03-lookup-functions.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  <div id="book-content">
+    <div class="section" id="manzoexcel_1.1-ch03_s02" condition="start-of-chunk" version="5.0" lang="en">
+    <h2 class="title editable block">
+<span class="title-prefix">3.2</span> Statistical IF Functions</h2>
+    <div class="learning_objectives editable block" id="manzoexcel_1.1-ch03_s02_n01">
+        <h3 class="title">Learning Objectives</h3>
+        <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_l01">
+            <li>Use the COUNTIF function to count selected nonblank cells in a range based on one criteria argument.</li>
+            <li>Use the AVERAGEIF function to calculate the average of selected cells in a range based on the values in an alternate range of cells and one criteria argument.</li>
+            <li>Use the SUMIF function to calculate the sum of selected cells in a range based on the values in an alternate range of cells and one criteria argument.</li>
+            <li>Use the COUNTIFS function to count selected nonblank cells in a range based on more than one criteria argument that utilizes a logical test.</li>
+            <li>Use the AVERAGEIFS function to calculate the average of selected cells in a range based on the values in an alternate range of cells using more than one criteria argument that utilizes a logical test.</li>
+            <li>Use the SUMIFS function to calculate the sum of selected cells in a range based on the values in an alternate range of cells using more than one criteria argument that utilizes a logical test.</li>
+        </ol>
+    </div>
+    <p class="para editable block" id="manzoexcel_1.1-ch03_s02_p01">This section will demonstrate the use of statistical IF functions. <span class="margin_term"><a class="glossterm">Statistical IF functions</a><span class="glossdef">Statistical functions that provide the ability to evaluate the contents in a cell location before including it in a mathematical calculation. Cell locations can be selected from a range based on specific criteria or a logical test.</span></span> provide you with the ability to evaluate the contents in a cell location before including them in a mathematical calculation. This allows you to selectively include targeted cell locations when executing statistical calculations such as sum, average, count, and so on. We will use several statistical IF functions to construct the <strong class="emphasis bold">Portfolio Summary</strong> worksheet shown in <a class="xref" href="manzoexcel_1.1-ch03_s01#manzoexcel_1.1-ch03_s01_f01">Figure 3.1 "Completed Personal Investment Portfolio Workbook"</a>, which contains two main sections. The Total Summary section (Rows 2 through 8) shows an overview for all investments in the portfolio by investment type. This will allow us to compare the growth performance among the Bond Funds, Domestic Stock Funds, and others. The Poor Performing Investments section (Rows 9 through 15) will provide an overview of poor performing investments by investment type. For the purposes of this exercise, we will define a poor performing investment as one where the growth rate is below the target growth rate by more than 1% (see Column W on the <strong class="emphasis bold">Investment Detail</strong> worksheet). The statistical IF functions will allow us to establish criteria to select targeted investments that can be included in the calculations for each section of the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</p>
+    <div class="section" id="manzoexcel_1.1-ch03_s02_s01">
+        <h2 class="title editable block">The COUNTIF Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s02_s01_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s02_s01_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.08.xlsx">Excel Objective 3.08</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s01_n01">
+            <h3 class="title">Lesson Video: COUNTIF Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/du08Tv4yuxQ?rel=0" condition="http://img.youtube.com/vi/du08Tv4yuxQ/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/du08Tv4yuxQ?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s01_p02">The COUNTIF function differs from the regular COUNT function in two ways. First, the regular COUNT function counts only the number of cells in a range that contain numeric data. The COUNTIF function counts the number of cells in a range that contain numeric or text data. Second, the COUNTIF function allows you to selectively count the cells in a range based on specific criteria.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s01_p03">The COUNTIF function contains two arguments: <strong class="emphasis bold">range</strong> and <strong class="emphasis bold">criteria</strong>. The <strong class="emphasis bold">range</strong> argument is defined with the range of cells that will be counted. The <strong class="emphasis bold">criteria</strong> argument is defined with the criteria that will be used to decide if a cell in the range should be included in the output of the function. The following steps explain how we can use the COUNTIF function to calculate the number of investments by investment type on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch03_s02_s01_l01">
+            <li>Click cell B4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Formulas tab of the Ribbon.</li>
+            <li>Click the More Functions button in the Function Library group of commands.</li>
+            <li>Place the mouse pointer over the Statistical option from the drop-down list.</li>
+            <li>Click the scroll down arrow on the second drop-down list to find the COUNTIF function (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f01">Figure 3.25 "Selecting the COUNTIF Function from the Function Library"</a>).</li>
+            <li>
+                <p class="para">Click the COUNTIF function. This will open the Function Arguments dialog box.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s02_s01_f01">
+                <p class="title"><span class="title-prefix">Figure 3.25</span> Selecting the COUNTIF Function from the Function Library</p>
+                    <img src="section_07/ac92130f0751be841818f7aaa0428849.jpg">
+                </div>
+            </li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f02">Figure 3.26 "Completed Function Arguments Dialog Box for the COUNTIF Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range A4:A18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Range</strong> argument input box and place an absolute reference on the range A4:A18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range. Alternatively, place the insertion point after the 4 in cell reference A4 and press the F4 key on your keyboard. Then place the insertion point after the 8 in cell reference A18 and press the F4 key. This will add the $ to the appropriate positions automatically.</li>
+            <li>Press the TAB key on your keyboard to advance to the next argument, which is the <strong class="emphasis bold">Criteria</strong> argument. Then type the cell location <strong class="emphasis bold">A4</strong>. The criteria for the function will be the investment type entered into cell A4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>
+                <p class="para">Click the OK button at the bottom of the Function Arguments dialog box. <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f02">Figure 3.26 "Completed Function Arguments Dialog Box for the COUNTIF Function"</a> shows the completed Function Arguments dialog box for the COUNTIF function. Notice the absolute references that were placed on each cell location in the range that was used to define the <strong class="emphasis bold">Range</strong> argument. The <strong class="emphasis bold">Criteria</strong> argument is defined with the cell A4, which means the function will only count cell locations in the range A4:A18 where the contents in the cell match the contents in cell A4.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s02_s01_f02">
+                <p class="title"><span class="title-prefix">Figure 3.26</span> Completed Function Arguments Dialog Box for the COUNTIF Function</p>
+                    <img src="section_07/cc0e6d1c6cf3fb885d91179aca3eb0c2.jpg">
+                </div>
+            </li>
+            <li>Copy the function in cell B4 and paste it into the range B5:B7 using the Paste Formulas command.</li>
+            <li>Enter a SUM function in cell B8 that sums the values in the range B4:B7.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s01_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f03">Figure 3.27 "COUNTIF Function Output in the Portfolio Summary Worksheet"</a> shows the results of the COUNTIF function after it is pasted into the range B5:B7. Because of relative referencing, the cell location used in the <strong class="emphasis bold">criteria</strong> argument is changed after the function is pasted into the range B5:B7. For example, in cell B6, the function is counting the cell locations in the range A4:A18 where the contents match the contents of cell A6. This allows you to use the function to count the number of investments per investment type. As shown in the figure, the range B4:B7 now shows the number of investments in this portfolio by investment type.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s02_s01_f03">
+            <p class="title"><span class="title-prefix">Figure 3.27</span> COUNTIF Function Output in the Portfolio Summary Worksheet</p>
+            <img src="section_07/0bd07cb525672f316fe136684e6208e9.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s01_n02">
+            <h3 class="title">Skill Refresher: COUNTIF Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/hQxcrUnJ76c?rel=0" condition="http://img.youtube.com/vi/hQxcrUnJ76c/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/hQxcrUnJ76c?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s01_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">COUNTIF</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">range</strong> argument with a range of cells that will be counted.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">criteria</strong> argument with a cell location, number, text, or logical test. Text and logical tests must be enclosed in quotation marks.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s02_s02">
+        <h2 class="title editable block">The AVERAGEIF Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s02_s02_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s02_s02_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.09.xlsx">Excel Objective 3.09</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s02_n01">
+            <h3 class="title">Lesson Video: AVERAGEIF Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/-UXDrJ6Jm64?rel=0" condition="http://img.youtube.com/vi/-UXDrJ6Jm64/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/-UXDrJ6Jm64?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s02_p02">The AVERAGEIF function performs the identical mathematical calculation as the regular AVERAGE function. However, similar to the COUNTIF function, it allows you to define criteria that will select cells in a range that will be used in the function output. The AVERAGEIF function differs from the COUNTIF function in that it allows you to define two cell ranges instead of one. The first range pertains to the criteria that will be used to select cells for the function output. The second range contains the values that will be used to calculate the arithmetic mean. <a class="xref" href="#manzoexcel_1.1-ch03_s02_s02_t01">Table 3.8 "Arguments for the AVERAGEIF and SUMIF Functions"</a> provides definitions for the arguments contained in the AVERAGEIF and SUMIF functions.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s02_s02_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.8</span> Arguments for the AVERAGEIF and SUMIF Functions</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Range</strong></td>
+                        <td>Range of cells that will be evaluated by the criteria argument.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Criteria</strong></td>
+                        <td>Criteria that will be used to evaluate the range of cells that is used to define the <strong class="emphasis bold">Range</strong> argument. This argument can be defined with a cell location, formula, number, text, or logical test. Note that text and logical tests must be enclosed in quotation marks.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">[Average_range] or [Sum_range]</strong></td>
+                        <td>Range of cells that will be used to calculate the average when using the AVERAGEIF function, or the sum when using the SUMIF function. This argument is enclosed in brackets because it does not always need to be defined. If this argument is omitted, the function will use the range of cells in the <strong class="emphasis bold">Range</strong> argument to calculate the output.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s02_p03">The AVERAGEIF function will be used in the <strong class="emphasis bold">Portfolio Summary</strong> worksheet to calculate the average length of time that investments for each investment type are held. The following steps explain how to add this function to the worksheet:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch03_s02_s02_l01">
+            <li>Click cell C4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the More Functions button in the Function Library group of commands.</li>
+            <li>Place the mouse pointer over the Statistical option from the drop-down list (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f01">Figure 3.25 "Selecting the COUNTIF Function from the Function Library"</a>).</li>
+            <li>Click the AVERAGEIF function, which will be near the top of the list of functions. This opens the Function Arguments dialog box.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s02_f01">Figure 3.28 "Defined Arguments for the AVERAGEIF Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range A4:A18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Range</strong> argument input box and place an absolute reference on the range A4:A18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria</strong> argument and type the cell location <strong class="emphasis bold">A4</strong>. The criteria for the function will be the investment type entered into cell A4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Average_range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s02_f01">Figure 3.28 "Defined Arguments for the AVERAGEIF Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range Q4:Q18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Average_range</strong> argument input box and place an absolute reference on the range Q4:Q18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>
+                <p class="para">Click the OK button at the bottom of the Function Arguments dialog box.</p>
+                <p class="para" id="manzoexcel_1.1-ch03_s02_s02_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s02_f01">Figure 3.28 "Defined Arguments for the AVERAGEIF Function"</a> shows the Function Arguments dialog box for the AVERAGEIF function that will be input into cell C4. Notice that absolute references are placed on the cell locations used to define the <strong class="emphasis bold">Range</strong> and <strong class="emphasis bold">Average_range</strong> arguments. The function will evaluate the cells in the range A4:A18 using the value that exists in cell A4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. When a cell in the range A4:A18 meets the criteria, the function will pull the cell location in the same row from the range Q4:Q18 and include it in the average calculation.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s02_s02_f01">
+                <p class="title"><span class="title-prefix">Figure 3.28</span> Defined Arguments for the AVERAGEIF Function</p>
+                    <img src="section_07/c172baec468a5f3462e6e08bcb9b1c81.jpg">
+                </div>
+            </li>
+            <li>Copy the function in cell C4 and paste it into the range C5:C7 using the Paste Formulas option.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>) in cell C8.</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab. Then click cell Q19 and press the ENTER key on your keyboard.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s02_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s02_f02">Figure 3.29 "AVERAGEIF Function Output on the Portfolio Summary Worksheet"</a> shows the output of the AVERAGEIF function in the Average Months Owned column on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. The function calculates the average months owned in Column Q on the <strong class="emphasis bold">Investment Detail</strong> worksheet where the investment type is equal to the description entered in the range A4:A7 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s02_s02_f02">
+            <p class="title"><span class="title-prefix">Figure 3.29</span> AVERAGEIF Function Output on the Portfolio Summary Worksheet</p>
+            <img src="section_07/e37d51c765a621e51d1c62281f7b8b63.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s02_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Matching Row Numbers for the Range and Average_range (or Sum_range) Arguments</p>
+            <p class="para" id="manzoexcel_1.1-ch03_s02_s02_p06">When defining the <strong class="emphasis bold">Average_range</strong> argument for the AVERAGEIF function or the <strong class="emphasis bold">Sum_range</strong> argument for the SUMIF function, it is good practice to make sure the row numbers match the row numbers used in the <strong class="emphasis bold">Range</strong> argument. For example, if the <strong class="emphasis bold">Range</strong> argument is defined with the range A4:A12, the range used to define the <strong class="emphasis bold">Average_range</strong> or <strong class="emphasis bold">Sum_range</strong> argument should begin with Row 4 and end with Row 12. If the row numbers in these two arguments do not match, Excel will include the values only in the rows used to define the <strong class="emphasis bold">Range</strong> argument. For example, if the <strong class="emphasis bold">Range</strong> argument is defined with the range A4:A12 and the <strong class="emphasis bold">Average_range</strong> (or <strong class="emphasis bold">Sum_range</strong>) argument is defined with the range D4:D20, only the values in cells D4:D12 will be included in the function output.</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s02_n03">
+            <h3 class="title">Skill Refresher: AVERAGEIF Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/txo2o7d1BuY?rel=0" condition="http://img.youtube.com/vi/txo2o7d1BuY/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/txo2o7d1BuY?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s02_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">AVERAGEIF</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">range</strong> argument with a range of cells that will be evaluated using the <strong class="emphasis bold">criteria</strong> argument.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">criteria</strong> argument with a cell location, number, text, or logical test. Text and logical tests must be enclosed in quotation marks.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Average_range</strong> argument with a range that contains values to be averaged. Excel will use the range argument to calculate the average if this argument is omitted.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s02_s03">
+        <h2 class="title editable block">The SUMIF Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s02_s03_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s02_s03_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.10.xlsx">Excel Objective 3.10</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s03_n01">
+            <h3 class="title">Lesson Video: SUMIF Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/rmv-SRMj-h0?rel=0" condition="http://img.youtube.com/vi/rmv-SRMj-h0/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/rmv-SRMj-h0?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s03_p02">The SUMIF function performs the same mathematical calculation as the regular SUM function. However, similar to the AVERAGEIF function, this function allows you to select specific cells from a range that will be used in the output. The arguments for the SUMIF function are identical to the AVERAGEIF function (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s02_t01">Table 3.8 "Arguments for the AVERAGEIF and SUMIF Functions"</a>). We will use the SUMIF function in two columns on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. The first column will show the total investment cost for each investment type. The second column will show the total current value for each investment type. This will allow us to calculate the total annual growth rate for each investment type. The following steps explain how we will use this function to complete the first column:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch03_s02_s03_l01">
+            <li>Click cell D4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the Math &amp; Trig button in the Function Library group of commands (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f01">Figure 3.25 "Selecting the COUNTIF Function from the Function Library"</a>).</li>
+            <li>Select the SUMIF function from the drop-down list. Use the scroll bar to scroll down to find the SUMIF function.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s03_f01">Figure 3.30 "Defined Arguments for the First SUMIF Function on the Portfolio Summary Worksheet"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range A4:A18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Range</strong> argument input box and place an absolute reference on the range A4:A18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria</strong> argument and type the cell location <strong class="emphasis bold">A4</strong>. The criteria for the function will be the investment type entered into cell A4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>
+                <p class="para">Click the Collapse Dialog button next to the <strong class="emphasis bold">Sum_range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s03_f01">Figure 3.30 "Defined Arguments for the First SUMIF Function on the Portfolio Summary Worksheet"</a>).</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s02_s03_f01">
+                <p class="title"><span class="title-prefix">Figure 3.30</span> Defined Arguments for the First SUMIF Function on the Portfolio Summary Worksheet</p>
+                    <img src="section_07/de4670983617b715b15c18fe97bbb37e.jpg">
+                </div>
+            </li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range G4:G18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Sum_range</strong> argument input box and place an absolute reference on the range G4:G18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Click the OK button at the bottom of the Function Arguments dialog box.</li>
+            <li>Copy the function in cell D4 and paste it into the range D5:D7 using the Paste Formulas option.</li>
+            <li>Enter a regular SUM function into cell D8 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet to calculate the sum of the values in the range D4:D7.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s03_p03"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s03_f01">Figure 3.30 "Defined Arguments for the First SUMIF Function on the Portfolio Summary Worksheet"</a> shows how the SUMIF arguments were defined for the Total Purchase Cost column on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. Notice that the row numbers are identical in the range used to define the <strong class="emphasis bold">Range</strong> argument and the <strong class="emphasis bold">Sum_range</strong> argument.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s03_p04">The following steps explain how to add the SUMIF function to the second column on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s02_s03_l02">
+            <li>Click cell E4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the Math &amp; Trig button in the Function Library group of commands (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f01">Figure 3.25 "Selecting the COUNTIF Function from the Function Library"</a>).</li>
+            <li>Select the SUMIF function from the drop-down list. Use the scroll bar to scroll down to find the SUMIF function.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s03_f01">Figure 3.30 "Defined Arguments for the First SUMIF Function on the Portfolio Summary Worksheet"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range A4:A18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Range</strong> argument input box and place an absolute reference on the range A4:A18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria</strong> argument and type the cell location <strong class="emphasis bold">A4</strong>.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Sum_range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s03_f01">Figure 3.30 "Defined Arguments for the First SUMIF Function on the Portfolio Summary Worksheet"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range K4:K18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Sum_range</strong> argument input box and place an absolute reference on the range K4:K18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Click the OK button at the bottom of the Function Arguments dialog box.</li>
+            <li>Copy the function in cell E4 and paste it into the range E5:E7 using the Paste Formulas option.</li>
+            <li>Enter a regular SUM function into cell E8 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet to calculate the sum of the values in the range E4:E7.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s03_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s03_f02">Figure 3.31 "SUMIF Function Outputs in the Portfolio Summary Worksheet"</a> shows the results of the SUMIF function in the Total Purchase Cost and Current Value columns in the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s02_s03_f02">
+            <p class="title"><span class="title-prefix">Figure 3.31</span> SUMIF Function Outputs in the Portfolio Summary Worksheet</p>
+            <img src="section_07/477928ef5fcbabeb61ccf1d3b5447c3e.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s03_p06">A formula can now be added to show the annual growth for each investment category. The following steps explain how to add this formula to the <strong class="emphasis bold">Portfolio Summary</strong> worksheet:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s02_s03_l03">
+            <li>Click cell F4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Type an equal sign (<strong class="emphasis bold">=</strong>) followed by two open parenthesis (<strong class="emphasis bold">((</strong>).</li>
+            <li>Click cell E4 and type a minus sign (<strong class="emphasis bold">−</strong>).</li>
+            <li>Click cell D4 and type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+            <li>Type a slash (<strong class="emphasis bold">/</strong>) for division and click cell D4.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>). This completes the first part of the formula, which is calculating the growth rate between the Total Purchase Cost (cell D4) and the Current Value (cell E4).</li>
+            <li>Type a slash (<strong class="emphasis bold">/</strong>) for division followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Click cell C4, which is the Average Months Owned.</li>
+            <li>Type a slash (<strong class="emphasis bold">/</strong>) for division and the number <strong class="emphasis bold">12</strong>. This part of the formula converts the number of months owned to years by dividing it by 12. This result is being divided into the growth rate, which will then show the average growth per year.</li>
+            <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>) and press the ENTER key on your keyboard.</li>
+            <li>Copy the formula in cell F4 and paste it into the range F5:F8 using the Paste Formulas command.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s03_p07"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s03_f03">Figure 3.32 "Completed Annual Growth Column in the Portfolio Summary Worksheet"</a> shows the results of the statistical IF functions that were added to the Total Summary section of the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. The statistical IF functions used on this worksheet allowed us to group the details in the <strong class="emphasis bold">Investment Detail</strong> worksheet by investment type. Once this was accomplished, we added a formula to show the annual growth rate by investment type.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s02_s03_f03">
+            <p class="title"><span class="title-prefix">Figure 3.32</span> Completed Annual Growth Column in the Portfolio Summary Worksheet</p>
+            <img src="section_07/a89c695e30a971c23c4c3eb1047a62d6.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s03_n02">
+            <h3 class="title">Skill Refresher: SUMIF Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/-G5eTkbViKk?rel=0" condition="http://img.youtube.com/vi/-G5eTkbViKk/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/-G5eTkbViKk?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s03_l04">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">SUMIF</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">range</strong> argument with a range of cells that will be evaluated using the <strong class="emphasis bold">criteria</strong> argument.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">criteria</strong> argument with a cell location, number, text, or logical test. Text and logical tests must be enclosed in quotation marks.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Sum_range</strong> argument with a range that contains values to be summed. Excel will use the <strong class="emphasis bold">range</strong> argument to calculate the sum if this argument is omitted.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s02_s04">
+        <h2 class="title editable block">The COUNTIFS Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s02_s04_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s02_s04_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.11.xlsx">Excel Objective 3.11</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s04_n01">
+            <h3 class="title">Lesson Video: COUNTIFS Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/o4_SfR2H_yY?rel=0" condition="http://img.youtube.com/vi/o4_SfR2H_yY/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/o4_SfR2H_yY?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s04_p02">Up to this point, the statistical IF functions that were demonstrated provided the ability to define one criteria or logical test used to select cells from a targeted range. The next set of statistical functions that will be demonstrated provides the ability to define multiple sets of criteria for selecting cells from a targeted range. We will begin with the COUNTIFS function.</p>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s04_p03">It is easy to distinguish the difference between a statistical IF function that allows one criteria argument to be defined and one that allows multiple criteria arguments. If the IF at the end of the function name is plural, you can define multiple sets of criteria arguments. Therefore, the COUNTIF<em class="emphasis">S</em> function provides the option of defining multiple sets of criteria for selecting cells from a targeted range that will be used in the function output. The arguments for the COUNTIFS function are established in pairs. For example, the first arguments for the function are <strong class="emphasis bold">Criteria_range1</strong> and <strong class="emphasis bold">Criteria1</strong>. The function will use the <strong class="emphasis bold">Criteria1</strong> argument to select cells in the <strong class="emphasis bold">Criteria_range1</strong> argument. A second pair of arguments, <strong class="emphasis bold">Criteria_range2</strong> and <strong class="emphasis bold">Criteria2</strong>, can be defined to select a subset of cell locations that were selected in the <strong class="emphasis bold">Criteria_range1</strong> and <strong class="emphasis bold">Criteria1</strong> arguments. This process can be repeated for several pairs of criteria arguments. We will continue to work on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet by adding the COUNTIFS function to count the number of poor performing investments by investment type. The following steps explain how to add this function to the worksheet:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s02_s04_l01">
+            <li>Click cell B11 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Formulas tab of the Ribbon.</li>
+            <li>Click the More Functions button in the Function Library group of commands.</li>
+            <li>Place the mouse pointer over the Statistical option from the drop-down list.</li>
+            <li>Click the scroll down arrow on the second drop-down list to find the COUNTIFS function (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f01">Figure 3.25 "Selecting the COUNTIF Function from the Function Library"</a>).</li>
+            <li>Click the COUNTIFS function. This will open the Function Arguments dialog box.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Criteria_range1</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s04_f01">Figure 3.33 "Defined Arguments for the COUNTIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range A4:A18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Criteria_range1</strong> argument input box and place an absolute reference on the range A4:A18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria1</strong> argument and type the cell location <strong class="emphasis bold">A11</strong>. The criteria for the function will be the investment type that is entered into cell A11 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. You will notice that when you define this argument, the <strong class="emphasis bold">Criteria_range2</strong> argument will appear on the Function Arguments dialog box.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Criteria_range2</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s04_f01">Figure 3.33 "Defined Arguments for the COUNTIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range W4:W18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Criteria_range2</strong> argument input box and place an absolute reference on the range W4:W18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria2</strong> argument.</li>
+            <li>Type an open quotation mark followed by the logical test &lt;−1% and then type a closing quotation mark (<strong class="emphasis bold">“&lt;−1%”</strong>). The second criterion for this function is a logical test that will identify cell locations where the value is less than −1%. For the purposes of this exercise, a poor performing investment is one that is below the target growth rate by more than 1%.</li>
+            <li>Click the OK button at the bottom of the Function Arguments dialog box.</li>
+            <li>Copy the function in cell B11 and paste it into the range B12:B14 using the Paste Formulas command.</li>
+            <li>Enter a SUM function in cell B15 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet that sums the values in the range B11:B14.</li>
+        </ol>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s04_n02">
+            <h3 class="title">Why?</h3>
+            <p class="simpara">Use Statistical IF Functions for a Summary Worksheet</p>
+            <p class="para" id="manzoexcel_1.1-ch03_s02_s04_p04">When creating a summary worksheet that summarizes detailed data from other worksheets, such as the <strong class="emphasis bold">Portfolio Summary</strong> worksheet in <a class="xref" href="#manzoexcel_1.1-ch03_s02_s03_f03">Figure 3.32 "Completed Annual Growth Column in the Portfolio Summary Worksheet"</a>, it is best to use statistical IF functions. If data is added to the detailed worksheet that is being summarized, the statistical IF functions will automatically include the new data in the summary worksheet. For example, suppose a row is added below Row 7 on the <strong class="emphasis bold">Investment Detail</strong> worksheet (see <a class="xref" href="manzoexcel_1.1-ch03_s01#manzoexcel_1.1-ch03_s01_s08_f04">Figure 3.24 "Conditional Format Applied to the Range S4:T18"</a>) and another bond investment is added. The statistical IF functions will automatically pick up the new investment and include it in the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. If regular statistical functions or formulas are used, the summary worksheet can easily become inaccurate if new data is added to the detailed worksheet or if the sort order is changed.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s04_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s04_f01">Figure 3.33 "Defined Arguments for the COUNTIFS Function"</a> shows the completed arguments for the COUNTIFS function in the Function Arguments dialog box. Notice the scroll bar that appears on the right side of the Function Arguments dialog box. This allows you to scroll through and define multiple pairs of criteria arguments for the function.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s02_s04_f01">
+            <p class="title"><span class="title-prefix">Figure 3.33</span> Defined Arguments for the COUNTIFS Function</p>
+            <img src="section_07/7b93961f6aad96179d3095ad83414ec4.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s04_p06"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s04_f02">Figure 3.34 "Outputs for the COUNTIFS Functions"</a> shows the output of the COUNTIFS function on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. The criteria established for the COUNTIFS function shows that there are a total of seven investments that are underperforming in the portfolio.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s02_s04_f02">
+            <p class="title"><span class="title-prefix">Figure 3.34</span> Outputs for the COUNTIFS Functions</p>
+            <img src="section_07/e41b2358a155070b49e12e6d24e87ea8.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s04_n03">
+            <h3 class="title">Skill Refresher: COUNTIFS Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/yAprJ5U1byE?rel=0" condition="http://img.youtube.com/vi/yAprJ5U1byE/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/yAprJ5U1byE?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s04_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">COUNTIFS</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">Criteria_range1</strong> argument with a range of cells that will be counted.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Criteria1</strong> argument with a cell location, number, text, or logical test. Text and logical tests must be enclosed in quotation marks. This argument will be used to select cells from the <strong class="emphasis bold">Criteria_range1</strong> argument.</li>
+                <li>Type a comma and then repeat steps 3, 4, and 5 to define as many pairs of arguments as needed.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s02_s05">
+        <h2 class="title editable block">The AVERAGEIFS Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s02_s05_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s02_s05_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.12.xlsx">Excel Objective 3.12</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s05_n01">
+            <h3 class="title">Lesson Video: AVERAGEIFS Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/paG1c_DwWsg?rel=0" condition="http://img.youtube.com/vi/paG1c_DwWsg/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/paG1c_DwWsg?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s05_p02">The AVERAGEIFS function is similar to the COUNTIFS function in that multiple sets of criteria can be defined instead of one. However, the arguments for the AVERAGEIFS function are slightly different from those for the COUNTIFS function. <a class="xref" href="#manzoexcel_1.1-ch03_s02_s05_t01">Table 3.9 "Arguments for the AVERAGEIFS and SUMIFS Functions"</a> provides definitions for the arguments of the AVERAGEIFS and the SUMIFS functions.</p>
+        <div class="table block" id="manzoexcel_1.1-ch03_s02_s05_t01" frame="all">
+            <p class="title"><span class="title-prefix">Table 3.9</span> Arguments for the AVERAGEIFS and SUMIFS Functions</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="emphasis bold">Average_range or Sum_range</strong></td>
+                        <td>Range of cells that contain values to be averaged when using the AVERAGEIFS function or summed when using the SUMIFS function. Note that the AVERAGEIFS or SUMIFS functions will only select values from the range used to define this argument if all criteria pairs are true.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Criteria_range1</strong></td>
+                        <td>Range of cells that will be evaluated based on the <strong class="emphasis bold">Criteria1</strong> argument to determine which cells in the <strong class="emphasis bold">Average_range</strong> or <strong class="emphasis bold">Sum_range</strong> arguments will be included in the output of the function.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Criteria1</strong></td>
+                        <td>Criteria that will be used to evaluate the range of cells used to define the <strong class="emphasis bold">Criteria_range1</strong> argument. This argument can be defined with a cell location, formula, number, text, or logical test. Note that text and logical tests must be enclosed in quotation marks.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Criteria_range2</strong></td>
+                        <td>Optional argument that defines a second range of cells that will be evaluated based on the <strong class="emphasis bold">Criteria2</strong> argument to determine which cells in the <strong class="emphasis bold">Average_range</strong> or <strong class="emphasis bold">Sum_range</strong> arguments will be included in the output of the function. Additional <strong class="emphasis bold">Criteria_rangeN</strong> arguments can be defined as needed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="emphasis bold">Criteria2</strong></td>
+                        <td>Criteria that will be used to evaluate the range of cells used to define the <strong class="emphasis bold">Criteria_range2</strong> argument. This argument can be defined with a cell location, formula, number, text, or logical test. Note that text and logical tests must be enclosed in quotation marks. Additional <strong class="emphasis bold">CriteriaN</strong> arguments can be defined as needed.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s05_p03">The AVERAGEIFS function will be used to calculate the average months of ownership for poor performing investments in the portfolio. The following steps explain how to add this function to the <strong class="emphasis bold">Portfolio Summary</strong> worksheet:</p>
+        <ol class="orderedlist block" id="manzoexcel_1.1-ch03_s02_s05_l01">
+            <li>Click cell C11 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the More Functions button in the Function Library group of commands.</li>
+            <li>Place the mouse pointer over the Statistical option from the drop-down list (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f01">Figure 3.25 "Selecting the COUNTIF Function from the Function Library"</a>).</li>
+            <li>Click the AVERAGEIFS function near the top of the list of functions. This will open the Function Arguments dialog box.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Average_range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s05_f01">Figure 3.35 "Completed Arguments for the AVERAGEIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range Q4:Q18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard. Selected cells from this range will be averaged by the function based on the defined criteria in ensuing arguments.</li>
+            <li>Click in the <strong class="emphasis bold">Average_range</strong> argument input box and place an absolute reference on the range Q4:Q18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Criteria_range1</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s05_f01">Figure 3.35 "Completed Arguments for the AVERAGEIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range A4:A18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard. Once the <strong class="emphasis bold">Criteria_range1</strong> argument is defined, the <strong class="emphasis bold">Criteria1</strong> argument will appear in the Function Arguments dialog box.</li>
+            <li>Click in the <strong class="emphasis bold">Criteria_range1</strong> argument input box and place an absolute reference on the range A4:A18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria1</strong> argument and type the cell location <strong class="emphasis bold">A11</strong>. The criteria for the function will be the investment type entered into cell A11 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. You will notice that as you define this argument, the <strong class="emphasis bold">Criteria_range2</strong> argument will appear on the Function Arguments dialog box.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Criteria_range2</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s05_f01">Figure 3.35 "Completed Arguments for the AVERAGEIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range W4:W18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and the press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Criteria_range2</strong> argument input box and place an absolute reference on the range W4:W18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria2</strong> argument.</li>
+            <li>Type an open quotation mark followed by the logical test &lt;−1% and then type a closing quotation mark (<strong class="emphasis bold">“&lt;−1%”</strong>). The second criterion for this function is a logical test that will identify cell locations where the value is less than −1%. For the purposes of this exercise, a poor performing investment is one that is below the target growth rate by more than 1%.</li>
+            <li>Click the OK button at the bottom of the Function Arguments dialog box.</li>
+            <li>
+                <p class="para">Copy the function in cell C11 and paste it into the range C12:C14 using the Paste Formulas command.</p>
+                <p class="para" id="manzoexcel_1.1-ch03_s02_s05_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s05_f01">Figure 3.35 "Completed Arguments for the AVERAGEIFS Function"</a> shows the defined arguments for the AVERAGEIFS function. Notice that two sets of criteria arguments are defined. Values that meet all criteria defined in the function will be selected from the range Q4:Q18.</p>
+                <div class="figure large" id="manzoexcel_1.1-ch03_s02_s05_f01">
+                <p class="title"><span class="title-prefix">Figure 3.35</span> Completed Arguments for the AVERAGEIFS Function</p>
+                    <img src="section_07/8eaf7a7711afe4c6c64acf8135a2d554.jpg">
+                </div>
+            </li>
+            <li>Enter an AVERAGEIF function in cell C15 by typing an equal sign (<strong class="emphasis bold">=</strong>) followed by the function name <strong class="emphasis bold">AVERAGEIF</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab and highlight the range W4:W18 to define the Range argument. Type a comma.</li>
+            <li>Type the following to define the criteria argument: <strong class="emphasis bold">“&lt;–1%”</strong>. Type a comma.</li>
+            <li>Highlight the range Q4:Q18 to define the [Average_range] argument. Then type a closing parenthesis (<strong class="emphasis bold">)</strong>) and press the ENTER key on your keyboard.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s05_p05"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s05_f02">Figure 3.36 "Results of the AVERAGEIFS Function"</a> shows the results of the AVERAGEIFS function in the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. The function shows the average months of ownership for the poor performing investments by investment type.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s02_s05_f02">
+            <p class="title"><span class="title-prefix">Figure 3.36</span> Results of the AVERAGEIFS Function</p>
+            <img src="section_07/fd70f59ad06ac5261e49f4f0b0bc6a1e.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s05_n02">
+            <h3 class="title">Skill Refresher: AVERAGEIFS Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/CoBjKjqoFR0?rel=0" condition="http://img.youtube.com/vi/CoBjKjqoFR0/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/CoBjKjqoFR0?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s05_l02">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">AVERAGEIFS</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">Average_range</strong> argument with a range of cells that contain values to be averaged.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Criteria_range1</strong> argument with a range of cells that will be evaluated based on the criteria used to define the <strong class="emphasis bold">Criteria1</strong> argument.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Criteria1</strong> argument with a cell location, number, text, or logical test. Text and logical tests must be enclosed in quotation marks.</li>
+                <li>Repeat steps 4, 5, 6, and 7 to define as many pairs of criteria arguments as needed.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section" id="manzoexcel_1.1-ch03_s02_s06">
+        <h2 class="title editable block">The SUMIFS Function</h2>
+        <div class="epigraph block" id="manzoexcel_1.1-ch03_s02_s06_ep01">
+            <p class="para" id="manzoexcel_1.1-ch03_s02_s06_p01">Follow-along file: Continue with Excel Objective 3.00. (Use file <a class="link" target="_blank" href="http://www.gone.2012books.lardbucket.org/sites/all/files/ManzoExcel_1.0_Excel_Objective_3.13.xlsx">Excel Objective 3.13</a> if starting here.)</p>
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s06_n01">
+            <h3 class="title">Lesson Video: SUMIFS Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/Z29AwrT7Dck?rel=0" condition="http://img.youtube.com/vi/Z29AwrT7Dck/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/Z29AwrT7Dck?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s06_p02">The SUMIFS function is similar to the AVERAGEIFS function in that multiple criteria arguments can be defined to select cells from a targeted range (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s05_t01">Table 3.9 "Arguments for the AVERAGEIFS and SUMIFS Functions"</a>). The function will use the selected cells from this targeted range to calculate a total or sum. The SUMIFS function will be used to complete the Total Purchase Cost and Current Value columns in the Poor Performing Investments section of the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. The following steps explain how to construct this function for the Total Purchase Cost column:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s02_s06_l01">
+            <li>Click cell D11 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the Math &amp; Trig button in the Function Library group of commands (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f01">Figure 3.25 "Selecting the COUNTIF Function from the Function Library"</a>).</li>
+            <li>Select the SUMIFS function from the drop-down list. Use the scroll bar to scroll down to find the SUMIFS function. This will open the Function Arguments dialog box.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Sum_range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f01">Figure 3.37 "Completed Arguments for the SUMIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range G4:G18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard. Selected cells from this range will be summed based on the defined criteria in ensuing arguments.</li>
+            <li>Click in the <strong class="emphasis bold">Sum_range</strong> argument input box and place an absolute reference on the range G4:G18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Criteria_range1</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f01">Figure 3.37 "Completed Arguments for the SUMIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range A4:A18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard. Once the <strong class="emphasis bold">Criteria_range1</strong> argument is defined, the <strong class="emphasis bold">Criteria1</strong> argument will appear in the Function Arguments dialog box.</li>
+            <li>Click in the <strong class="emphasis bold">Criteria_range1</strong> argument input box and place an absolute reference on the range A4:A18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria1</strong> argument and type the cell location <strong class="emphasis bold">A11</strong>. The criteria for the function will be the investment type that is entered into cell A11 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. You will notice that as soon as you define this argument, the <strong class="emphasis bold">Criteria_range2</strong> argument will appear on the Function Arguments dialog box.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Criteria_range2</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f01">Figure 3.37 "Completed Arguments for the SUMIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range W4:W18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Criteria_range2</strong> argument input box and place an absolute reference on the range W4:W18. This is done by typing a dollar sign ($) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria2</strong> argument.</li>
+            <li>Type an open quotation mark followed by the logical test &lt;−1% and then type a closing quotation mark (<strong class="emphasis bold">“&lt;−1%”</strong>). The second criterion for this function is a logical test that will identify cell locations where the value is less than −1%. For the purposes of this exercise, a poor performing investment is one that is below the target growth rate by more than 1%.</li>
+            <li>Click the OK button at the bottom of the Function Arguments dialog box.</li>
+            <li>Copy the function in cell D11 and paste it into the range D12:D14 using the Paste Formulas command.</li>
+            <li>Enter a regular SUM function in cell D15 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet that sums the values in the range D11:D14.</li>
+        </ol>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s06_p03"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f01">Figure 3.37 "Completed Arguments for the SUMIFS Function"</a> shows the defined arguments for the SUMIFS function. Values that meet all criteria defined in the function will be selected from the range G4:G18. Notice that the results for each argument of the function are shown along the right side of the Collapse Dialog buttons.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s02_s06_f01">
+            <p class="title"><span class="title-prefix">Figure 3.37</span> Completed Arguments for the SUMIFS Function</p>
+            <img src="section_07/c317b226544cd753ad49248a8aa821ce.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s06_p04"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f02">Figure 3.38 "SUMIFS Function Output for the Total Purchase Cost Column"</a> shows the results of the SUMIFS function used to complete the Total Purchase Cost column. In total, over $45,000 was invested in funds and stocks that are not meeting the performance goals of the portfolio.</p>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s02_s06_f02">
+            <p class="title"><span class="title-prefix">Figure 3.38</span> SUMIFS Function Output for the Total Purchase Cost Column</p>
+            <img src="section_07/8e3f80abd37892ebe9bdaa2cc57b57a8.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s06_p05">In addition to the Total Purchase Cost column, the SUMIFS function will also be used to complete the Current Value column for the Poor Performing Investments section on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. The following steps explain how to add the function to the worksheet to complete this column:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s02_s06_l02">
+            <li>Click cell E11 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Formulas tab on the Ribbon.</li>
+            <li>Click the Math &amp; Trig button in the Function Library group of commands (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s01_f01">Figure 3.25 "Selecting the COUNTIF Function from the Function Library"</a>).</li>
+            <li>Select the SUMIFS function from the drop-down list. Use the scroll bar to scroll down to find the SUMIFS function. This will open the Function Arguments dialog box.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Sum_range</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f03">Figure 3.39 "Completed Function Arguments Dialog Box for the Second SUMIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range K4:K18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard. Selected cells from this range will be summed based on the defined criteria in ensuing arguments.</li>
+            <li>Click in the <strong class="emphasis bold">Sum_range</strong> argument input box and place an absolute reference on the range K4:K18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Criteria_range1</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f03">Figure 3.39 "Completed Function Arguments Dialog Box for the Second SUMIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range A4:A18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard. Once the <strong class="emphasis bold">Criteria_range1</strong> argument is defined, the <strong class="emphasis bold">Criteria1</strong> argument will appear in the Function Arguments dialog box.</li>
+            <li>Click in the <strong class="emphasis bold">Criteria_range1</strong> argument input box and place an absolute reference on the range A4:A18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria1</strong> argument and type the cell location <strong class="emphasis bold">A11</strong>. The criteria for the function will be the investment type entered into cell A11 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Click the Collapse Dialog button next to the <strong class="emphasis bold">Criteria_range2</strong> argument on the Function Arguments dialog box (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f03">Figure 3.39 "Completed Function Arguments Dialog Box for the Second SUMIFS Function"</a>).</li>
+            <li>Click the <strong class="emphasis bold">Investment Detail</strong> worksheet tab.</li>
+            <li>Highlight the range W4:W18 on the <strong class="emphasis bold">Investment Detail</strong> worksheet and press the ENTER key on your keyboard.</li>
+            <li>Click in the <strong class="emphasis bold">Criteria_range2</strong> argument input box and place an absolute reference on the range W4:W18. This is done by typing a dollar sign (<strong class="emphasis bold">$</strong>) in front of the column letter and row number for both cells in the range.</li>
+            <li>Press the TAB key on your keyboard to advance to the <strong class="emphasis bold">Criteria2</strong> argument.</li>
+            <li>Type an open quotation mark followed by the logical test &lt;−1% and then type a closing quotation mark (<strong class="emphasis bold">“&lt;−1%”</strong>). The second criterion for this function is a logical test that will identify cell locations where the value is less than −1%. For the purposes of this exercise, a poor performing investment is one that is below the target growth rate by more than 1%.</li>
+            <li>Click the OK button at the bottom of the Function Arguments dialog box.</li>
+            <li>Copy the function in cell E11 and paste it into the range E12:E14 using the Paste Formulas command.</li>
+            <li>Enter a regular SUM function in cell E15 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet that sums the values in the range E11:E14 (see <a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f04">Figure 3.40 "SUMIFS Function Output for the Current Value Column"</a>).</li>
+        </ol>
+        <div class="figure large editable block" id="manzoexcel_1.1-ch03_s02_s06_f03">
+            <p class="title"><span class="title-prefix">Figure 3.39</span> Completed Function Arguments Dialog Box for the Second SUMIFS Function</p>
+            <img src="section_07/e5d21a597e24aadbc5b6d89789177930.jpg">
+        </div>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s02_s06_f04">
+            <p class="title"><span class="title-prefix">Figure 3.40</span> SUMIFS Function Output for the Current Value Column</p>
+            <img src="section_07/a6955cfb4ca3df1edd80fa25e0b76aeb.jpg">
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s06_p06">Now that the Total Purchase Cost and Current Value columns are completed for the Poor Performing Investments section on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet, we can add a formula to show the annual growth rate by investment type. Since this is the same formula that was used in the Total Summary section of the <strong class="emphasis bold">Portfolio Summary</strong> worksheet, we can just copy and paste it. The following steps explain how to do this:</p>
+        <ol class="orderedlist editable block" id="manzoexcel_1.1-ch03_s02_s06_l03">
+            <li>Copy the formula in cell F4 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Highlight the range F11:F15 on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet.</li>
+            <li>Paste the formula using the Paste Formulas command.</li>
+        </ol>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s06_n02">
+            <h3 class="title">Integrity Check</h3>
+            <p class="simpara">Error Message for Statistical IF Functions</p>
+            <p class="para" id="manzoexcel_1.1-ch03_s02_s06_p07">If you receive an error message when attempting to enter a statistical IF function into a cell location, check to make sure any criteria using a comparison operator is enclosed in quotation marks. For example, if you are assessing a range of cells to see if the values are greater than or equal to zero, you must define the <strong class="emphasis bold">Criteria</strong> argument as follows: <em class="emphasis">“&gt;=0”</em>. If you do not use the quotation marks, Excel will not accept the function in the cell location and will display an error message.</p>
+        </div>
+        <p class="para editable block" id="manzoexcel_1.1-ch03_s02_s06_p08"><a class="xref" href="#manzoexcel_1.1-ch03_s02_s06_f05">Figure 3.41 "Completed Poor Performing Investments Section of the Portfolio Summary Worksheet"</a> shows the completed Poor Performing Investments section on the <strong class="emphasis bold">Portfolio Summary</strong> worksheet. Notice that even though an investment is considered “poor performing” it does not mean that money is lost on the investment. As shown in the figure, only one investment in the International Stock Fund category is losing money, with an annual growth rate of −5.4%. However, the total annual growth rate for all investments in the Poor Performing section is 2.2% (see cell F15). This is less than half the growth rate for the overall portfolio, which is 6.2% (see cell F8). A final observation is that all the investments in the Domestic Stock Fund category are “poor performing.” The same number of investments in the Total Summary section appears in the Poor Performing Investments section. This completes the <strong class="emphasis bold">Portfolio Summary</strong> worksheet with the exception of one column. We will complete this column in the next section with a lookup function.</p>
+        <div class="figure large large-height editable block" id="manzoexcel_1.1-ch03_s02_s06_f05">
+            <p class="title"><span class="title-prefix">Figure 3.41</span> Completed Poor Performing Investments Section of the Portfolio Summary Worksheet</p>
+            <img src="section_07/ad3e48b1d1a4cffbc8ab80659003838f.jpg">
+        </div>
+        <div class="callout block" id="manzoexcel_1.1-ch03_s02_s06_n03">
+            <h3 class="title">Skill Refresher: SUMIFS Function</h3>
+            <div class="mediaobject">
+                <a data-iframe-code='&lt;iframe src="http://www.youtube.com/v/YtK2VPDwu44?rel=0" condition="http://img.youtube.com/vi/YtK2VPDwu44/0.jpg" vendor="youtube" width="450" height="340" scalefit="1"&gt;&lt;/iframe&gt;' href="http://www.youtube.com/v/YtK2VPDwu44?rel=0" class="replaced-iframe" onclick="return replaceIframe(this)">(click to see video)</a>
+            </div>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s06_l04">
+                <li>Type an equal sign (<strong class="emphasis bold">=</strong>).</li>
+                <li>Type the function name <strong class="emphasis bold">SUMIFS</strong> followed by an open parenthesis (<strong class="emphasis bold">(</strong>).</li>
+                <li>Define the <strong class="emphasis bold">Sum_range</strong> argument with a range of cells that contain values to be summed.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Criteria_range1</strong> argument with a range of cells that will be evaluated based on the criteria used to define the <strong class="emphasis bold">Criteria1</strong> argument.</li>
+                <li>Type a comma.</li>
+                <li>Define the <strong class="emphasis bold">Criteria1</strong> argument with a cell location, number, text, or logical test. Text and logical tests must be enclosed in quotation marks.</li>
+                <li>Repeat steps 4, 5, 6, and 7 to define as many pairs of criteria arguments as needed.</li>
+                <li>Type a closing parenthesis (<strong class="emphasis bold">)</strong>).</li>
+                <li>Press the ENTER key on your keyboard.</li>
+            </ol>
+        </div>
+        <div class="key_takeaways editable block" id="manzoexcel_1.1-ch03_s02_s06_n04">
+            <h3 class="title">Key Takeaways</h3>
+            <ul class="itemizedlist" id="manzoexcel_1.1-ch03_s02_s06_l05">
+                <li>The COUNTIF, SUMIF, and AVERAGEIF functions can select specific cell locations from a range to compute an output using one criteria argument.</li>
+                <li>The COUNTIFS, SUMIFS, and AVERAGEIFS functions can select specific cell locations from a range to compute an output using multiple sets of criteria arguments.</li>
+                <li>When using the AVERAGEIF and SUMIF functions, the row numbers used in the ranges to define the <strong class="emphasis bold">Range</strong> argument and the <strong class="emphasis bold">Average_range</strong> or <strong class="emphasis bold">Sum_range</strong> arguments must be identical.</li>
+                <li>The benefit of using statistical functions when creating a summary worksheet is that if rows of data are added to the detail worksheet, the new data will automatically be included in the function output.</li>
+                <li>When using statistical IF functions, the logical test used to define a criteria argument must be enclosed in quotation marks.</li>
+            </ul>
+        </div>
+        <div class="exercises editable block" id="manzoexcel_1.1-ch03_s02_s06_n05">
+            <h3 class="title">Exercises</h3>
+            <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s06_l06">
+                <li>
+                    <p class="para">Consider the following SUMIF function: =SUMIF(B2:B10,A1,E2:E20). What cell range will be used to compute the output for the function?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s06_l07" numeration="loweralpha">
+                        <li>E2:E10</li>
+                        <li>B2:B10</li>
+                        <li>E2:E20</li>
+                        <li>B2:B20</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Which of the following is true with respect to the COUNTIF function?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s06_l08" numeration="loweralpha">
+                        <li>It can only be used to sum selected cells from a range using one set of defined criteria.</li>
+                        <li>It can be used to count both numeric and nonnumeric values in selected cells from a range using one set of defined criteria.</li>
+                        <li>It can be used to count only numeric values in selected cells from a range given one set of defined criteria.</li>
+                        <li>It can be used to count only numeric values in selected cells from a range using multiple sets of defined criteria.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">If you wanted to calculate the average of the values contained in the range B5:B20 based on any values in the range E5:E20 with a value greater than 5, which of the following functions would provide an accurate result?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s06_l09" numeration="loweralpha">
+                        <li>=COUNTIF(B5:B20,&gt;5,E5:E20)</li>
+                        <li>=AVERAGEIF(B5:B20,&gt;5,E5:E20)</li>
+                        <li>=AVERAGEIF(E5:E20,&gt;5,B5:B20)</li>
+                        <li>=AVERAGEIF(E5:E20,”&gt;5”,B5:B20)</li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="para">Suppose you wanted to sum the values in the range C3:C15 where the values in B3:B15 are equal to the word <em class="emphasis">Bond</em> and where the values in the range D3:D15 are greater than 3%. Which of the following functions would provide an accurate result?</p>
+                    <ol class="orderedlist" id="manzoexcel_1.1-ch03_s02_s06_l10" numeration="loweralpha">
+                        <li>=SUMIFS(C3:C15,B3:B15,“Bond”,D3:D15,“&gt;3%”)</li>
+                        <li>=SUMIFS(B3:B15,“Bond”,D3:D15,“&gt;.03”,C3:C15)</li>
+                        <li>=SUMIFS($C$3:$C$15,$B$3:$B$15,“Bond”,$D$3:$D$15,&gt;3%)</li>
+                        <li>=SUMIFS($B$3:$B$15,=Bond,$D$3:$D$15,&gt;.03,$C$3:$C$1)</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+  </div>
+  
+  <div id=navbar-bottom class="navbar">
+    <div class="navbar-part left">
+      
+        <a href="s07-01-logical-functions.html"><img src="shared/images/batch-left.png"></a> <a href="s07-01-logical-functions.html">Previous Section</a>
+      
+    </div>
+    <div class="navbar-part middle">
+      <a href="index.html"><img src="shared/images/batch-up.png"></a> <a href="index.html">Table of Contents</a>
+    </div>
+    <div class="navbar-part right">
+      
+        <a href="s07-03-lookup-functions.html">Next Section</a> <a href="s07-03-lookup-functions.html"><img src="shared/images/batch-right.png"></a>
+      
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="shared/book.js"></script>
+  
+  
+</body>
+</html>
